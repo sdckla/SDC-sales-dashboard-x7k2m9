@@ -12698,6 +12698,17 @@ function mergeVendorMonthlyDetail(oldDetail, newDetail) {
   return result;
 }
 
+// These fields are entirely derived from processing an uploaded Excel file -- nothing in the
+// UI lets a person hand-edit them directly. So there's no reason a browser's old local save
+// should ever win over a fresher automated upload for them; whichever side has the newer
+// lastUploadedAt should simply provide these wholesale. (Fields people DO edit by hand --
+// customOrders, marketEvents, productGroups, monthlyGoalUSD, exchangeRate, consignment
+// toggles, etc. -- are deliberately left out of this list so a person's own edits are never
+// discarded just because the automation happened to run more recently.)
+const AUTO_DERIVED_KEYS = [
+  "dowStats", "visitorOrigin", "visitorType", "eventKeywords", "operationStats",
+  "topProducts", "productPerformance", "allProducts", "paymentStats", "vendorStats",
+];
 function mergeWithDefaults(defaults, loaded) {
   const merged = { ...defaults, ...loaded };
   // 얕은 병합만 하면 operationStats처럼 중첩된 객체에 나중에 추가된 하위 필드가
@@ -12708,6 +12719,16 @@ function mergeWithDefaults(defaults, loaded) {
       merged[k] = { ...defaults[k], ...(loaded && loaded[k] ? loaded[k] : {}) };
     }
   });
+  // If the file's own baked-in data (from the latest automated run) is newer than whatever
+  // this browser saved locally, the local save is stale for anything upload-derived -- use
+  // the fresh defaults for those fields outright rather than the old cached snapshot.
+  const defaultsAreNewer = !loaded || !loaded.lastUploadedAt || (defaults.lastUploadedAt && defaults.lastUploadedAt > loaded.lastUploadedAt);
+  if (defaultsAreNewer) {
+    AUTO_DERIVED_KEYS.forEach((k) => { merged[k] = defaults[k]; });
+    merged.lastUploadedAt = defaults.lastUploadedAt;
+  }
+  // 연도가 바뀐 시점에 예전 저장값의 currentYear가 최신 자동화 값보다 앞서는 일은 없어야 함
+  merged.currentYear = Math.max(defaults.currentYear || 0, (loaded && loaded.currentYear) || 0);
   // channels/vendorMonthly/posMonthlyQty/posInvoiceCounts는 월별 배열이라, 저장된 값 중 0인(비어있는) 달은
   // 기본 시드 데이터로 보완해서 예전 업로드가 일부 달만 담고 있었어도 이미 알던 달이 사라지지 않게 함
   if (loaded && loaded.channels) {
