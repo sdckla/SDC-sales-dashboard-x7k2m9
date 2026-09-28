@@ -1,0 +1,192 @@
+/*
+ * 매일 1회 실행되는 자동화의 메인 스크립트.
+ *   1) dashboard.jsx 에서 최신 데이터 엔진(dataEngine.mjs)을 다시 뽑아냄
+ *   2) 구글 시트(판매데이터 / 일일리포트)를 서비스 계정으로 불러와 xlsx로 내려받음
+ *   3) 브라우저에서 "엑셀 업로드"할 때와 동일한 로직으로 기존 DEFAULT_DATA에 병합
+ *   4) 병합된 데이터를 dashboard.jsx의 DEFAULT_DATA 자리에 다시 써 넣음
+ *   5) esbuild로 번들을 다시 만들고 index.html을 재생성함
+ *
+ * 변경 사항이 전혀 없으면(=시트에 새로 반영된 달이 없으면) index.html을 다시 쓰지 않고 조용히 끝남
+ * (깃허브 액션 쪽에서 "달라진 파일이 있을 때만 커밋"하도록 되어 있어 이중 안전장치)
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { execSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = path.join(__dirname, "..");
+const DASHBOARD_JSX = path.join(REPO_ROOT, "dashboard.jsx");
+const ENGINE_MJS = path.join(__dirname, "dataEngine.mjs");
+const ENTRY_JSX = path.join(__dirname, "..", "build", "entry.jsx");
+const BUNDLE_JS = path.join(__dirname, "..", "build", "bundle.js");
+const INDEX_HTML = path.join(REPO_ROOT, "index.html");
+
+function log(msg) {
+  console.log(`[buildDashboard] ${msg}`);
+}
+
+async function main() {
+  log("1/5 dataEngine.mjs 재생성 중...");
+  execSync(`node "${path.join(__dirname, "extract-engine.js")}" "${DASHBOARD_JSX}" "${ENGINE_MJS}"`, { stdio: "inherit" });
+
+  const engine = await import(`${ENGINE_MJS}?t=${Date.now()}`); // 캐시 무시
+  const { DEFAULT_DATA, processExcelFiles, mergeMonthlySeries, mergeMonthlyByKeyMap, mergeVendorMonthlyDetail, extractYearFields, CHANNEL_KEYS, EXTRA_CHANNEL_COLORS } = engine;
+
+  log("2/5 구글 시트에서 최신 데이터 내려받는 중...");
+  const { fetchSheetsAsExcelFiles } = await import("./fetchSheets.js");
+  const files = await fetchSheetsAsExcelFiles();
+
+  log("3/5 엑셀 업로드와 동일한 로직으로 병합 중...");
+  const existingCurrentYear = DEFAULT_DATA.currentYear || new Date().getFullYear();
+  const { bundles, messages } = await processExcelFiles(files, existingCurrentYear);
+  messages.forEach((m) => log("  " + m));
+
+  if (bundles.length === 0) {
+    log("인식할 수 있는 데이터가 없어 종료합니다 (시트 형식을 확인하세요).");
+    return;
+  }
+
+  const detectedYears = bundles.map((b) => b.year).filter((y) => y != null);
+  const newCurrentYear = detectedYears.length > 0 ? Math.max(existingCurrentYear, ...detectedYears) : existingCurrentYear;
+
+  let nextTop = { ...DEFAULT_DATA };
+  let nextPriorYears = { ...(DEFAULT_DATA.priorYears || {}) };
+  let nextExtraChannels = [...(DEFAULT_DATA.extraChannels || [])];
+
+  if (newCurrentYear !== existingCurrentYear) {
+    nextPriorYears = { ...nextPriorYears, [existingCurrentYear]: extractYearFields(nextTop) };
+  }
+
+  bundles.forEach((b) => {
+    const y = b.year || newCurrentYear;
+    if (b.fields.newChannels) {
+      b.fields.newChannels.forEach((nc) => {
+        if (!nextExtraChannels.some((c) => c.key === nc.key)) {
+          const color = EXTRA_CHANNEL_COLORS[nextExtraChannels.length % EXTRA_CHANNEL_COLORS.length];
+          nextExtraChannels = [...nextExtraChannels, { key: nc.key, label: nc.label, color }];
+        }
+      });
+    }
+    if (y === newCurrentYear) {
+      const mergedFields = { ...b.fields };
+      delete mergedFields.newChannels;
+      if (b.fields.channels) {
+        const allKeys = new Set([...CHANNEL_KEYS, ...Object.keys(nextTop.channels || {}), ...Object.keys(b.fields.channels)]);
+        const mergedChannels = {};
+        allKeys.forEach((k) => {
+          mergedChannels[k] = mergeMonthlySeries(nextTop.channels ? nextTop.channels[k] : null, b.fields.channels[k]);
+        });
+        mergedFields.channels = mergedChannels;
+      }
+      if (b.fields.vendorMonthly) mergedFields.vendorMonthly = mergeMonthlyByKeyMap(nextTop.vendorMonthly, b.fields.vendorMonthly);
+      if (b.fields.vendorMonthlyDetail) mergedFields.vendorMonthlyDetail = mergeVendorMonthlyDetail(nextTop.vendorMonthlyDetail, b.fields.vendorMonthlyDetail);
+      if (b.fields.itemVendorMap) mergedFields.itemVendorMap = { ...(nextTop.itemVendorMap || {}), ...b.fields.itemVendorMap };
+      if (b.fields.posMonthlyQty) mergedFields.posMonthlyQty = mergeMonthlySeries(nextTop.posMonthlyQty, b.fields.posMonthlyQty);
+      if (b.fields.posInvoiceCounts) mergedFields.posInvoiceCounts = mergeMonthlySeries(nextTop.posInvoiceCounts, b.fields.posInvoiceCounts);
+      if (b.fields.visits) mergedFields.visits = mergeMonthlySeries(nextTop.visits, b.fields.visits);
+      if (b.fields.contacts) mergedFields.contacts = mergeMonthlySeries(nextTop.contacts, b.fields.contacts);
+      if (b.fields.sold) mergedFields.sold = mergeMonthlySeries(nextTop.sold, b.fields.sold);
+      nextTop = { ...nextTop, ...mergedFields };
+    } else {
+      const prev = nextPriorYears[y] || {};
+      const mergedFields = { ...b.fields };
+      delete mergedFields.newChannels;
+      if (b.fields.channels) {
+        const allKeys = new Set([...CHANNEL_KEYS, ...Object.keys(prev.channels || {}), ...Object.keys(b.fields.channels)]);
+        const mergedChannels = {};
+        allKeys.forEach((k) => {
+          mergedChannels[k] = mergeMonthlySeries(prev.channels ? prev.channels[k] : null, b.fields.channels[k]);
+        });
+        mergedFields.channels = mergedChannels;
+      }
+      nextPriorYears = { ...nextPriorYears, [y]: { ...prev, ...mergedFields } };
+    }
+  });
+
+  const next = {
+    ...nextTop,
+    currentYear: newCurrentYear,
+    priorYears: nextPriorYears,
+    extraChannels: nextExtraChannels,
+    lastUploadedAt: new Date().toISOString(),
+  };
+
+  if (JSON.stringify(next) === JSON.stringify(DEFAULT_DATA)) {
+    log("데이터에 변경 사항이 없습니다. index.html을 다시 만들지 않고 종료합니다.");
+    return;
+  }
+
+  log("4/5 dashboard.jsx의 DEFAULT_DATA를 갱신하는 중...");
+  writeNewDefaultData(DASHBOARD_JSX, next);
+
+  log("5/5 esbuild로 번들 재생성 후 index.html 작성 중...");
+  await rebuildIndexHtml();
+
+  log("완료.");
+}
+
+function writeNewDefaultData(dashboardPath, nextData) {
+  const src = fs.readFileSync(dashboardPath, "utf-8");
+  const lines = src.split("\n");
+  const startIdx = lines.findIndex((l) => /^const DEFAULT_DATA = \{/.test(l));
+  if (startIdx === -1) throw new Error("dashboard.jsx 에서 'const DEFAULT_DATA = {' 를 찾지 못했습니다.");
+  let endIdx = -1;
+  for (let i = startIdx + 1; i < lines.length; i++) {
+    if (/^\};\s*$/.test(lines[i])) { endIdx = i; break; }
+  }
+  if (endIdx === -1) throw new Error("dashboard.jsx 에서 DEFAULT_DATA 블록의 닫는 '};' 를 찾지 못했습니다.");
+
+  const newBlock = "const DEFAULT_DATA = " + JSON.stringify(nextData, null, 2) + ";";
+  const newLines = [...lines.slice(0, startIdx), newBlock, ...lines.slice(endIdx + 1)];
+  fs.writeFileSync(dashboardPath, newLines.join("\n"), "utf-8");
+}
+
+async function rebuildIndexHtml() {
+  const buildDir = path.join(REPO_ROOT, "build");
+  fs.mkdirSync(buildDir, { recursive: true });
+  fs.writeFileSync(
+    ENTRY_JSX,
+    `import React from "react";
+import { createRoot } from "react-dom/client";
+import Dashboard from "../dashboard.jsx";
+
+const root = createRoot(document.getElementById("root"));
+root.render(React.createElement(Dashboard));
+`,
+    "utf-8"
+  );
+
+  execSync(
+    `npx esbuild "${ENTRY_JSX}" --bundle --format=iife --jsx=automatic --minify --outfile="${BUNDLE_JS}"`,
+    { stdio: "inherit", cwd: REPO_ROOT }
+  );
+
+  const bundleCode = fs.readFileSync(BUNDLE_JS, "utf-8");
+  const html = `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SDC Gift Shop Sales Dashboard</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+${bundleCode}
+</script>
+</body>
+</html>
+`;
+  fs.writeFileSync(INDEX_HTML, html, "utf-8");
+}
+
+main().catch((e) => {
+  console.error("[buildDashboard] 실패:", e);
+  process.exit(1);
+});
