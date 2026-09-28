@@ -12730,6 +12730,13 @@ function mergeWithDefaults(defaults, loaded) {
     : defaults.vendorMonthlyDetail;
   if (loaded && loaded.posMonthlyQty) merged.posMonthlyQty = mergeMonthlySeries(defaults.posMonthlyQty, loaded.posMonthlyQty);
   if (loaded && loaded.posInvoiceCounts) merged.posInvoiceCounts = mergeMonthlySeries(defaults.posInvoiceCounts, loaded.posInvoiceCounts);
+  // visits/contacts/sold are monthly arrays too (Daily Report), so they need the same
+  // "prefer whichever side has a non-zero value" treatment -- otherwise a browser that has
+  // ever saved data locally (via localStorage) freezes at whatever month it last saw, and a
+  // newer month added by the daily automation run silently gets hidden behind the old save.
+  if (loaded && loaded.visits) merged.visits = mergeMonthlySeries(defaults.visits, loaded.visits);
+  if (loaded && loaded.contacts) merged.contacts = mergeMonthlySeries(defaults.contacts, loaded.contacts);
+  if (loaded && loaded.sold) merged.sold = mergeMonthlySeries(defaults.sold, loaded.sold);
   // customOrders는 객체 배열이라 위 방식으로는 안 잡혀서, 각 항목(레코드) 단위로 누락된 필드(category/product/qty 등)를 채워줌
   // marketEvents는 코드에 새 이벤트가 추가돼도 브라우저에 저장된 옛날 목록에 없으면 안 보일 수 있어,
   // 날짜 기준으로 저장된 목록에 없는 기본 이벤트만 추가해줌 (사용자가 직접 지운 이벤트는 그대로 존중)
