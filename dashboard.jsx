@@ -13109,12 +13109,16 @@ export default function Dashboard() {
   })).filter((d) => d.value > 0);
 
   // trend chart data by view (giftshop channels only)
+  // __labelTotal is an always-present marker field (1 whenever the month has any real
+  // revenue, 0 otherwise) used purely to anchor the value-label placement below -- see the
+  // comment on StackTotalLabel for why we can't rely on any one real channel for that.
   const trendData = useMemo(() => {
     if (view === "monthly") {
       return MONTH_LABELS.map((label, i) => {
         const row = { period: label };
         giftshopKeys.forEach((k) => (row[k] = data.channels[k][i] || 0));
         row.goal = monthlyGoalUGX;
+        row.__labelTotal = giftshopKeys.reduce((s, k) => s + row[k], 0) > 0 ? 1 : 0;
         return row;
       });
     }
@@ -13125,12 +13129,14 @@ export default function Dashboard() {
           row[k] = [0, 1, 2].reduce((s, off) => s + (data.channels[k][q * 3 + off] || 0), 0);
         });
         row.goal = monthlyGoalUGX * 3;
+        row.__labelTotal = giftshopKeys.reduce((s, k) => s + row[k], 0) > 0 ? 1 : 0;
         return row;
       });
     }
     const row = { period: `FY ${data.currentYear}` };
     giftshopKeys.forEach((k) => (row[k] = channelTotalsYTD[k]));
     row.goal = monthlyGoalUGX * 12;
+    row.__labelTotal = giftshopKeys.reduce((s, k) => s + row[k], 0) > 0 ? 1 : 0;
     return [row];
   }, [view, data, monthlyGoalUGX, channelTotalsYTD, data.currentYear]);
 
@@ -13152,17 +13158,18 @@ export default function Dashboard() {
   const b2cShare = combinedYTD > 0 ? giftshopYTD / combinedYTD : 0;
   const b2bShare = combinedYTD > 0 ? odmYTD / combinedYTD : 0;
   const combinedTrendData = useMemo(() => {
+    const withMarker = (row) => ({ ...row, __labelTotal: (row.b2c || 0) + (row.b2b || 0) > 0 ? 1 : 0 });
     if (view === "monthly") {
-      return MONTH_LABELS.map((label, i) => ({ period: label, b2c: giftshopMonthlyTotals[i] || 0, b2b: data.channels.custom[i] || 0 }));
+      return MONTH_LABELS.map((label, i) => withMarker({ period: label, b2c: giftshopMonthlyTotals[i] || 0, b2b: data.channels.custom[i] || 0 }));
     }
     if (view === "quarterly") {
-      return QUARTER_LABELS.map((label, q) => ({
+      return QUARTER_LABELS.map((label, q) => withMarker({
         period: label,
         b2c: [0, 1, 2].reduce((s, off) => s + (giftshopMonthlyTotals[q * 3 + off] || 0), 0),
         b2b: [0, 1, 2].reduce((s, off) => s + (data.channels.custom[q * 3 + off] || 0), 0),
       }));
     }
-    return [{ period: `FY ${data.currentYear}`, b2c: giftshopYTD, b2b: odmYTD }];
+    return [withMarker({ period: `FY ${data.currentYear}`, b2c: giftshopYTD, b2b: odmYTD })];
   }, [view, giftshopMonthlyTotals, data.channels.custom, giftshopYTD, odmYTD]);
 
   // 전년 대비 (YoY) — 같은 개월 수 기준으로 공정하게 비교
@@ -13585,8 +13592,9 @@ function OverviewTab({
               <Tooltip contentStyle={tooltipStyle()} formatter={(v, name) => [fmtUGX(v), name === "b2c" ? "B2C · Gift Shop" : "B2B · Custom Orders"]} />
               <Legend formatter={(v) => (v === "b2c" ? "B2C · Gift Shop" : "B2B · Custom Orders")} wrapperStyle={{ fontSize: 12 }} />
               <Bar dataKey="b2c" stackId="combined" fill={COLORS.teal} radius={0} />
-              <Bar dataKey="b2b" stackId="combined" fill={COLORS.ochre} radius={0}>
-                <LabelList dataKey="b2b" content={(props) => <StackTotalLabel {...props} rows={combinedTrendData} keys={["b2c", "b2b"]} anchorKey="b2b" />} />
+              <Bar dataKey="b2b" stackId="combined" fill={COLORS.ochre} radius={0} />
+              <Bar dataKey="__labelTotal" stackId="combined" fill="transparent" radius={0} isAnimationActive={false}>
+                <LabelList dataKey="__labelTotal" content={(props) => <StackTotalLabel {...props} rows={combinedTrendData} keys={["b2c", "b2b"]} anchorKey="__labelTotal" />} />
               </Bar>
             </ComposedChart>
           </ResponsiveContainer>
@@ -13717,13 +13725,12 @@ function OverviewTab({
             <YAxis tickFormatter={fmtCompact} tick={{ fontSize: 11, fill: COLORS.inkFaint }} axisLine={false} tickLine={false} width={50} />
             <Tooltip contentStyle={tooltipStyle()} formatter={(v, name) => [fmtUGX(v), channelMeta[name]?.label || name]} />
             <Legend formatter={(v) => channelMeta[v]?.label || v} wrapperStyle={{ fontSize: 12 }} />
-            {giftshopKeys.map((k, gi) => (
-              <Bar key={k} dataKey={k} stackId="rev" fill={channelMeta[k].color} radius={0}>
-                {gi === giftshopKeys.length - 1 && (
-                  <LabelList dataKey={k} content={(props) => <StackTotalLabel {...props} rows={trendData} keys={giftshopKeys} anchorKey={k} />} />
-                )}
-              </Bar>
+            {giftshopKeys.map((k) => (
+              <Bar key={k} dataKey={k} stackId="rev" fill={channelMeta[k].color} radius={0} />
             ))}
+            <Bar dataKey="__labelTotal" stackId="rev" fill="transparent" radius={0} isAnimationActive={false}>
+              <LabelList dataKey="__labelTotal" content={(props) => <StackTotalLabel {...props} rows={trendData} keys={giftshopKeys} anchorKey="__labelTotal" />} />
+            </Bar>
             <Line dataKey="goal" stroke={COLORS.clay} strokeWidth={2} strokeDasharray="5 4" dot={false} name="Monthly Goal" />
           </ComposedChart>
         </ResponsiveContainer>
@@ -14447,6 +14454,7 @@ function VendorTab({ data, toggleConsignmentVendor }) {
   const trendData = MONTH_LABELS.map((label, i) => {
     const row = { period: label };
     baseVendorStats.forEach((v) => { row[v.vendor] = (vendorMonthlyDetail[v.vendor] || [])[i]?.net || 0; });
+    row.__labelTotal = baseVendorStats.reduce((s, v) => s + row[v.vendor], 0) > 0 ? 1 : 0;
     return row;
   });
 
@@ -14537,12 +14545,11 @@ function VendorTab({ data, toggleConsignmentVendor }) {
                     <Tooltip contentStyle={tooltipStyle()} formatter={(v) => fmtUGX(v)} />
                     <Legend wrapperStyle={{ fontSize: 12 }} />
                     {baseVendorStats.map((v, i) => (
-                      <Bar key={v.vendor} dataKey={v.vendor} stackId="vendor" fill={VENDOR_COLORS[i % VENDOR_COLORS.length]} radius={0}>
-                        {i === baseVendorStats.length - 1 && (
-                          <LabelList dataKey={v.vendor} content={(props) => <StackTotalLabel {...props} rows={trendData} keys={baseVendorStats.map((vv) => vv.vendor)} anchorKey={v.vendor} />} />
-                        )}
-                      </Bar>
+                      <Bar key={v.vendor} dataKey={v.vendor} stackId="vendor" fill={VENDOR_COLORS[i % VENDOR_COLORS.length]} radius={0} />
                     ))}
+                    <Bar dataKey="__labelTotal" stackId="vendor" fill="transparent" radius={0} isAnimationActive={false}>
+                      <LabelList dataKey="__labelTotal" content={(props) => <StackTotalLabel {...props} rows={trendData} keys={baseVendorStats.map((vv) => vv.vendor)} anchorKey="__labelTotal" />} />
+                    </Bar>
                   </ComposedChart>
                 </ResponsiveContainer>
               </Card>
