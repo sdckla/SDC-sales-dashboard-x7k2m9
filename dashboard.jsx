@@ -44,8 +44,8 @@ const GIFTSHOP_KEYS = REVENUE_KEYS.filter((k) => k !== "custom");
 
 const MONTH_LABELS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const QUARTER_LABELS = ["Q1 (Jan-Mar)", "Q2 (Apr-Jun)", "Q3 (Jul-Sep)", "Q4 (Oct-Dec)"];
-const CUSTOMER_CATEGORIES = ["Hotel/Restaurant", "Government Office", "Individual", "Other"];
-const CUSTOMER_CATEGORY_COLORS = { "Hotel/Restaurant": COLORS.teal, "Government Office": COLORS.slate, "Individual": COLORS.ochre, "Other": COLORS.plum, "Unspecified": COLORS.inkFaint };
+const CUSTOMER_CATEGORIES = ["Hotel/Restaurant", "Government Office", "NGO/Institution", "Individual", "Other"];
+const CUSTOMER_CATEGORY_COLORS = { "Hotel/Restaurant": COLORS.teal, "Government Office": COLORS.slate, "NGO/Institution": COLORS.olive, "Individual": COLORS.ochre, "Other": COLORS.plum, "Unspecified": COLORS.inkFaint };
 
 // 기본 시드 데이터 — 2026년(진행중) + 2025년(전년, priorYears) 실적을 실제 업로드 파일 기준으로 반영
 // 새 엑셀을 업로드하면 이 값들은 갱신되고, 매년 파일의 감지된 연도에 따라 currentYear/priorYears로 자동 분류됨
@@ -14288,7 +14288,7 @@ function CustomOrderTab({ data, editOrders, orderDraft, startEditOrders, cancelE
         {byCategory["Unspecified"] > 0 && (
           <p style={{ fontSize: 12, color: COLORS.inkFaint, marginTop: 12 }}>
             <Info size={12} style={{ verticalAlign: -1, marginRight: 4 }} />
-            For orders with no category in the 'Order History' table below, assign one of Hotel/Restaurant, Government Office, Individual, or Other for more accurate analysis.
+            For orders with no category in the 'Order History' table below, assign one of Hotel/Restaurant, Government Office, NGO/Institution, Individual, or Other for more accurate analysis.
           </p>
         )}
       </Card>
