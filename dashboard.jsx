@@ -13476,8 +13476,18 @@ function TrendTick({ x, y, payload, eventMonthLabels }) {
   );
 }
 
-function StackTotalLabel({ x, y, width, index, rows, keys }) {
-  const row = rows && rows[index];
+// Recharts' LabelList does not create an entry for a bar segment whose own value is 0
+// (no rectangle is rendered for a zero-height segment), so the "index" it hands to a custom
+// content renderer counts only the NON-ZERO segments of that particular series -- it silently
+// skips zero months instead of leaving a gap. If we index straight into the full, unfiltered
+// month array with that count, every month after the first zero ends up reading the wrong
+// month's data (everything shifts left by one for each zero encountered so far). Mirroring
+// that same skip here (filtering rows by the anchor series before indexing) keeps our lookup
+// in sync with whatever position Recharts is actually rendering.
+function StackTotalLabel({ x, y, width, index, rows, keys, anchorKey }) {
+  const anchor = anchorKey || keys[keys.length - 1];
+  const filteredRows = (rows || []).filter((r) => Number(r[anchor]) > 0);
+  const row = filteredRows[index];
   if (!row) return null;
   const total = keys.reduce((s, k) => s + (Number(row[k]) || 0), 0);
   if (total <= 0) return null;
@@ -13576,7 +13586,7 @@ function OverviewTab({
               <Legend formatter={(v) => (v === "b2c" ? "B2C · Gift Shop" : "B2B · Custom Orders")} wrapperStyle={{ fontSize: 12 }} />
               <Bar dataKey="b2c" stackId="combined" fill={COLORS.teal} radius={0} />
               <Bar dataKey="b2b" stackId="combined" fill={COLORS.ochre} radius={0}>
-                <LabelList dataKey="b2b" content={(props) => <StackTotalLabel {...props} rows={combinedTrendData} keys={["b2c", "b2b"]} />} />
+                <LabelList dataKey="b2b" content={(props) => <StackTotalLabel {...props} rows={combinedTrendData} keys={["b2c", "b2b"]} anchorKey="b2b" />} />
               </Bar>
             </ComposedChart>
           </ResponsiveContainer>
@@ -13654,7 +13664,7 @@ function OverviewTab({
                     <Tooltip contentStyle={tooltipStyle()} formatter={(v, name) => [fmtUGX(v), name === "actual" ? "Actual" : "Projected (remaining)"]} />
                     <Legend formatter={(v) => (v === "actual" ? "Actual" : "Projected (remaining)")} wrapperStyle={{ fontSize: 12 }} />
                     <Bar dataKey="actual" stackId="a" fill={COLORS.teal} radius={0}>
-                      <LabelList dataKey="actual" content={(props) => <StackTotalLabel {...props} rows={annualCompare.b2c} keys={["actual", "projected"]} />} />
+                      <LabelList dataKey="actual" content={(props) => <StackTotalLabel {...props} rows={annualCompare.b2c} keys={["actual", "projected"]} anchorKey="actual" />} />
                     </Bar>
                     <Bar dataKey="projected" stackId="a" fill={COLORS.tealSoft} radius={[4, 4, 0, 0]} />
                   </ComposedChart>
@@ -13670,7 +13680,7 @@ function OverviewTab({
                     <Tooltip contentStyle={tooltipStyle()} formatter={(v, name) => [fmtUGX(v), name === "actual" ? "Actual" : "Projected (remaining)"]} />
                     <Legend formatter={(v) => (v === "actual" ? "Actual" : "Projected (remaining)")} wrapperStyle={{ fontSize: 12 }} />
                     <Bar dataKey="actual" stackId="a" fill={COLORS.ochre} radius={0}>
-                      <LabelList dataKey="actual" content={(props) => <StackTotalLabel {...props} rows={annualCompare.b2b} keys={["actual", "projected"]} />} />
+                      <LabelList dataKey="actual" content={(props) => <StackTotalLabel {...props} rows={annualCompare.b2b} keys={["actual", "projected"]} anchorKey="actual" />} />
                     </Bar>
                     <Bar dataKey="projected" stackId="a" fill={COLORS.ochreSoft} radius={[4, 4, 0, 0]} />
                   </ComposedChart>
@@ -13710,7 +13720,7 @@ function OverviewTab({
             {giftshopKeys.map((k, gi) => (
               <Bar key={k} dataKey={k} stackId="rev" fill={channelMeta[k].color} radius={0}>
                 {gi === giftshopKeys.length - 1 && (
-                  <LabelList dataKey={k} content={(props) => <StackTotalLabel {...props} rows={trendData} keys={giftshopKeys} />} />
+                  <LabelList dataKey={k} content={(props) => <StackTotalLabel {...props} rows={trendData} keys={giftshopKeys} anchorKey={k} />} />
                 )}
               </Bar>
             ))}
@@ -14529,7 +14539,7 @@ function VendorTab({ data, toggleConsignmentVendor }) {
                     {baseVendorStats.map((v, i) => (
                       <Bar key={v.vendor} dataKey={v.vendor} stackId="vendor" fill={VENDOR_COLORS[i % VENDOR_COLORS.length]} radius={0}>
                         {i === baseVendorStats.length - 1 && (
-                          <LabelList dataKey={v.vendor} content={(props) => <StackTotalLabel {...props} rows={trendData} keys={baseVendorStats.map((vv) => vv.vendor)} />} />
+                          <LabelList dataKey={v.vendor} content={(props) => <StackTotalLabel {...props} rows={trendData} keys={baseVendorStats.map((vv) => vv.vendor)} anchorKey={v.vendor} />} />
                         )}
                       </Bar>
                     ))}
