@@ -31,19 +31,23 @@ function log(msg) {
 // 노트는 export 결과물에 포함되지 않음), 구글 시트 API로 직접 읽어온 노트 텍스트(notesGrid)를
 // 워크북에 다시 "주입"해준 뒤 재직렬화함 — 이후 단계(processExcelFiles)는 브라우저에서 xlsx를
 // 업로드했을 때와 완전히 동일한 코드로, 이 주입된 코멘트를 정상적으로 읽어들이게 됨.
-function injectMemoNotesIntoWorkbook(buffer, notesGrid, MONTH_CODES, findMonthHeaderRow) {
+function injectMemoNotesIntoWorkbook(buffer, notesGrid, MONTH_CODES, findMonthHeaderRow, log) {
   const wb = XLSX.read(buffer, { type: "buffer" });
   let injectedCount = 0;
+  const dbg = (m) => { if (log) log("    [주입 진단] " + m); };
+
+  dbg(`엑셀 탭 목록: ${wb.SheetNames.join(", ")}`);
+  dbg(`시트 API가 돌려준 탭 목록: ${Object.keys(notesGrid).join(", ")}`);
 
   wb.SheetNames.forEach((sheetName) => {
     const notesForSheet = notesGrid[sheetName];
-    if (!notesForSheet) return;
+    if (!notesForSheet) { dbg(`"${sheetName}": 시트 API 응답에 같은 이름의 탭이 없어서 건너뜀`); return; }
     const ws = wb.Sheets[sheetName];
-    if (!ws || !ws["!ref"]) return;
+    if (!ws || !ws["!ref"]) { dbg(`"${sheetName}": 빈 시트`); return; }
 
     const rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: null });
     const hit = findMonthHeaderRow(rows);
-    if (!hit) return;
+    if (!hit) { dbg(`"${sheetName}": JAN~DEC 헤더 행을 못 찾음`); return; }
     const headerRow = rows[hit.r];
     const monthCols = {};
     let searchFrom = hit.c;
@@ -57,17 +61,22 @@ function injectMemoNotesIntoWorkbook(buffer, notesGrid, MONTH_CODES, findMonthHe
       const cell = rows[r] ? rows[r][labelCol] : null;
       if (cell != null && String(cell).toLowerCase().includes("custom order")) { customOrderRowIdx = r; break; }
     }
-    if (customOrderRowIdx < 0) return;
+    if (customOrderRowIdx < 0) { dbg(`"${sheetName}": "Custom Order" 라벨 행을 못 찾음 (헤더행=${hit.r}, 라벨열=${labelCol})`); return; }
 
     const range = XLSX.utils.decode_range(ws["!ref"]);
     const rowOffset = range.s.r, colOffset = range.s.c;
+    dbg(`"${sheetName}": 헤더행=${hit.r}, Custom Order행=${customOrderRowIdx}, range 시작(r,c)=(${rowOffset},${colOffset}), 시트API 행 수=${notesForSheet.length}`);
 
     MONTH_CODES.forEach((m) => {
       const col = monthCols[m];
       if (col == null) return;
       const absRow = customOrderRowIdx + rowOffset;
       const absCol = col + colOffset;
-      const note = notesForSheet[absRow] && notesForSheet[absRow][absCol];
+      const rowArr = notesForSheet[absRow];
+      const note = rowArr && rowArr[absCol];
+      if (m === "SEP" || m === "OCT") {
+        dbg(`${m}: absRow=${absRow}, absCol=${absCol}, 해당 행 시트API 길이=${rowArr ? rowArr.length : "행 자체 없음"}, note=${note ? JSON.stringify(note.slice(0, 40)) : "없음"}`);
+      }
       if (!note) return;
       const addr = XLSX.utils.encode_cell({ r: absRow, c: absCol });
       if (!ws[addr]) ws[addr] = { t: "s", v: "" };
@@ -95,7 +104,7 @@ async function main() {
     const notesGrid = await fetchCellNotesGrid(process.env.SELLING_DATA_SHEET_ID);
     const sellingFile = files.find((f) => f.name === "selling-data.xlsx");
     if (sellingFile) {
-      const { buffer, injectedCount } = injectMemoNotesIntoWorkbook(sellingFile.buffer, notesGrid, MONTH_CODES, findMonthHeaderRow);
+      const { buffer, injectedCount } = injectMemoNotesIntoWorkbook(sellingFile.buffer, notesGrid, MONTH_CODES, findMonthHeaderRow, log);
       sellingFile.buffer = buffer;
       log(`  ✓ Custom Order 메모(노트) ${injectedCount}개 셀에서 확인되어 반영함`);
     }
