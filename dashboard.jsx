@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       6560460,
       2573250,
       2348500,
-      6384750,
+      4491250,
       0,
       0,
       0
@@ -661,6 +661,105 @@ const DEFAULT_DATA = {
       "category": "Individual",
       "product": "cup coaster",
       "qty": 8
+    },
+    {
+      "id": 29,
+      "groupId": 29,
+      "month": 8,
+      "customer": "K. Embassy staff",
+      "amount": 72000,
+      "note": "",
+      "category": "Individual",
+      "product": "apron",
+      "qty": 4
+    },
+    {
+      "id": 30,
+      "groupId": 30,
+      "month": 8,
+      "customer": "Kilta",
+      "amount": 858000,
+      "note": "",
+      "category": "NGO/Institution",
+      "product": "tshirts with logo",
+      "qty": 10
+    },
+    {
+      "id": 31,
+      "groupId": 30,
+      "month": 8,
+      "customer": "Kilta",
+      "amount": 0,
+      "note": "",
+      "category": "NGO/Institution",
+      "product": "Apoyo sports bag",
+      "qty": 20
+    },
+    {
+      "id": 32,
+      "groupId": 31,
+      "month": 8,
+      "customer": "Good Neighbors Kenya",
+      "amount": 3561250,
+      "note": "",
+      "category": "NGO/Institution",
+      "product": "shoppers bag",
+      "qty": 150
+    },
+    {
+      "id": 33,
+      "groupId": 31,
+      "month": 8,
+      "customer": "Good Neighbors Kenya",
+      "amount": 0,
+      "note": "",
+      "category": "NGO/Institution",
+      "product": "fortune fish",
+      "qty": 150
+    },
+    {
+      "id": 34,
+      "groupId": 32,
+      "month": 8,
+      "customer": "KOICA Kenya",
+      "amount": 1946000,
+      "note": "",
+      "category": "Government Office",
+      "product": "shoppers bag",
+      "qty": 60
+    },
+    {
+      "id": 35,
+      "groupId": 32,
+      "month": 8,
+      "customer": "KOICA Kenya",
+      "amount": 0,
+      "note": "",
+      "category": "Government Office",
+      "product": "fortune fish",
+      "qty": 60
+    },
+    {
+      "id": 36,
+      "groupId": 32,
+      "month": 8,
+      "customer": "KOICA Kenya",
+      "amount": 0,
+      "note": "",
+      "category": "Government Office",
+      "product": "present pouch",
+      "qty": 30
+    },
+    {
+      "id": 37,
+      "groupId": 32,
+      "month": 8,
+      "customer": "KOICA Kenya",
+      "amount": 0,
+      "note": "",
+      "category": "Government Office",
+      "product": "standard pouch",
+      "qty": 30
     }
   ],
   "customLeads": [
@@ -6279,6 +6378,15 @@ const DEFAULT_DATA = {
       "revenue": 1212000,
       "qty": 56,
       "invoices": 19
+    },
+    {
+      "id": 8,
+      "date": "2026-09-27",
+      "month": 8,
+      "name": "Kampala Artisan Market",
+      "revenue": 701000,
+      "qty": 33,
+      "invoices": 20
     }
   ],
   "productPerformance": {
@@ -11813,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-09-29T08:33:44.771Z"
+  "lastUploadedAt": "2026-09-29T08:41:20.626Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
