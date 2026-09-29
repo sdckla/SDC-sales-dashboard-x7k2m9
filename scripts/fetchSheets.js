@@ -59,30 +59,29 @@ export async function fetchSheetsAsExcelFiles() {
 // 직접 읽어옴 — Sheets API는 노트를 정상적으로 돌려주고, JSON이라 인코딩 문제도 없음.
 // 반환값: { [시트탭이름]: string[][] } — 각 셀의 note 텍스트(없으면 null), row/col은 0부터 시작하는
 // 절대 좌표(A1 기준)라서 xlsx로 읽은 워크북의 range.s.r/range.s.c 오프셋을 더한 주소와 그대로 대응됨.
-export async function fetchCellNotesGrid(spreadsheetId, log) {
-  const dbg = (m) => { if (log) log("    [시트API 원본 진단] " + m); };
+// 반환값: { [시트탭이름]: { values: (string|null)[][], notes: (string|null)[][] } }
+// values/notes는 같은 구글 시트 API 응답에서 같은 인덱스로 뽑아내므로 행/열 번호가 서로 100%
+// 일치함 (반면 구글 드라이브로 "내보낸" xlsx 파일은 빈 선행 행/열을 잘라내는 등 실제 시트와
+// 좌표가 어긋날 수 있어서, 그 xlsx에서 찾은 위치를 이 API 응답에 그대로 대입하면 엉뚱한 셀을
+// 가리키는 문제가 있었음 — 그래서 이제 "어느 행이 Custom Order 행인지"도 이 API 응답 자체에서
+// 직접 다시 찾음).
+export async function fetchCustomOrderMemoGrid(spreadsheetId) {
   const auth = getAuth();
   const sheetsApi = google.sheets({ version: "v4", auth });
-  // fields 마스크 없이, includeGridData만으로 전체를 받아옴 (마스크 문법 문제로 데이터가
-  // 잘리는 경우를 배제하기 위해 — 응답 크기가 커도 시트 하나 정도는 문제없음).
   const res = await sheetsApi.spreadsheets.get({
     spreadsheetId,
     includeGridData: true,
   });
   const sheets = res.data.sheets || [];
-  dbg(`응답에 포함된 시트 수: ${sheets.length}`);
   const grid = {};
   sheets.forEach((sheet) => {
     const title = sheet.properties && sheet.properties.title;
     if (!title) return;
     const dataArr = sheet.data || [];
     const rowData = (dataArr[0] && dataArr[0].rowData) || [];
-    dbg(`"${title}": sheet.data 배열 길이=${dataArr.length}, rowData 길이=${rowData.length}`);
-    if (title === "Monthly Sales" && rowData[5]) {
-      const sampleCell = (rowData[5].values || [])[10];
-      dbg(`"${title}" 6번째 행(0-index 5) 11번째 칸(0-index 10) 원본: ${JSON.stringify(sampleCell)}`);
-    }
-    grid[title] = rowData.map((row) => (row.values || []).map((cell) => (cell && cell.note) || null));
+    const values = rowData.map((row) => (row.values || []).map((cell) => (cell && cell.formattedValue) || null));
+    const notes = rowData.map((row) => (row.values || []).map((cell) => (cell && cell.note) || null));
+    grid[title] = { values, notes };
   });
   return grid;
 }
