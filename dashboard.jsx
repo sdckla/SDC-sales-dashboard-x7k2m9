@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       6560460,
       2573250,
       2348500,
-      6384750,
+      4491250,
       0,
       0,
       0
@@ -11813,7 +11813,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-09-29T07:31:36.999Z"
+  "lastUploadedAt": "2026-09-28T11:25:14.576Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
@@ -12654,7 +12654,9 @@ function parseMemoOrderLine(line) {
 function parseCustomOrderMemoSheet(ws) {
   const rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: null });
   const hit = findMonthHeaderRow(rows);
-  if (!hit) return null;
+  if (!hit) {
+    return { orders: [], leads: null, unparsedCount: 0, debug: ["⚠️ 월(JAN~DEC) 헤더 행을 찾지 못했습니다."] };
+  }
   const headerRow = rows[hit.r];
   const monthCols = {};
   let searchFrom = hit.c;
@@ -12668,7 +12670,9 @@ function parseCustomOrderMemoSheet(ws) {
     const cell = rows[r] ? rows[r][labelCol] : null;
     if (cell != null && String(cell).toLowerCase().includes("custom order")) { customOrderRowIdx = r; break; }
   }
-  if (customOrderRowIdx < 0 || !ws["!ref"]) return null;
+  if (customOrderRowIdx < 0 || !ws["!ref"]) {
+    return { orders: [], leads: null, unparsedCount: 0, debug: ["⚠️ 'Custom Order' 라벨이 포함된 행을 찾지 못했습니다 (라벨 열의 문구를 확인해주세요)."] };
+  }
 
   const range = XLSX.utils.decode_range(ws["!ref"]);
   const rowOffset = range.s.r, colOffset = range.s.c;
@@ -12702,21 +12706,31 @@ function parseCustomOrderMemoSheet(ws) {
   });
   const leadStartMonth = Math.max(lastOrderMonth, 0);
 
+  // 진단용: 실제로 자동화가 월별 Custom Order 메모(노트)를 어떻게 읽어들였는지 실행 로그에
+  // 남기기 위한 정보. "메모 자체가 아예 안 읽히는지"와 "메모는 읽혔지만 형식이 안 맞는지"를
+  // 구분할 수 있게 해줌 (구글 시트 → xlsx 내보내기 과정에서 노트가 누락되는 경우가 있어 확인용).
+  const monthDebug = [];
+
   MONTH_CODES.forEach((m, month) => {
     const col = monthCols[m];
     if (col == null) return;
     const addr = XLSX.utils.encode_cell({ r: customOrderRowIdx + rowOffset, c: col + colOffset });
     const text = extractMemoText(ws[addr]);
-    if (!text) return;
+    if (!text) { monthDebug.push(`${m}:메모없음`); return; }
     const lines = text.split("\n").map((l) => l.trim()).filter((l) => l.length > 0);
+    let recognizedThisMonth = 0;
+    let leadsThisMonth = 0;
+    let unparsedBefore = unparsedCount;
     const groups = new Map(); // 고객명(소문자) -> 주문 하나로 합쳐서 누적
     lines.forEach((line) => {
       if (MEMO_LEAD_PREFIX_RE.test(line)) {
+        leadsThisMonth++;
         if (month >= leadStartMonth) leads.push(line.replace(MEMO_LEAD_PREFIX_RE, "").trim());
         return;
       }
       const parsed = parseMemoOrderLine(line);
       if (!parsed) { unparsedCount++; return; }
+      recognizedThisMonth++;
       const key = parsed.customer.toLowerCase();
       if (!groups.has(key)) {
         groups.set(key, {
@@ -12739,13 +12753,13 @@ function parseCustomOrderMemoSheet(ws) {
       }
     });
     groups.forEach((o) => orders.push(o));
+    monthDebug.push(`${m}:${text.length}자/${lines.length}줄(인식${recognizedThisMonth},리드${leadsThisMonth},미인식${unparsedCount - unparsedBefore})`);
   });
 
-  if (orders.length === 0 && leads.length === 0 && unparsedCount === 0) return null;
   // anyRecognized가 false면 어떤 달도 아직 새 형식을 안 쓰고 있다는 뜻이라 리드 쪽은 손대지
   // 않음(null). 새 형식을 쓰는 달/LEAD: 줄이 하나라도 있으면, 기준 달 이후에 LEAD: 줄이 하나도
   // 없어도(=문의가 전부 해결됨) 빈 배열을 돌려줘서 예전 리드가 그대로 남지 않고 실제로 비워지게 함.
-  return { orders, leads: anyRecognized ? leads : null, unparsedCount };
+  return { orders, leads: anyRecognized ? leads : null, unparsedCount, debug: monthDebug };
 }
 
 // Reads an optional "Market Events" tab: just Date + Name (or Event) columns -- no revenue
@@ -12904,6 +12918,9 @@ async function processExcelFiles(fileList, referenceYear) {
         // 탭이 있으면 탭을 우선함.
         if (!customOrdersSheetName || !leadsSheetName) {
           const memoResult = parseCustomOrderMemoSheet(wb.Sheets[salesSheetName]);
+          if (memoResult && memoResult.debug && memoResult.debug.length > 0) {
+            messages.push(`🔍 Custom Order memo 점검: ${memoResult.debug.join(" / ")}`);
+          }
           if (memoResult) {
             if (!customOrdersSheetName && memoResult.orders.length > 0) {
               fields.customOrders = memoResult.orders;
