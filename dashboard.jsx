@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       6560460,
       2573250,
       2348500,
-      4491250,
+      6384750,
       0,
       0,
       0
@@ -11813,7 +11813,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-09-28T11:25:14.576Z"
+  "lastUploadedAt": "2026-09-29T07:31:36.999Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
