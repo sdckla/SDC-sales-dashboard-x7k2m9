@@ -64,6 +64,7 @@ export async function fetchCellNotesGrid(spreadsheetId) {
   const sheetsApi = google.sheets({ version: "v4", auth });
   const res = await sheetsApi.spreadsheets.get({
     spreadsheetId,
+    includeGridData: true, // 이게 없으면 시트 메타정보만 오고 실제 셀 데이터(rowData)는 항상 빈 채로 옴
     fields: "sheets(properties.title,data.rowData.values.note)",
   });
   const grid = {};
