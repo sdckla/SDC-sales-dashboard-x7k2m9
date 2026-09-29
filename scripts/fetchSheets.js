@@ -59,19 +59,29 @@ export async function fetchSheetsAsExcelFiles() {
 // 직접 읽어옴 — Sheets API는 노트를 정상적으로 돌려주고, JSON이라 인코딩 문제도 없음.
 // 반환값: { [시트탭이름]: string[][] } — 각 셀의 note 텍스트(없으면 null), row/col은 0부터 시작하는
 // 절대 좌표(A1 기준)라서 xlsx로 읽은 워크북의 range.s.r/range.s.c 오프셋을 더한 주소와 그대로 대응됨.
-export async function fetchCellNotesGrid(spreadsheetId) {
+export async function fetchCellNotesGrid(spreadsheetId, log) {
+  const dbg = (m) => { if (log) log("    [시트API 원본 진단] " + m); };
   const auth = getAuth();
   const sheetsApi = google.sheets({ version: "v4", auth });
+  // fields 마스크 없이, includeGridData만으로 전체를 받아옴 (마스크 문법 문제로 데이터가
+  // 잘리는 경우를 배제하기 위해 — 응답 크기가 커도 시트 하나 정도는 문제없음).
   const res = await sheetsApi.spreadsheets.get({
     spreadsheetId,
-    includeGridData: true, // 이게 없으면 시트 메타정보만 오고 실제 셀 데이터(rowData)는 항상 빈 채로 옴
-    fields: "sheets(properties.title,data.rowData.values.note)",
+    includeGridData: true,
   });
+  const sheets = res.data.sheets || [];
+  dbg(`응답에 포함된 시트 수: ${sheets.length}`);
   const grid = {};
-  (res.data.sheets || []).forEach((sheet) => {
+  sheets.forEach((sheet) => {
     const title = sheet.properties && sheet.properties.title;
     if (!title) return;
-    const rowData = (sheet.data && sheet.data[0] && sheet.data[0].rowData) || [];
+    const dataArr = sheet.data || [];
+    const rowData = (dataArr[0] && dataArr[0].rowData) || [];
+    dbg(`"${title}": sheet.data 배열 길이=${dataArr.length}, rowData 길이=${rowData.length}`);
+    if (title === "Monthly Sales" && rowData[5]) {
+      const sampleCell = (rowData[5].values || [])[10];
+      dbg(`"${title}" 6번째 행(0-index 5) 11번째 칸(0-index 10) 원본: ${JSON.stringify(sampleCell)}`);
+    }
     grid[title] = rowData.map((row) => (row.values || []).map((cell) => (cell && cell.note) || null));
   });
   return grid;
