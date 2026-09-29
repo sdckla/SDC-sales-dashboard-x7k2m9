@@ -88,6 +88,7 @@ export {
   YEAR_FIELD_KEYS, EXTRA_CHANNEL_COLORS,
   processExcelFiles, mergeWithDefaults, mergeMonthlySeries, mergeMonthlyByKeyMap,
   mergeVendorMonthlyDetail, extractYearFields, normalizeCustomOrder, normalizeMarketEvent,
+  mergeRecordsByMonth,
 };
 `;
 
