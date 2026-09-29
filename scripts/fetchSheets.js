@@ -18,7 +18,10 @@ function getAuth() {
   }
   return new google.auth.GoogleAuth({
     credentials,
-    scopes: ["https://www.googleapis.com/auth/drive.readonly"],
+    scopes: [
+      "https://www.googleapis.com/auth/drive.readonly",
+      "https://www.googleapis.com/auth/spreadsheets.readonly",
+    ],
   });
 }
 
@@ -48,4 +51,27 @@ export async function fetchSheetsAsExcelFiles() {
     { name: "selling-data.xlsx", buffer: sellingBuf },
     { name: "daily-report.xlsx", buffer: dailyBuf },
   ];
+}
+
+// 구글 드라이브 API로 시트를 xlsx로 "내보내기(export)" 하면 셀에 달린 "메모(노트)"가
+// 통째로 빠져버림 (댓글/스레드댓글과 달리 노트는 export 결과물에 포함되지 않음). Custom Order
+// 메모 자동 인식 기능을 쓰려면 노트 내용이 반드시 필요하므로, 구글 시트 API(v4)로 별도로
+// 직접 읽어옴 — Sheets API는 노트를 정상적으로 돌려주고, JSON이라 인코딩 문제도 없음.
+// 반환값: { [시트탭이름]: string[][] } — 각 셀의 note 텍스트(없으면 null), row/col은 0부터 시작하는
+// 절대 좌표(A1 기준)라서 xlsx로 읽은 워크북의 range.s.r/range.s.c 오프셋을 더한 주소와 그대로 대응됨.
+export async function fetchCellNotesGrid(spreadsheetId) {
+  const auth = getAuth();
+  const sheetsApi = google.sheets({ version: "v4", auth });
+  const res = await sheetsApi.spreadsheets.get({
+    spreadsheetId,
+    fields: "sheets(properties.title,data.rowData.values.note)",
+  });
+  const grid = {};
+  (res.data.sheets || []).forEach((sheet) => {
+    const title = sheet.properties && sheet.properties.title;
+    if (!title) return;
+    const rowData = (sheet.data && sheet.data[0] && sheet.data[0].rowData) || [];
+    grid[title] = rowData.map((row) => (row.values || []).map((cell) => (cell && cell.note) || null));
+  });
+  return grid;
 }
