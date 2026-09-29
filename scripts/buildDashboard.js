@@ -13,6 +13,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import * as XLSX from "xlsx";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(__dirname, "..");
@@ -26,16 +27,81 @@ function log(msg) {
   console.log(`[buildDashboard] ${msg}`);
 }
 
+// 구글 드라이브 "내보내기(export)" API로 받은 xlsx에는 셀 "메모(노트)"가 빠져있어서(댓글과 달리
+// 노트는 export 결과물에 포함되지 않음), 구글 시트 API로 직접 읽어온 노트 텍스트(notesGrid)를
+// 워크북에 다시 "주입"해준 뒤 재직렬화함 — 이후 단계(processExcelFiles)는 브라우저에서 xlsx를
+// 업로드했을 때와 완전히 동일한 코드로, 이 주입된 코멘트를 정상적으로 읽어들이게 됨.
+function injectMemoNotesIntoWorkbook(buffer, notesGrid, MONTH_CODES, findMonthHeaderRow) {
+  const wb = XLSX.read(buffer, { type: "buffer" });
+  let injectedCount = 0;
+
+  wb.SheetNames.forEach((sheetName) => {
+    const notesForSheet = notesGrid[sheetName];
+    if (!notesForSheet) return;
+    const ws = wb.Sheets[sheetName];
+    if (!ws || !ws["!ref"]) return;
+
+    const rows = XLSX.utils.sheet_to_json(ws, { header: 1, raw: true, defval: null });
+    const hit = findMonthHeaderRow(rows);
+    if (!hit) return;
+    const headerRow = rows[hit.r];
+    const monthCols = {};
+    let searchFrom = hit.c;
+    MONTH_CODES.forEach((m) => {
+      const idx = headerRow.findIndex((cell, ci) => ci >= searchFrom && cell != null && String(cell).trim().toUpperCase() === m);
+      if (idx >= 0) { monthCols[m] = idx; searchFrom = idx + 1; }
+    });
+    const labelCol = Math.max(0, hit.c - 1);
+    let customOrderRowIdx = -1;
+    for (let r = hit.r + 1; r < rows.length; r++) {
+      const cell = rows[r] ? rows[r][labelCol] : null;
+      if (cell != null && String(cell).toLowerCase().includes("custom order")) { customOrderRowIdx = r; break; }
+    }
+    if (customOrderRowIdx < 0) return;
+
+    const range = XLSX.utils.decode_range(ws["!ref"]);
+    const rowOffset = range.s.r, colOffset = range.s.c;
+
+    MONTH_CODES.forEach((m) => {
+      const col = monthCols[m];
+      if (col == null) return;
+      const absRow = customOrderRowIdx + rowOffset;
+      const absCol = col + colOffset;
+      const note = notesForSheet[absRow] && notesForSheet[absRow][absCol];
+      if (!note) return;
+      const addr = XLSX.utils.encode_cell({ r: absRow, c: absCol });
+      if (!ws[addr]) ws[addr] = { t: "s", v: "" };
+      ws[addr].c = [{ a: "sdc-dashboard-bot", t: note }];
+      injectedCount++;
+    });
+  });
+
+  return { buffer: XLSX.write(wb, { type: "buffer", bookType: "xlsx" }), injectedCount };
+}
+
 async function main() {
   log("1/5 dataEngine.mjs 재생성 중...");
   execSync(`node "${path.join(__dirname, "extract-engine.js")}" "${DASHBOARD_JSX}" "${ENGINE_MJS}"`, { stdio: "inherit" });
 
   const engine = await import(`${ENGINE_MJS}?t=${Date.now()}`); // 캐시 무시
-  const { DEFAULT_DATA, processExcelFiles, mergeMonthlySeries, mergeMonthlyByKeyMap, mergeVendorMonthlyDetail, extractYearFields, CHANNEL_KEYS, EXTRA_CHANNEL_COLORS, mergeRecordsByMonth } = engine;
+  const { DEFAULT_DATA, processExcelFiles, mergeMonthlySeries, mergeMonthlyByKeyMap, mergeVendorMonthlyDetail, extractYearFields, CHANNEL_KEYS, EXTRA_CHANNEL_COLORS, mergeRecordsByMonth, MONTH_CODES, findMonthHeaderRow } = engine;
 
   log("2/5 구글 시트에서 최신 데이터 내려받는 중...");
-  const { fetchSheetsAsExcelFiles } = await import("./fetchSheets.js");
+  const { fetchSheetsAsExcelFiles, fetchCellNotesGrid } = await import("./fetchSheets.js");
   const files = await fetchSheetsAsExcelFiles();
+
+  log("2-B/5 Custom Order 메모(노트)를 구글 시트 API로 직접 불러와 반영 중...");
+  try {
+    const notesGrid = await fetchCellNotesGrid(process.env.SELLING_DATA_SHEET_ID);
+    const sellingFile = files.find((f) => f.name === "selling-data.xlsx");
+    if (sellingFile) {
+      const { buffer, injectedCount } = injectMemoNotesIntoWorkbook(sellingFile.buffer, notesGrid, MONTH_CODES, findMonthHeaderRow);
+      sellingFile.buffer = buffer;
+      log(`  ✓ Custom Order 메모(노트) ${injectedCount}개 셀에서 확인되어 반영함`);
+    }
+  } catch (e) {
+    log(`  ⚠️ Custom Order 메모(노트)를 구글 시트 API로 불러오는 중 오류 발생 (건너뜀): ${e.message}`);
+  }
 
   log("3/5 엑셀 업로드와 동일한 로직으로 병합 중...");
   const existingCurrentYear = DEFAULT_DATA.currentYear || new Date().getFullYear();
