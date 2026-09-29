@@ -31,7 +31,7 @@ async function main() {
   execSync(`node "${path.join(__dirname, "extract-engine.js")}" "${DASHBOARD_JSX}" "${ENGINE_MJS}"`, { stdio: "inherit" });
 
   const engine = await import(`${ENGINE_MJS}?t=${Date.now()}`); // 캐시 무시
-  const { DEFAULT_DATA, processExcelFiles, mergeMonthlySeries, mergeMonthlyByKeyMap, mergeVendorMonthlyDetail, extractYearFields, CHANNEL_KEYS, EXTRA_CHANNEL_COLORS } = engine;
+  const { DEFAULT_DATA, processExcelFiles, mergeMonthlySeries, mergeMonthlyByKeyMap, mergeVendorMonthlyDetail, extractYearFields, CHANNEL_KEYS, EXTRA_CHANNEL_COLORS, mergeRecordsByMonth } = engine;
 
   log("2/5 구글 시트에서 최신 데이터 내려받는 중...");
   const { fetchSheetsAsExcelFiles } = await import("./fetchSheets.js");
@@ -87,6 +87,15 @@ async function main() {
       if (b.fields.visits) mergedFields.visits = mergeMonthlySeries(nextTop.visits, b.fields.visits);
       if (b.fields.contacts) mergedFields.contacts = mergeMonthlySeries(nextTop.contacts, b.fields.contacts);
       if (b.fields.sold) mergedFields.sold = mergeMonthlySeries(nextTop.sold, b.fields.sold);
+      // customOrders/marketEvents: 메모 방식은 달마다 셀이 따로 있어서, 아직 새 형식으로 안 옮긴
+      // 달은 이번 실행에 아예 안 잡힐 수 있음 -- 그런 달의 기존 데이터까지 통째로 지워지지 않도록
+      // "이번에 새로 읽어온 달"만 교체하고 나머지 달은 그대로 유지함.
+      if (b.fields.customOrders) mergedFields.customOrders = mergeRecordsByMonth(nextTop.customOrders, b.fields.customOrders);
+      if (b.fields.marketEvents) mergedFields.marketEvents = mergeRecordsByMonth(nextTop.marketEvents, b.fields.marketEvents);
+      // customLeads: 확정 주문과 달리 "지금 진행 중인 문의"를 나타내는 현재 상태 정보라, 탭이든
+      // 메모든 이번에 읽어온 값으로 통째로 교체함 (메모 방식은 파서가 이미 가장 최근 달의 메모만
+      // 반영해서 넘겨줌 -- 옛날 달의 리드가 계속 누적되어 남지 않도록).
+      if (b.fields.customLeads) mergedFields.customLeads = b.fields.customLeads;
       nextTop = { ...nextTop, ...mergedFields };
     } else {
       const prev = nextPriorYears[y] || {};
