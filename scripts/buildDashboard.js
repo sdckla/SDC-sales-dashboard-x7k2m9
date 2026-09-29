@@ -101,7 +101,7 @@ async function main() {
 
   log("2-B/5 Custom Order 메모(노트)를 구글 시트 API로 직접 불러와 반영 중...");
   try {
-    const notesGrid = await fetchCellNotesGrid(process.env.SELLING_DATA_SHEET_ID);
+    const notesGrid = await fetchCellNotesGrid(process.env.SELLING_DATA_SHEET_ID, log);
     const sellingFile = files.find((f) => f.name === "selling-data.xlsx");
     if (sellingFile) {
       const { buffer, injectedCount } = injectMemoNotesIntoWorkbook(sellingFile.buffer, notesGrid, MONTH_CODES, findMonthHeaderRow, log);
