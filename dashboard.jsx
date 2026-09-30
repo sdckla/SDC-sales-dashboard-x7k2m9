@@ -722,7 +722,7 @@ const DEFAULT_DATA = {
       "groupId": 32,
       "month": 8,
       "customer": "KOICA Kenya",
-      "amount": 1946000,
+      "amount": 1893500,
       "note": "",
       "category": "Government Office",
       "product": "shoppers bag",
@@ -13213,12 +13213,19 @@ function mergeWithDefaults(defaults, loaded) {
   }
   // 연도가 바뀐 시점에 예전 저장값의 currentYear가 최신 자동화 값보다 앞서는 일은 없어야 함
   merged.currentYear = Math.max(defaults.currentYear || 0, (loaded && loaded.currentYear) || 0);
-  // channels/vendorMonthly/posMonthlyQty/posInvoiceCounts는 월별 배열이라, 저장된 값 중 0인(비어있는) 달은
-  // 기본 시드 데이터로 보완해서 예전 업로드가 일부 달만 담고 있었어도 이미 알던 달이 사라지지 않게 함
+  // channels/vendorMonthly/posMonthlyQty/posInvoiceCounts는 월별 배열. 자동화 쪽이 이미 더 최신이면
+  // (defaultsAreNewer) 그 최신 숫자를 그대로 써야 함 -- 예전에는 "저장된 값이 0이 아니면 저장된
+  // 값을 우선"했는데, 이러면 브라우저가 한 번이라도 어떤 달의 매출을 저장해두고 나면 그 이후
+  // 자동화가 같은 달 숫자를 더 정확하게(진행 중인 달이라 매일 늘어나는 등) 갱신해도 브라우저의
+  // 오래된 0이 아닌 숫자가 계속 이겨서 화면이 그 시점에 멈춰버리는 문제가 있었음. 자동화 쪽이
+  // 최신일 때는 자동화 값을 그대로 쓰고, 오히려 브라우저 쪽(수동 업로드)이 더 최신일 때만
+  // 기존처럼 "0인 달만 기본값으로 보완"하는 병합을 함.
   if (loaded && loaded.channels) {
     const mergedChannels = {};
     const allKeys = new Set([...CHANNEL_KEYS, ...Object.keys(defaults.channels || {}), ...Object.keys(loaded.channels || {})]);
-    allKeys.forEach((k) => { mergedChannels[k] = mergeMonthlySeries(defaults.channels[k], loaded.channels[k]); });
+    allKeys.forEach((k) => {
+      mergedChannels[k] = defaultsAreNewer ? defaults.channels[k] : mergeMonthlySeries(defaults.channels[k], loaded.channels[k]);
+    });
     merged.channels = mergedChannels;
   }
   if (defaults.extraChannels || (loaded && loaded.extraChannels)) {
@@ -13227,21 +13234,18 @@ function mergeWithDefaults(defaults, loaded) {
     (loaded && loaded.extraChannels ? loaded.extraChannels : []).forEach((c) => { byKey[c.key] = c; });
     merged.extraChannels = Object.values(byKey);
   }
-  merged.vendorMonthly = loaded && loaded.vendorMonthly
-    ? mergeMonthlyByKeyMap(defaults.vendorMonthly, loaded.vendorMonthly)
-    : defaults.vendorMonthly;
-  merged.vendorMonthlyDetail = loaded && loaded.vendorMonthlyDetail
-    ? mergeVendorMonthlyDetail(defaults.vendorMonthlyDetail, loaded.vendorMonthlyDetail)
-    : defaults.vendorMonthlyDetail;
-  if (loaded && loaded.posMonthlyQty) merged.posMonthlyQty = mergeMonthlySeries(defaults.posMonthlyQty, loaded.posMonthlyQty);
-  if (loaded && loaded.posInvoiceCounts) merged.posInvoiceCounts = mergeMonthlySeries(defaults.posInvoiceCounts, loaded.posInvoiceCounts);
-  // visits/contacts/sold are monthly arrays too (Daily Report), so they need the same
-  // "prefer whichever side has a non-zero value" treatment -- otherwise a browser that has
-  // ever saved data locally (via localStorage) freezes at whatever month it last saw, and a
-  // newer month added by the daily automation run silently gets hidden behind the old save.
-  if (loaded && loaded.visits) merged.visits = mergeMonthlySeries(defaults.visits, loaded.visits);
-  if (loaded && loaded.contacts) merged.contacts = mergeMonthlySeries(defaults.contacts, loaded.contacts);
-  if (loaded && loaded.sold) merged.sold = mergeMonthlySeries(defaults.sold, loaded.sold);
+  merged.vendorMonthly = !loaded || !loaded.vendorMonthly || defaultsAreNewer
+    ? defaults.vendorMonthly
+    : mergeMonthlyByKeyMap(defaults.vendorMonthly, loaded.vendorMonthly);
+  merged.vendorMonthlyDetail = !loaded || !loaded.vendorMonthlyDetail || defaultsAreNewer
+    ? defaults.vendorMonthlyDetail
+    : mergeVendorMonthlyDetail(defaults.vendorMonthlyDetail, loaded.vendorMonthlyDetail);
+  if (loaded && loaded.posMonthlyQty) merged.posMonthlyQty = defaultsAreNewer ? defaults.posMonthlyQty : mergeMonthlySeries(defaults.posMonthlyQty, loaded.posMonthlyQty);
+  if (loaded && loaded.posInvoiceCounts) merged.posInvoiceCounts = defaultsAreNewer ? defaults.posInvoiceCounts : mergeMonthlySeries(defaults.posInvoiceCounts, loaded.posInvoiceCounts);
+  // visits/contacts/sold are monthly arrays too (Daily Report) -- same freshness rule as channels above.
+  if (loaded && loaded.visits) merged.visits = defaultsAreNewer ? defaults.visits : mergeMonthlySeries(defaults.visits, loaded.visits);
+  if (loaded && loaded.contacts) merged.contacts = defaultsAreNewer ? defaults.contacts : mergeMonthlySeries(defaults.contacts, loaded.contacts);
+  if (loaded && loaded.sold) merged.sold = defaultsAreNewer ? defaults.sold : mergeMonthlySeries(defaults.sold, loaded.sold);
   // customOrders/marketEvents/customLeads are now sheet-derived (see AUTO_DERIVED_KEYS above),
   // so their freshness is already handled by the defaultsAreNewer block. No separate merge
   // needed here anymore -- the initial `{...defaults, ...loaded}` spread already provides the
