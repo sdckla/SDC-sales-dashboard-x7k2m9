@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       6560460,
       2573250,
       2348500,
-      4491250,
+      6384750,
       0,
       0,
       0
@@ -159,7 +159,7 @@ const DEFAULT_DATA = {
     76,
     81,
     108,
-    35,
+    37,
     0,
     0,
     0
@@ -173,7 +173,7 @@ const DEFAULT_DATA = {
     22,
     24,
     23,
-    11,
+    12,
     0,
     0,
     0
@@ -779,8 +779,8 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Tue",
-      "visits": 116,
-      "contacts": 35,
+      "visits": 118,
+      "contacts": 36,
       "revenue": 4225100
     },
     {
@@ -817,7 +817,7 @@ const DEFAULT_DATA = {
   "visitorOrigin": [
     {
       "origin": "Uganda",
-      "count": 80
+      "count": 81
     },
     {
       "origin": "Korea",
@@ -6307,11 +6307,11 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 270,
-    "zeroVisitDays": 76,
-    "zeroVisitPct": 0.2814814814814815,
-    "zeroSalesDays": 109,
-    "zeroSalesPct": 0.40370370370370373,
+    "operatingDays": 272,
+    "zeroVisitDays": 77,
+    "zeroVisitPct": 0.28308823529411764,
+    "zeroSalesDays": 111,
+    "zeroSalesPct": 0.40808823529411764,
     "top5Concentration": 0.18735180703858223,
     "totalRevenue": 34815250
   },
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-09-29T08:41:20.626Z"
+  "lastUploadedAt": "2026-09-30T03:08:35.643Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
