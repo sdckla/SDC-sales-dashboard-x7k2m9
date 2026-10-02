@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      40000,
+      0,
       0,
       0
     ],
@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       6560460,
       2573250,
       2348500,
-      8692250,
+      6384750,
       0,
       0,
       0
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    8,
+    0,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    3,
+    0,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    2,
+    0,
     0,
     0
   ],
@@ -722,7 +722,7 @@ const DEFAULT_DATA = {
       "groupId": 32,
       "month": 8,
       "customer": "KOICA Kenya",
-      "amount": 1893500,
+      "amount": 1946000,
       "note": "",
       "category": "Government Office",
       "product": "shoppers bag",
@@ -791,9 +791,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Thu",
-      "visits": 78,
-      "contacts": 24,
-      "revenue": 4181000
+      "visits": 70,
+      "contacts": 21,
+      "revenue": 4141000
     },
     {
       "day": "Fri",
@@ -929,8 +929,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Book bag V2",
-      "qty": 36,
-      "amount": 842000
+      "qty": 35,
+      "amount": 817000
     },
     {
       "name": "Wrist Bag (L)",
@@ -950,7 +950,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "Card",
-      "amount": 12386300.504
+      "amount": 12346300.504
     },
     {
       "method": "MTN Mobile Money",
@@ -968,11 +968,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1435,
-      "gross": 25520500,
-      "net": 23496349.490000002,
+      "qty": 1433,
+      "gross": 25480500,
+      "net": 23456349.490000002,
       "discount": 2024150.51,
-      "count": 692
+      "count": 690
     },
     {
       "vendor": "Apoyo",
@@ -1040,7 +1040,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      40000,
+      0,
       0,
       0
     ],
@@ -1125,7 +1125,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    1,
+    0,
     0,
     0
   ],
@@ -1139,7 +1139,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    2,
+    0,
     0,
     0
   ],
@@ -1776,7 +1776,7 @@ const DEFAULT_DATA = {
         2,
         6,
         0,
-        1,
+        0,
         0,
         0
       ],
@@ -1790,7 +1790,7 @@ const DEFAULT_DATA = {
         30000,
         81000,
         0,
-        15000,
+        0,
         0,
         0
       ]
@@ -3450,7 +3450,7 @@ const DEFAULT_DATA = {
         0,
         6,
         2,
-        1,
+        0,
         0,
         0
       ],
@@ -3464,7 +3464,7 @@ const DEFAULT_DATA = {
         0,
         147500,
         50000,
-        25000,
+        0,
         0,
         0
       ]
@@ -5854,11 +5854,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 2,
-        "gross": 40000,
-        "net": 40000,
+        "qty": 0,
+        "gross": 0,
+        "net": 0,
         "discount": 0,
-        "count": 2
+        "count": 0
       },
       {
         "qty": 0,
@@ -6307,13 +6307,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 274,
-    "zeroVisitDays": 78,
-    "zeroVisitPct": 0.2846715328467153,
-    "zeroSalesDays": 112,
-    "zeroSalesPct": 0.40875912408759124,
-    "top5Concentration": 0.18713680148614628,
-    "totalRevenue": 34855250
+    "operatingDays": 272,
+    "zeroVisitDays": 77,
+    "zeroVisitPct": 0.28308823529411764,
+    "zeroSalesDays": 111,
+    "zeroSalesPct": 0.40808823529411764,
+    "top5Concentration": 0.18735180703858223,
+    "totalRevenue": 34815250
   },
   "marketEvents": [
     {
@@ -6513,8 +6513,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Present pouch (L)",
-        "qty": 25,
-        "amount": 340500
+        "qty": 24,
+        "amount": 325500
       },
       {
         "name": "4Africa Lion Crochet",
@@ -6783,8 +6783,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Book bag V2",
-        "qty": 36,
-        "amount": 842000
+        "qty": 35,
+        "amount": 817000
       },
       {
         "name": "Seahorse (S)",
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-02T03:09:13.207Z"
+  "lastUploadedAt": "2026-09-30T03:08:35.643Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
@@ -11974,6 +11974,13 @@ function computeForecast(monthlyTotals, activeMonths, annualGoalUGX) {
   const avgMonthly = ytd / activeMonths;
   const remaining = 12 - activeMonths;
   const projectedFlat = ytd + avgMonthly * remaining;
+  // 추세(선형회귀) 기반 연말 전망: 남은 개월은 평균이 아니라, 지금까지의 월별 흐름에 맞춘
+  // 추세선(slope/intercept)을 그대로 연장해서 더함 -- 아래 trendSeries(그래프의 점선)와
+  // 같은 직선을 쓰므로, KPI 숫자가 그래프에 그려진 추세선과 항상 일치함.
+  let projectedTrend = ytd;
+  for (let i = activeMonths; i < 12; i++) {
+    projectedTrend += Math.max(0, slope * i + intercept);
+  }
   const trendSeries = MONTH_LABELS.map((label, i) => {
     const row = { period: label };
     if (i < activeMonths) row.actual = monthlyTotals[i];
@@ -11986,8 +11993,10 @@ function computeForecast(monthlyTotals, activeMonths, annualGoalUGX) {
   const prevMonthRev = activeMonths >= 2 ? monthlyTotals[activeMonths - 2] : null;
   const momGrowth = prevMonthRev ? (lastMonthRev - prevMonthRev) / prevMonthRev : null;
   return {
-    ytd, avgMonthly, remaining, projectedFlat, trendSeries, annualGoalUGX,
-    requiredAvgRemaining, momGrowth, projectedAchievement: annualGoalUGX > 0 ? projectedFlat / annualGoalUGX : 0,
+    ytd, avgMonthly, remaining, projectedFlat, projectedTrend, trendSeries, annualGoalUGX,
+    requiredAvgRemaining, momGrowth,
+    projectedAchievement: annualGoalUGX > 0 ? projectedFlat / annualGoalUGX : 0,
+    projectedAchievementTrend: annualGoalUGX > 0 ? projectedTrend / annualGoalUGX : 0,
   };
 }
 
@@ -13213,19 +13222,12 @@ function mergeWithDefaults(defaults, loaded) {
   }
   // 연도가 바뀐 시점에 예전 저장값의 currentYear가 최신 자동화 값보다 앞서는 일은 없어야 함
   merged.currentYear = Math.max(defaults.currentYear || 0, (loaded && loaded.currentYear) || 0);
-  // channels/vendorMonthly/posMonthlyQty/posInvoiceCounts는 월별 배열. 자동화 쪽이 이미 더 최신이면
-  // (defaultsAreNewer) 그 최신 숫자를 그대로 써야 함 -- 예전에는 "저장된 값이 0이 아니면 저장된
-  // 값을 우선"했는데, 이러면 브라우저가 한 번이라도 어떤 달의 매출을 저장해두고 나면 그 이후
-  // 자동화가 같은 달 숫자를 더 정확하게(진행 중인 달이라 매일 늘어나는 등) 갱신해도 브라우저의
-  // 오래된 0이 아닌 숫자가 계속 이겨서 화면이 그 시점에 멈춰버리는 문제가 있었음. 자동화 쪽이
-  // 최신일 때는 자동화 값을 그대로 쓰고, 오히려 브라우저 쪽(수동 업로드)이 더 최신일 때만
-  // 기존처럼 "0인 달만 기본값으로 보완"하는 병합을 함.
+  // channels/vendorMonthly/posMonthlyQty/posInvoiceCounts는 월별 배열이라, 저장된 값 중 0인(비어있는) 달은
+  // 기본 시드 데이터로 보완해서 예전 업로드가 일부 달만 담고 있었어도 이미 알던 달이 사라지지 않게 함
   if (loaded && loaded.channels) {
     const mergedChannels = {};
     const allKeys = new Set([...CHANNEL_KEYS, ...Object.keys(defaults.channels || {}), ...Object.keys(loaded.channels || {})]);
-    allKeys.forEach((k) => {
-      mergedChannels[k] = defaultsAreNewer ? defaults.channels[k] : mergeMonthlySeries(defaults.channels[k], loaded.channels[k]);
-    });
+    allKeys.forEach((k) => { mergedChannels[k] = mergeMonthlySeries(defaults.channels[k], loaded.channels[k]); });
     merged.channels = mergedChannels;
   }
   if (defaults.extraChannels || (loaded && loaded.extraChannels)) {
@@ -13234,18 +13236,21 @@ function mergeWithDefaults(defaults, loaded) {
     (loaded && loaded.extraChannels ? loaded.extraChannels : []).forEach((c) => { byKey[c.key] = c; });
     merged.extraChannels = Object.values(byKey);
   }
-  merged.vendorMonthly = !loaded || !loaded.vendorMonthly || defaultsAreNewer
-    ? defaults.vendorMonthly
-    : mergeMonthlyByKeyMap(defaults.vendorMonthly, loaded.vendorMonthly);
-  merged.vendorMonthlyDetail = !loaded || !loaded.vendorMonthlyDetail || defaultsAreNewer
-    ? defaults.vendorMonthlyDetail
-    : mergeVendorMonthlyDetail(defaults.vendorMonthlyDetail, loaded.vendorMonthlyDetail);
-  if (loaded && loaded.posMonthlyQty) merged.posMonthlyQty = defaultsAreNewer ? defaults.posMonthlyQty : mergeMonthlySeries(defaults.posMonthlyQty, loaded.posMonthlyQty);
-  if (loaded && loaded.posInvoiceCounts) merged.posInvoiceCounts = defaultsAreNewer ? defaults.posInvoiceCounts : mergeMonthlySeries(defaults.posInvoiceCounts, loaded.posInvoiceCounts);
-  // visits/contacts/sold are monthly arrays too (Daily Report) -- same freshness rule as channels above.
-  if (loaded && loaded.visits) merged.visits = defaultsAreNewer ? defaults.visits : mergeMonthlySeries(defaults.visits, loaded.visits);
-  if (loaded && loaded.contacts) merged.contacts = defaultsAreNewer ? defaults.contacts : mergeMonthlySeries(defaults.contacts, loaded.contacts);
-  if (loaded && loaded.sold) merged.sold = defaultsAreNewer ? defaults.sold : mergeMonthlySeries(defaults.sold, loaded.sold);
+  merged.vendorMonthly = loaded && loaded.vendorMonthly
+    ? mergeMonthlyByKeyMap(defaults.vendorMonthly, loaded.vendorMonthly)
+    : defaults.vendorMonthly;
+  merged.vendorMonthlyDetail = loaded && loaded.vendorMonthlyDetail
+    ? mergeVendorMonthlyDetail(defaults.vendorMonthlyDetail, loaded.vendorMonthlyDetail)
+    : defaults.vendorMonthlyDetail;
+  if (loaded && loaded.posMonthlyQty) merged.posMonthlyQty = mergeMonthlySeries(defaults.posMonthlyQty, loaded.posMonthlyQty);
+  if (loaded && loaded.posInvoiceCounts) merged.posInvoiceCounts = mergeMonthlySeries(defaults.posInvoiceCounts, loaded.posInvoiceCounts);
+  // visits/contacts/sold are monthly arrays too (Daily Report), so they need the same
+  // "prefer whichever side has a non-zero value" treatment -- otherwise a browser that has
+  // ever saved data locally (via localStorage) freezes at whatever month it last saw, and a
+  // newer month added by the daily automation run silently gets hidden behind the old save.
+  if (loaded && loaded.visits) merged.visits = mergeMonthlySeries(defaults.visits, loaded.visits);
+  if (loaded && loaded.contacts) merged.contacts = mergeMonthlySeries(defaults.contacts, loaded.contacts);
+  if (loaded && loaded.sold) merged.sold = mergeMonthlySeries(defaults.sold, loaded.sold);
   // customOrders/marketEvents/customLeads are now sheet-derived (see AUTO_DERIVED_KEYS above),
   // so their freshness is already handled by the defaultsAreNewer block. No separate merge
   // needed here anymore -- the initial `{...defaults, ...loaded}` spread already provides the
@@ -15349,15 +15354,18 @@ function ForecastSection({ label, accentColor, forecast, activeMonths }) {
   if (!forecast) {
     return <Card><p style={{ color: COLORS.inkFaint }}>To calculate a forecast, enter at least one month of revenue data in the 'Data Management' tab.</p></Card>;
   }
-  const { ytd, avgMonthly, remaining, projectedFlat, trendSeries, annualGoalUGX, requiredAvgRemaining, momGrowth, projectedAchievement } = forecast;
+  const { ytd, avgMonthly, remaining, projectedFlat, projectedTrend, trendSeries, annualGoalUGX, requiredAvgRemaining, momGrowth, projectedAchievement, projectedAchievementTrend } = forecast;
   return (
     <div>
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24 }}>
-        <KpiCard icon={TrendingUp} label="Projected Annual Revenue" value={fmtCompact(projectedFlat) + " UGX"} accent={accentColor} note={`Assumes the recent ${activeMonths}-month average holds`} />
-        <KpiCard icon={Target} label="Projected Annual Goal Achievement" value={fmtPct(projectedAchievement)} accent={projectedAchievement >= 1 ? COLORS.teal : COLORS.clay} note={fmtUGX(annualGoalUGX) + " goal"} />
+        <KpiCard icon={TrendingUp} label="Projected Annual Revenue (Trend)" value={fmtCompact(projectedTrend) + " UGX"} accent={accentColor} note={`Based on the ${activeMonths}-month trend line, not a flat average`} />
+        <KpiCard icon={Target} label="Projected Annual Goal Achievement (Trend)" value={fmtPct(projectedAchievementTrend)} accent={projectedAchievementTrend >= 1 ? COLORS.teal : COLORS.clay} note={fmtUGX(annualGoalUGX) + " goal"} />
         <KpiCard icon={Sparkles} label="Monthly Avg. Needed for Goal" value={remaining > 0 ? fmtCompact(requiredAvgRemaining) + " UGX" : "—"} accent={COLORS.ochre} note={remaining > 0 ? `Based on ${remaining} remaining month(s)` : "Full 12 months of data"} />
         <KpiCard icon={ChevronRight} label="Change vs. Previous Month" value={momGrowth === null ? "—" : `${momGrowth >= 0 ? "+" : ""}${(momGrowth * 100).toFixed(1)}%`} accent={momGrowth >= 0 ? COLORS.teal : COLORS.clay} note="Based on the latest month with data" />
       </div>
+      <p style={{ fontSize: 12, color: COLORS.inkFaint, marginTop: -12, marginBottom: 24 }}>
+        Flat-average projection (old method), for reference: {fmtCompact(projectedFlat)} UGX ({fmtPct(projectedAchievement)} of goal).
+      </p>
 
       <Card style={{ marginBottom: 24 }}>
         <SectionTitle sub={`${label}'s actual revenue (bars) alongside a projection based on the current trend (dashed line)`}>Revenue Forecast</SectionTitle>
@@ -15381,13 +15389,14 @@ function ForecastSection({ label, accentColor, forecast, activeMonths }) {
       <Card>
         <SectionTitle>Forecast Summary</SectionTitle>
         <ul style={{ fontSize: 14, color: COLORS.ink, lineHeight: 1.9, paddingLeft: 20, margin: 0 }}>
-          <li>The average monthly revenue over the {activeMonths} month(s) so far is <b>{fmtUGX(avgMonthly)}</b>. (Cumulative: {fmtUGX(ytd)})</li>
-          <li>If this trend continues, annual revenue is projected at about <b>{fmtUGX(projectedFlat)}</b>, which is <b>{fmtPct(projectedAchievement)}</b> of the annual goal.</li>
+          <li>Cumulative revenue over the {activeMonths} month(s) so far is <b>{fmtUGX(ytd)}</b> (flat average: {fmtUGX(avgMonthly)}/month).</li>
+          <li>Following the month-to-month trend line (not a flat average), annual revenue is projected at about <b>{fmtUGX(projectedTrend)}</b>, which is <b>{fmtPct(projectedAchievementTrend)}</b> of the annual goal.</li>
           {remaining > 0 ? (
             <li>To reach the annual goal ({fmtUGX(annualGoalUGX)}), the remaining {remaining} month(s) need average monthly revenue of <b>{fmtUGX(requiredAvgRemaining)}</b>.</li>
           ) : (
             <li>All 12 months of data have been entered.</li>
           )}
+          <li style={{ color: COLORS.inkFaint, fontSize: 13 }}>For reference, a simple flat-average projection (old method) gives {fmtUGX(projectedFlat)} ({fmtPct(projectedAchievement)} of goal).</li>
         </ul>
       </Card>
     </div>
