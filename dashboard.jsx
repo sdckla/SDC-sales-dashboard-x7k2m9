@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      0,
+      40000,
       0,
       0
     ],
@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       6560460,
       2573250,
       2348500,
-      6384750,
+      8692250,
       0,
       0,
       0
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    0,
+    8,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    0,
+    3,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    0,
+    2,
     0,
     0
   ],
@@ -791,9 +791,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Thu",
-      "visits": 70,
-      "contacts": 21,
-      "revenue": 4141000
+      "visits": 78,
+      "contacts": 24,
+      "revenue": 4181000
     },
     {
       "day": "Fri",
@@ -929,8 +929,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Book bag V2",
-      "qty": 35,
-      "amount": 817000
+      "qty": 36,
+      "amount": 842000
     },
     {
       "name": "Wrist Bag (L)",
@@ -950,7 +950,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "Card",
-      "amount": 12346300.504
+      "amount": 12386300.504
     },
     {
       "method": "MTN Mobile Money",
@@ -968,11 +968,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1433,
-      "gross": 25480500,
-      "net": 23456349.490000002,
+      "qty": 1435,
+      "gross": 25520500,
+      "net": 23496349.490000002,
       "discount": 2024150.51,
-      "count": 690
+      "count": 692
     },
     {
       "vendor": "Apoyo",
@@ -1040,7 +1040,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      0,
+      40000,
       0,
       0
     ],
@@ -1125,7 +1125,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    0,
+    1,
     0,
     0
   ],
@@ -1139,7 +1139,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    0,
+    2,
     0,
     0
   ],
@@ -1776,7 +1776,7 @@ const DEFAULT_DATA = {
         2,
         6,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -1790,7 +1790,7 @@ const DEFAULT_DATA = {
         30000,
         81000,
         0,
-        0,
+        15000,
         0,
         0
       ]
@@ -3450,7 +3450,7 @@ const DEFAULT_DATA = {
         0,
         6,
         2,
-        0,
+        1,
         0,
         0
       ],
@@ -3464,7 +3464,7 @@ const DEFAULT_DATA = {
         0,
         147500,
         50000,
-        0,
+        25000,
         0,
         0
       ]
@@ -5854,11 +5854,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 0,
-        "gross": 0,
-        "net": 0,
+        "qty": 2,
+        "gross": 40000,
+        "net": 40000,
         "discount": 0,
-        "count": 0
+        "count": 2
       },
       {
         "qty": 0,
@@ -6307,13 +6307,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 272,
-    "zeroVisitDays": 77,
-    "zeroVisitPct": 0.28308823529411764,
-    "zeroSalesDays": 111,
-    "zeroSalesPct": 0.40808823529411764,
-    "top5Concentration": 0.18735180703858223,
-    "totalRevenue": 34815250
+    "operatingDays": 274,
+    "zeroVisitDays": 78,
+    "zeroVisitPct": 0.2846715328467153,
+    "zeroSalesDays": 112,
+    "zeroSalesPct": 0.40875912408759124,
+    "top5Concentration": 0.18713680148614628,
+    "totalRevenue": 34855250
   },
   "marketEvents": [
     {
@@ -6513,8 +6513,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Present pouch (L)",
-        "qty": 24,
-        "amount": 325500
+        "qty": 25,
+        "amount": 340500
       },
       {
         "name": "4Africa Lion Crochet",
@@ -6783,8 +6783,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Book bag V2",
-        "qty": 35,
-        "amount": 817000
+        "qty": 36,
+        "amount": 842000
       },
       {
         "name": "Seahorse (S)",
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-09-30T03:08:35.643Z"
+  "lastUploadedAt": "2026-10-02T08:43:57.458Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
