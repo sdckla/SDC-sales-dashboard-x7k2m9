@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      40000,
+      83000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    8,
+    9,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    2,
+    5,
     0,
     0
   ],
@@ -797,9 +797,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Fri",
-      "visits": 93,
+      "visits": 94,
       "contacts": 29,
-      "revenue": 6124500
+      "revenue": 6167500
     },
     {
       "day": "Sat",
@@ -829,7 +829,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "USA",
-      "count": 15
+      "count": 16
     },
     {
       "origin": "Italy",
@@ -904,8 +904,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Kitenge Reflector",
-      "qty": 89,
-      "amount": 1180500
+      "qty": 90,
+      "amount": 1195500
     },
     {
       "name": "Summer Vendor Mrk",
@@ -946,7 +946,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 15758899.969999999
+      "amount": 15801899.969999999
     },
     {
       "method": "Card",
@@ -968,11 +968,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1435,
-      "gross": 25520500,
-      "net": 23496349.490000002,
+      "qty": 1442,
+      "gross": 25563500,
+      "net": 23539349.490000002,
       "discount": 2024150.51,
-      "count": 692
+      "count": 695
     },
     {
       "vendor": "Apoyo",
@@ -1040,7 +1040,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      40000,
+      83000,
       0,
       0
     ],
@@ -1125,7 +1125,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    1,
+    2,
     0,
     0
   ],
@@ -1139,7 +1139,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    2,
+    9,
     0,
     0
   ],
@@ -1745,7 +1745,7 @@ const DEFAULT_DATA = {
         0,
         2,
         1,
-        0,
+        1,
         0,
         0
       ],
@@ -1759,7 +1759,7 @@ const DEFAULT_DATA = {
         0,
         24700,
         13000,
-        0,
+        13000,
         0,
         0
       ]
@@ -1962,7 +1962,7 @@ const DEFAULT_DATA = {
         1,
         9,
         1,
-        0,
+        5,
         0,
         0
       ],
@@ -1976,7 +1976,7 @@ const DEFAULT_DATA = {
         3000,
         25500,
         3000,
-        0,
+        15000,
         0,
         0
       ]
@@ -2148,7 +2148,7 @@ const DEFAULT_DATA = {
         1,
         19,
         2,
-        0,
+        1,
         0,
         0
       ],
@@ -2162,7 +2162,7 @@ const DEFAULT_DATA = {
         15000,
         262500,
         30000,
-        0,
+        15000,
         0,
         0
       ]
@@ -5854,11 +5854,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 2,
-        "gross": 40000,
-        "net": 40000,
+        "qty": 9,
+        "gross": 83000,
+        "net": 83000,
         "discount": 0,
-        "count": 2
+        "count": 5
       },
       {
         "qty": 0,
@@ -6307,13 +6307,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 274,
+    "operatingDays": 275,
     "zeroVisitDays": 78,
-    "zeroVisitPct": 0.2846715328467153,
+    "zeroVisitPct": 0.28363636363636363,
     "zeroSalesDays": 112,
-    "zeroSalesPct": 0.40875912408759124,
-    "top5Concentration": 0.18713680148614628,
-    "totalRevenue": 34855250
+    "zeroSalesPct": 0.4072727272727273,
+    "top5Concentration": 0.18690622022594255,
+    "totalRevenue": 34898250
   },
   "marketEvents": [
     {
@@ -6508,8 +6508,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Head band",
-        "qty": 16,
-        "amount": 206700
+        "qty": 17,
+        "amount": 219700
       },
       {
         "name": "Present pouch (L)",
@@ -6543,8 +6543,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Phone Case Card",
-        "qty": 40,
-        "amount": 116100
+        "qty": 45,
+        "amount": 131100
       },
       {
         "name": "Reflector",
@@ -6573,8 +6573,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Kitenge Reflector",
-        "qty": 89,
-        "amount": 1180500
+        "qty": 90,
+        "amount": 1195500
       },
       {
         "name": "Apoyo Coin Pouch",
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-02T08:43:57.458Z"
+  "lastUploadedAt": "2026-10-03T03:17:02.742Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
