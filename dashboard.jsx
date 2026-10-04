@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      83000,
+      203000,
       0,
       0
     ],
@@ -934,8 +934,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Wrist Bag (L)",
-      "qty": 35,
-      "amount": 809500
+      "qty": 36,
+      "amount": 834500
     },
     {
       "name": "Apoyo Cup Coaster",
@@ -946,7 +946,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 15801899.969999999
+      "amount": 15921899.969999999
     },
     {
       "method": "Card",
@@ -968,19 +968,19 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1442,
-      "gross": 25563500,
-      "net": 23539349.490000002,
+      "qty": 1447,
+      "gross": 25628500,
+      "net": 23604349.490000002,
       "discount": 2024150.51,
-      "count": 695
+      "count": 699
     },
     {
       "vendor": "Apoyo",
-      "qty": 615,
-      "gross": 8321000,
-      "net": 7993800.984,
+      "qty": 617,
+      "gross": 8376000,
+      "net": 8048800.984,
       "discount": 327199.016,
-      "count": 253
+      "count": 255
     },
     {
       "vendor": "4Africa",
@@ -1040,7 +1040,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      83000,
+      148000,
       0,
       0
     ],
@@ -1054,7 +1054,7 @@ const DEFAULT_DATA = {
       343000,
       1163300,
       433300,
-      0,
+      55000,
       0,
       0
     ],
@@ -1125,7 +1125,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    2,
+    4,
     0,
     0
   ],
@@ -1139,7 +1139,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    9,
+    16,
     0,
     0
   ],
@@ -1342,7 +1342,7 @@ const DEFAULT_DATA = {
         8,
         12,
         3,
-        0,
+        1,
         0,
         0
       ],
@@ -1356,7 +1356,7 @@ const DEFAULT_DATA = {
         24000,
         36000,
         8700,
-        0,
+        3000,
         0,
         0
       ]
@@ -2117,7 +2117,7 @@ const DEFAULT_DATA = {
         1,
         4,
         1,
-        0,
+        1,
         0,
         0
       ],
@@ -2131,7 +2131,7 @@ const DEFAULT_DATA = {
         5000,
         40000,
         10000,
-        0,
+        10000,
         0,
         0
       ]
@@ -3047,7 +3047,7 @@ const DEFAULT_DATA = {
         1,
         2,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -3061,7 +3061,7 @@ const DEFAULT_DATA = {
         52000,
         104000,
         0,
-        0,
+        52000,
         0,
         0
       ]
@@ -3233,7 +3233,7 @@ const DEFAULT_DATA = {
         0,
         13,
         3,
-        0,
+        1,
         0,
         0
       ],
@@ -3247,7 +3247,7 @@ const DEFAULT_DATA = {
         0,
         297500,
         75000,
-        0,
+        25000,
         0,
         0
       ]
@@ -3481,7 +3481,7 @@ const DEFAULT_DATA = {
         0,
         2,
         1,
-        0,
+        1,
         0,
         0
       ],
@@ -3495,7 +3495,7 @@ const DEFAULT_DATA = {
         0,
         18000,
         10000,
-        0,
+        10000,
         0,
         0
       ]
@@ -5000,7 +5000,7 @@ const DEFAULT_DATA = {
         0,
         1,
         0,
-        0,
+        2,
         0,
         0
       ],
@@ -5014,7 +5014,7 @@ const DEFAULT_DATA = {
         0,
         10000,
         0,
-        0,
+        20000,
         0,
         0
       ]
@@ -5854,11 +5854,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 9,
-        "gross": 83000,
-        "net": 83000,
+        "qty": 14,
+        "gross": 148000,
+        "net": 148000,
         "discount": 0,
-        "count": 5
+        "count": 9
       },
       {
         "qty": 0,
@@ -5940,11 +5940,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 0,
-        "gross": 0,
-        "net": 0,
+        "qty": 2,
+        "gross": 55000,
+        "net": 55000,
         "discount": 0,
-        "count": 0
+        "count": 2
       },
       {
         "qty": 0,
@@ -6392,7 +6392,7 @@ const DEFAULT_DATA = {
   "productPerformance": {
     "totalCount": 146,
     "zeroOrOneCount": 26,
-    "lessThan5Count": 68,
+    "lessThan5Count": 67,
     "underperformers": [
       "Ribbon Hair Band (S)(1)",
       "Tyde's 1(1)",
@@ -6443,8 +6443,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Hair Band (S)",
-        "qty": 61,
-        "amount": 181200
+        "qty": 62,
+        "amount": 184200
       },
       {
         "name": "Dried Fruits (S)",
@@ -6568,8 +6568,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Fortune Fish (S)",
-        "qty": 59,
-        "amount": 546000
+        "qty": 60,
+        "amount": 556000
       },
       {
         "name": "Kitenge Reflector",
@@ -6718,8 +6718,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Laptop Pouch (L)",
-        "qty": 13,
-        "amount": 665600
+        "qty": 14,
+        "amount": 717600
       },
       {
         "name": "Wrist pouch",
@@ -6748,8 +6748,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Wrist Bag (L)",
-        "qty": 35,
-        "amount": 809500
+        "qty": 36,
+        "amount": 834500
       },
       {
         "name": "K. Lucky Bag Kitenge",
@@ -6788,8 +6788,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Seahorse (S)",
-        "qty": 34,
-        "amount": 307000
+        "qty": 35,
+        "amount": 317000
       },
       {
         "name": "Apoyo Laptop Pouch (S)",
@@ -7028,8 +7028,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Fruit Coaster (Pumpkin)",
-        "qty": 3,
-        "amount": 28000
+        "qty": 5,
+        "amount": 48000
       },
       {
         "name": "Cup holder",
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-03T03:17:02.742Z"
+  "lastUploadedAt": "2026-10-04T04:36:12.282Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
