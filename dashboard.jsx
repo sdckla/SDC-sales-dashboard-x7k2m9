@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    9,
+    12,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    3,
+    4,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    5,
+    11,
     0,
     0
   ],
@@ -803,13 +803,13 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Sat",
-      "visits": 293,
-      "contacts": 77,
-      "revenue": 8507800
+      "visits": 295,
+      "contacts": 78,
+      "revenue": 8627800
     },
     {
       "day": "Sun",
-      "visits": 89,
+      "visits": 90,
       "contacts": 26,
       "revenue": 4191700
     }
@@ -821,7 +821,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Korea",
-      "count": 69
+      "count": 70
     },
     {
       "origin": "Germany",
@@ -868,7 +868,7 @@ const DEFAULT_DATA = {
     {
       "keyword": "market",
       "label": "Market/Event",
-      "count": 43
+      "count": 44
     },
     {
       "keyword": "training",
@@ -6307,13 +6307,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 275,
+    "operatingDays": 277,
     "zeroVisitDays": 78,
-    "zeroVisitPct": 0.28363636363636363,
-    "zeroSalesDays": 112,
-    "zeroSalesPct": 0.4072727272727273,
-    "top5Concentration": 0.18690622022594255,
-    "totalRevenue": 34898250
+    "zeroVisitPct": 0.2815884476534296,
+    "zeroSalesDays": 113,
+    "zeroSalesPct": 0.40794223826714804,
+    "top5Concentration": 0.18626573286786174,
+    "totalRevenue": 35018250
   },
   "marketEvents": [
     {
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-04T04:36:12.282Z"
+  "lastUploadedAt": "2026-10-05T03:09:18.224Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
