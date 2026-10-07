@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      203000,
+      650000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    16,
+    17,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    6,
+    7,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    11,
+    15,
     0,
     0
   ],
@@ -779,9 +779,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Tue",
-      "visits": 118,
-      "contacts": 36,
-      "revenue": 4225100
+      "visits": 119,
+      "contacts": 37,
+      "revenue": 4340100
     },
     {
       "day": "Wed",
@@ -805,7 +805,7 @@ const DEFAULT_DATA = {
       "day": "Sat",
       "visits": 295,
       "contacts": 78,
-      "revenue": 8627800
+      "revenue": 8959800
     },
     {
       "day": "Sun",
@@ -821,7 +821,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Korea",
-      "count": 70
+      "count": 71
     },
     {
       "origin": "Germany",
@@ -837,7 +837,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "France",
-      "count": 8
+      "count": 9
     },
     {
       "origin": "China",
@@ -855,7 +855,7 @@ const DEFAULT_DATA = {
   "visitorType": [
     {
       "type": "Returning / Loyal Customers",
-      "count": 68,
+      "count": 69,
       "color": "#2F6E68"
     },
     {
@@ -868,7 +868,7 @@ const DEFAULT_DATA = {
     {
       "keyword": "market",
       "label": "Market/Event",
-      "count": 44
+      "count": 46
     },
     {
       "keyword": "training",
@@ -899,8 +899,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Casual bag",
-      "qty": 18,
-      "amount": 1268000
+      "qty": 19,
+      "amount": 1348000
     },
     {
       "name": "Kitenge Reflector",
@@ -913,14 +913,14 @@ const DEFAULT_DATA = {
       "amount": 1150000
     },
     {
+      "name": "T-shirt",
+      "qty": 56,
+      "amount": 1091750
+    },
+    {
       "name": "Mula Pouch",
       "qty": 96,
       "amount": 1042800
-    },
-    {
-      "name": "T-shirt",
-      "qty": 53,
-      "amount": 986750
     },
     {
       "name": "Pot Gloves",
@@ -938,23 +938,23 @@ const DEFAULT_DATA = {
       "amount": 834500
     },
     {
-      "name": "Apoyo Cup Coaster",
-      "qty": 148,
-      "amount": 773400.984
+      "name": "Turtle (L)",
+      "qty": 28,
+      "amount": 789500
     }
   ],
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 15921899.969999999
+      "amount": 16200899.969999999
     },
     {
       "method": "Card",
-      "amount": 12386300.504
+      "amount": 12501300.504
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 5663550
+      "amount": 5716550
     },
     {
       "method": "Bank",
@@ -968,19 +968,19 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1447,
-      "gross": 25628500,
-      "net": 23604349.490000002,
+      "qty": 1468,
+      "gross": 26072500,
+      "net": 24048349.490000002,
       "discount": 2024150.51,
-      "count": 699
+      "count": 714
     },
     {
       "vendor": "Apoyo",
-      "qty": 617,
-      "gross": 8376000,
-      "net": 8048800.984,
+      "qty": 618,
+      "gross": 8379000,
+      "net": 8051800.984,
       "discount": 327199.016,
-      "count": 255
+      "count": 256
     },
     {
       "vendor": "4Africa",
@@ -1040,7 +1040,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      148000,
+      592000,
       0,
       0
     ],
@@ -1054,7 +1054,7 @@ const DEFAULT_DATA = {
       343000,
       1163300,
       433300,
-      55000,
+      58000,
       0,
       0
     ],
@@ -1125,7 +1125,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    4,
+    7,
     0,
     0
   ],
@@ -1139,7 +1139,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    16,
+    38,
     0,
     0
   ],
@@ -1187,7 +1187,7 @@ const DEFAULT_DATA = {
         0,
         4,
         1,
-        0,
+        1,
         0,
         0
       ],
@@ -1201,7 +1201,7 @@ const DEFAULT_DATA = {
         0,
         272000,
         80000,
-        0,
+        80000,
         0,
         0
       ]
@@ -1342,7 +1342,7 @@ const DEFAULT_DATA = {
         8,
         12,
         3,
-        1,
+        2,
         0,
         0
       ],
@@ -1356,7 +1356,7 @@ const DEFAULT_DATA = {
         24000,
         36000,
         8700,
-        3000,
+        6000,
         0,
         0
       ]
@@ -1435,7 +1435,7 @@ const DEFAULT_DATA = {
         2,
         0,
         7,
-        0,
+        3,
         0,
         0
       ],
@@ -1449,7 +1449,7 @@ const DEFAULT_DATA = {
         60000,
         0,
         207500,
-        0,
+        90000,
         0,
         0
       ]
@@ -1745,7 +1745,7 @@ const DEFAULT_DATA = {
         0,
         2,
         1,
-        1,
+        4,
         0,
         0
       ],
@@ -1759,7 +1759,7 @@ const DEFAULT_DATA = {
         0,
         24700,
         13000,
-        13000,
+        52000,
         0,
         0
       ]
@@ -1776,7 +1776,7 @@ const DEFAULT_DATA = {
         2,
         6,
         0,
-        1,
+        2,
         0,
         0
       ],
@@ -1790,7 +1790,7 @@ const DEFAULT_DATA = {
         30000,
         81000,
         0,
-        15000,
+        30000,
         0,
         0
       ]
@@ -2117,7 +2117,7 @@ const DEFAULT_DATA = {
         1,
         4,
         1,
-        1,
+        3,
         0,
         0
       ],
@@ -2131,7 +2131,7 @@ const DEFAULT_DATA = {
         5000,
         40000,
         10000,
-        10000,
+        30000,
         0,
         0
       ]
@@ -2303,7 +2303,7 @@ const DEFAULT_DATA = {
         0,
         1,
         2,
-        0,
+        2,
         0,
         0
       ],
@@ -2317,7 +2317,7 @@ const DEFAULT_DATA = {
         0,
         15000,
         30000,
-        0,
+        30000,
         0,
         0
       ]
@@ -2644,7 +2644,7 @@ const DEFAULT_DATA = {
         2,
         4,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -2658,7 +2658,7 @@ const DEFAULT_DATA = {
         30000,
         60000,
         0,
-        0,
+        15000,
         0,
         0
       ]
@@ -2768,7 +2768,7 @@ const DEFAULT_DATA = {
         2,
         19,
         4,
-        0,
+        1,
         0,
         0
       ],
@@ -2782,7 +2782,7 @@ const DEFAULT_DATA = {
         14000,
         126000,
         28000,
-        0,
+        7000,
         0,
         0
       ]
@@ -3481,7 +3481,7 @@ const DEFAULT_DATA = {
         0,
         2,
         1,
-        1,
+        3,
         0,
         0
       ],
@@ -3495,7 +3495,7 @@ const DEFAULT_DATA = {
         0,
         18000,
         10000,
-        10000,
+        30000,
         0,
         0
       ]
@@ -3977,7 +3977,7 @@ const DEFAULT_DATA = {
         7,
         27,
         2,
-        0,
+        3,
         0,
         0
       ],
@@ -3991,7 +3991,7 @@ const DEFAULT_DATA = {
         105000,
         518750,
         58000,
-        0,
+        105000,
         0,
         0
       ]
@@ -4752,7 +4752,7 @@ const DEFAULT_DATA = {
         0,
         2,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -4766,7 +4766,7 @@ const DEFAULT_DATA = {
         0,
         16000,
         0,
-        0,
+        8000,
         0,
         0
       ]
@@ -5124,7 +5124,7 @@ const DEFAULT_DATA = {
         0,
         2,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -5138,7 +5138,7 @@ const DEFAULT_DATA = {
         0,
         30000,
         0,
-        0,
+        15000,
         0,
         0
       ]
@@ -5854,11 +5854,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 14,
-        "gross": 148000,
-        "net": 148000,
+        "qty": 35,
+        "gross": 592000,
+        "net": 592000,
         "discount": 0,
-        "count": 9
+        "count": 24
       },
       {
         "qty": 0,
@@ -5940,11 +5940,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 2,
-        "gross": 55000,
-        "net": 55000,
+        "qty": 3,
+        "gross": 58000,
+        "net": 58000,
         "discount": 0,
-        "count": 2
+        "count": 3
       },
       {
         "qty": 0,
@@ -6307,13 +6307,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 278,
+    "operatingDays": 279,
     "zeroVisitDays": 78,
-    "zeroVisitPct": 0.2805755395683453,
+    "zeroVisitPct": 0.27956989247311825,
     "zeroSalesDays": 114,
-    "zeroSalesPct": 0.41007194244604317,
-    "top5Concentration": 0.18626573286786174,
-    "totalRevenue": 35018250
+    "zeroSalesPct": 0.40860215053763443,
+    "top5Concentration": 0.18391806063682056,
+    "totalRevenue": 35465250
   },
   "marketEvents": [
     {
@@ -6418,8 +6418,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Casual bag",
-        "qty": 18,
-        "amount": 1268000
+        "qty": 19,
+        "amount": 1348000
       },
       {
         "name": "Bottle Sticker",
@@ -6443,8 +6443,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Hair Band (S)",
-        "qty": 62,
-        "amount": 184200
+        "qty": 63,
+        "amount": 187200
       },
       {
         "name": "Dried Fruits (S)",
@@ -6458,8 +6458,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Turtle (L)",
-        "qty": 25,
-        "amount": 699500
+        "qty": 28,
+        "amount": 789500
       },
       {
         "name": "Whale (S)",
@@ -6508,13 +6508,13 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Head band",
-        "qty": 17,
-        "amount": 219700
+        "qty": 20,
+        "amount": 258700
       },
       {
         "name": "Present pouch (L)",
-        "qty": 25,
-        "amount": 340500
+        "qty": 26,
+        "amount": 355500
       },
       {
         "name": "4Africa Lion Crochet",
@@ -6568,8 +6568,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Fortune Fish (S)",
-        "qty": 60,
-        "amount": 556000
+        "qty": 62,
+        "amount": 576000
       },
       {
         "name": "Kitenge Reflector",
@@ -6598,8 +6598,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Seahorse (L)",
-        "qty": 13,
-        "amount": 192000
+        "qty": 15,
+        "amount": 222000
       },
       {
         "name": "Shoppers Bag",
@@ -6653,8 +6653,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Shoppers bag V3",
-        "qty": 20,
-        "amount": 291000
+        "qty": 21,
+        "amount": 306000
       },
       {
         "name": "Apoyo Sports Bag (M)",
@@ -6673,8 +6673,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Flower keyring",
-        "qty": 94,
-        "amount": 514699.5
+        "qty": 95,
+        "amount": 521699.5
       },
       {
         "name": "Pot Gloves",
@@ -6788,8 +6788,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Seahorse (S)",
-        "qty": 35,
-        "amount": 317000
+        "qty": 37,
+        "amount": 337000
       },
       {
         "name": "Apoyo Laptop Pouch (S)",
@@ -6863,8 +6863,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "T-shirt",
-        "qty": 53,
-        "amount": 986750
+        "qty": 56,
+        "amount": 1091750
       },
       {
         "name": "4Africa Rhino",
@@ -6988,8 +6988,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Puff Hair Band (L)",
-        "qty": 5,
-        "amount": 40000
+        "qty": 6,
+        "amount": 48000
       },
       {
         "name": "Apoyo Animal (L)",
@@ -7048,8 +7048,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Make up pouch",
-        "qty": 6,
-        "amount": 84000
+        "qty": 7,
+        "amount": 99000
       },
       {
         "name": "fortune fish (L)",
@@ -11921,7 +11921,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-06T03:08:04.644Z"
+  "lastUploadedAt": "2026-10-07T03:08:53.982Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
