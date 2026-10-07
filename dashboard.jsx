@@ -760,6 +760,28 @@ const DEFAULT_DATA = {
       "category": "Government Office",
       "product": "standard pouch",
       "qty": 30
+    },
+    {
+      "id": 38,
+      "groupId": 33,
+      "month": 8,
+      "customer": "Coffee at last",
+      "amount": 2000000,
+      "note": "",
+      "category": "Hotel/Restaurant",
+      "product": "DTF logo print",
+      "qty": 80
+    },
+    {
+      "id": 39,
+      "groupId": 34,
+      "month": 8,
+      "customer": "Korea Embassy",
+      "amount": 307500,
+      "note": "",
+      "category": "Government Office",
+      "product": "table runner",
+      "qty": 1
     }
   ],
   "customLeads": [
@@ -6387,6 +6409,15 @@ const DEFAULT_DATA = {
       "revenue": 701000,
       "qty": 33,
       "invoices": 20
+    },
+    {
+      "id": 9,
+      "date": "2026-10-03",
+      "month": 9,
+      "name": "Alliance Francaise Market",
+      "revenue": 332000,
+      "qty": 18,
+      "invoices": 12
     }
   ],
   "productPerformance": {
