@@ -722,7 +722,7 @@ const DEFAULT_DATA = {
       "groupId": 32,
       "month": 8,
       "customer": "KOICA Kenya",
-      "amount": 1946000,
+      "amount": 1893500,
       "note": "",
       "category": "Government Office",
       "product": "shoppers bag",
