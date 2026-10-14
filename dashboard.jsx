@@ -13360,6 +13360,16 @@ function mergeWithDefaults(defaults, loaded) {
   // so their freshness is already handled by the defaultsAreNewer block. No separate merge
   // needed here anymore -- the initial `{...defaults, ...loaded}` spread already provides the
   // right fallback on either side.
+  // The monthly series above keep "whichever side is non-zero", which is wrong for a month that
+  // is still in progress: a browser that saved October = 650,000 would keep showing it even after
+  // the daily automation bakes in October = 766,000 (a non-zero old value always beat the new
+  // one). The baked-in series are already cumulative (the automation merges each run onto the
+  // previous data), so when the file's data is newer than this browser's save, use them outright.
+  if (defaultsAreNewer) {
+    ["channels", "vendorMonthly", "vendorMonthlyDetail", "posMonthlyQty", "posInvoiceCounts", "visits", "contacts", "sold"].forEach((k) => {
+      if (defaults[k] !== undefined) merged[k] = defaults[k];
+    });
+  }
   // productGroups는, 저장된 목록에 없는 기본값 그룹만 추가해줌 (id 기준)
   if (loaded && Array.isArray(loaded.productGroups)) {
     const loadedGroupIds = new Set(loaded.productGroups.map((g) => g.id));
