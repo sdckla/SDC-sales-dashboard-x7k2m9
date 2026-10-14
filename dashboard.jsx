@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      650000,
+      766000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    19,
+    21,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    8,
+    10,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    15,
+    19,
     0,
     0
   ],
@@ -344,7 +344,9 @@ const DEFAULT_DATA = {
     "bookbagv2zip": "SDC",
     "men'swallet": "SDC",
     "apoyhairband(s)": "SDC",
-    "turtle(xl)": "SDC"
+    "turtle(xl)": "SDC",
+    "sdclaptoppouch": "SDC",
+    "cozypouch": "SDC"
   },
   "extraChannels": [
     {
@@ -801,9 +803,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Tue",
-      "visits": 119,
-      "contacts": 37,
-      "revenue": 4340100
+      "visits": 121,
+      "contacts": 39,
+      "revenue": 4456100
     },
     {
       "day": "Wed",
@@ -847,7 +849,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Germany",
-      "count": 16
+      "count": 17
     },
     {
       "origin": "USA",
@@ -877,7 +879,7 @@ const DEFAULT_DATA = {
   "visitorType": [
     {
       "type": "Returning / Loyal Customers",
-      "count": 69,
+      "count": 70,
       "color": "#2F6E68"
     },
     {
@@ -968,7 +970,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16200899.969999999
+      "amount": 16256899.969999999
     },
     {
       "method": "Card",
@@ -976,7 +978,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 5716550
+      "amount": 5776550
     },
     {
       "method": "Bank",
@@ -990,19 +992,19 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1468,
-      "gross": 26072500,
-      "net": 24048349.490000002,
+      "qty": 1470,
+      "gross": 26132500,
+      "net": 24108349.490000002,
       "discount": 2024150.51,
-      "count": 714
+      "count": 716
     },
     {
       "vendor": "Apoyo",
-      "qty": 618,
-      "gross": 8379000,
-      "net": 8051800.984,
+      "qty": 620,
+      "gross": 8435000,
+      "net": 8107800.984,
       "discount": 327199.016,
-      "count": 256
+      "count": 258
     },
     {
       "vendor": "4Africa",
@@ -1062,7 +1064,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      592000,
+      652000,
       0,
       0
     ],
@@ -1076,7 +1078,7 @@ const DEFAULT_DATA = {
       343000,
       1163300,
       433300,
-      58000,
+      114000,
       0,
       0
     ],
@@ -1147,7 +1149,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    7,
+    9,
     0,
     0
   ],
@@ -1161,7 +1163,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    38,
+    42,
     0,
     0
   ],
@@ -2728,7 +2730,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -2742,7 +2744,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        25000,
         0,
         0
       ]
@@ -3906,7 +3908,7 @@ const DEFAULT_DATA = {
         0,
         1,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -3920,7 +3922,7 @@ const DEFAULT_DATA = {
         0,
         31000,
         0,
-        0,
+        31000,
         0,
         0
       ]
@@ -5722,6 +5724,68 @@ const DEFAULT_DATA = {
         0,
         0
       ]
+    },
+    {
+      "name": "SDC Laptop Pouch",
+      "qty": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "amount": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        40000,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Cozy Pouch",
+      "qty": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "amount": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        20000,
+        0,
+        0
+      ]
     }
   ],
   "vendorMonthlyDetail": {
@@ -5876,11 +5940,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 35,
-        "gross": 592000,
-        "net": 592000,
+        "qty": 37,
+        "gross": 652000,
+        "net": 652000,
         "discount": 0,
-        "count": 24
+        "count": 26
       },
       {
         "qty": 0,
@@ -5962,11 +6026,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 3,
-        "gross": 58000,
-        "net": 58000,
+        "qty": 5,
+        "gross": 114000,
+        "net": 114000,
         "discount": 0,
-        "count": 3
+        "count": 5
       },
       {
         "qty": 0,
@@ -6329,13 +6393,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 283,
-    "zeroVisitDays": 81,
-    "zeroVisitPct": 0.2862190812720848,
-    "zeroSalesDays": 118,
-    "zeroSalesPct": 0.4169611307420495,
-    "top5Concentration": 0.18391806063682056,
-    "totalRevenue": 35465250
+    "operatingDays": 286,
+    "zeroVisitDays": 83,
+    "zeroVisitPct": 0.2902097902097902,
+    "zeroSalesDays": 120,
+    "zeroSalesPct": 0.4195804195804196,
+    "top5Concentration": 0.18331846126822413,
+    "totalRevenue": 35581250
   },
   "marketEvents": [
     {
@@ -6421,9 +6485,9 @@ const DEFAULT_DATA = {
     }
   ],
   "productPerformance": {
-    "totalCount": 146,
-    "zeroOrOneCount": 26,
-    "lessThan5Count": 67,
+    "totalCount": 148,
+    "zeroOrOneCount": 28,
+    "lessThan5Count": 69,
     "underperformers": [
       "Ribbon Hair Band (S)(1)",
       "Tyde's 1(1)",
@@ -6694,8 +6758,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Sports Bag (S)",
-        "qty": 6,
-        "amount": 147500
+        "qty": 7,
+        "amount": 172500
       },
       {
         "name": "Upcycled Tote bag",
@@ -6879,8 +6943,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Sports Bag (L)",
-        "qty": 5,
-        "amount": 148800
+        "qty": 6,
+        "amount": 179800
       },
       {
         "name": "Apoyo Pencil Case",
@@ -7171,6 +7235,16 @@ const DEFAULT_DATA = {
         "name": "Turtle (XL)",
         "qty": 1,
         "amount": 100000
+      },
+      {
+        "name": "SDC Laptop Pouch",
+        "qty": 1,
+        "amount": 40000
+      },
+      {
+        "name": "Cozy Pouch",
+        "qty": 1,
+        "amount": 20000
       }
     ]
   },
@@ -11952,7 +12026,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-13T03:10:04.967Z"
+  "lastUploadedAt": "2026-10-14T03:20:38.637Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
