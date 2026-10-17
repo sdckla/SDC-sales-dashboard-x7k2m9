@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      806000,
+      821000,
       0,
       0
     ],
@@ -75,7 +75,7 @@ const DEFAULT_DATA = {
       2573250,
       2348500,
       8692250,
-      0,
+      5332400,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    22,
+    25,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    11,
+    14,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    21,
+    22,
     0,
     0
   ],
@@ -821,9 +821,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Fri",
-      "visits": 94,
-      "contacts": 29,
-      "revenue": 6167500
+      "visits": 97,
+      "contacts": 32,
+      "revenue": 6182500
     },
     {
       "day": "Sat",
@@ -841,7 +841,7 @@ const DEFAULT_DATA = {
   "visitorOrigin": [
     {
       "origin": "Uganda",
-      "count": 83
+      "count": 84
     },
     {
       "origin": "Korea",
@@ -892,7 +892,7 @@ const DEFAULT_DATA = {
     {
       "keyword": "market",
       "label": "Market/Event",
-      "count": 46
+      "count": 47
     },
     {
       "keyword": "training",
@@ -918,8 +918,8 @@ const DEFAULT_DATA = {
   "topProducts": [
     {
       "name": "Apoyo Animal (S) + Keyring",
-      "qty": 190,
-      "amount": 2766000
+      "qty": 191,
+      "amount": 2781000
     },
     {
       "name": "Casual bag",
@@ -970,7 +970,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16296899.969999999
+      "amount": 16311899.969999999
     },
     {
       "method": "Card",
@@ -1000,11 +1000,11 @@ const DEFAULT_DATA = {
     },
     {
       "vendor": "Apoyo",
-      "qty": 620,
-      "gross": 8435000,
-      "net": 8107800.984,
+      "qty": 621,
+      "gross": 8450000,
+      "net": 8122800.984,
       "discount": 327199.016,
-      "count": 258
+      "count": 259
     },
     {
       "vendor": "4Africa",
@@ -1078,7 +1078,7 @@ const DEFAULT_DATA = {
       343000,
       1163300,
       433300,
-      114000,
+      129000,
       0,
       0
     ],
@@ -1149,7 +1149,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    10,
+    11,
     0,
     0
   ],
@@ -1163,7 +1163,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    44,
+    45,
     0,
     0
   ],
@@ -1955,7 +1955,7 @@ const DEFAULT_DATA = {
         8,
         31,
         9,
-        0,
+        1,
         0,
         0
       ],
@@ -1969,7 +1969,7 @@ const DEFAULT_DATA = {
         120000,
         453000,
         135000,
-        0,
+        15000,
         0,
         0
       ]
@@ -6026,11 +6026,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 5,
-        "gross": 114000,
-        "net": 114000,
+        "qty": 6,
+        "gross": 129000,
+        "net": 129000,
         "discount": 0,
-        "count": 5
+        "count": 6
       },
       {
         "qty": 0,
@@ -6393,13 +6393,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 287,
-    "zeroVisitDays": 83,
-    "zeroVisitPct": 0.289198606271777,
-    "zeroSalesDays": 120,
-    "zeroSalesPct": 0.4181184668989547,
-    "top5Concentration": 0.18311260834473805,
-    "totalRevenue": 35621250
+    "operatingDays": 289,
+    "zeroVisitDays": 84,
+    "zeroVisitPct": 0.2906574394463668,
+    "zeroSalesDays": 121,
+    "zeroSalesPct": 0.4186851211072664,
+    "top5Concentration": 0.1830355326388158,
+    "totalRevenue": 35636250
   },
   "marketEvents": [
     {
@@ -6633,8 +6633,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Animal (S) + Keyring",
-        "qty": 190,
-        "amount": 2766000
+        "qty": 191,
+        "amount": 2781000
       },
       {
         "name": "Phone Case Card",
@@ -12026,7 +12026,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-16T03:19:51.435Z"
+  "lastUploadedAt": "2026-10-17T03:18:48.989Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
