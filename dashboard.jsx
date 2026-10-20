@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      926000,
+      976000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    26,
+    29,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    15,
+    16,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    26,
+    27,
     0,
     0
   ],
@@ -797,9 +797,9 @@ const DEFAULT_DATA = {
   "dowStats": [
     {
       "day": "Mon",
-      "visits": 78,
-      "contacts": 30,
-      "revenue": 2791650
+      "visits": 79,
+      "contacts": 31,
+      "revenue": 2841650
     },
     {
       "day": "Tue",
@@ -833,7 +833,7 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Sun",
-      "visits": 90,
+      "visits": 92,
       "contacts": 26,
       "revenue": 4191700
     }
@@ -873,7 +873,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Other",
-      "count": 22
+      "count": 23
     }
   ],
   "visitorType": [
@@ -953,8 +953,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Book bag V2",
-      "qty": 37,
-      "amount": 867000
+      "qty": 39,
+      "amount": 917000
     },
     {
       "name": "Wrist Bag (L)",
@@ -974,7 +974,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "Card",
-      "amount": 12501300.504
+      "amount": 12551300.504
     },
     {
       "method": "MTN Mobile Money",
@@ -992,11 +992,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1480,
-      "gross": 26277500,
-      "net": 24253349.490000002,
+      "qty": 1482,
+      "gross": 26327500,
+      "net": 24303349.490000002,
       "discount": 2024150.51,
-      "count": 722
+      "count": 723
     },
     {
       "vendor": "Apoyo",
@@ -1064,7 +1064,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      797000,
+      847000,
       0,
       0
     ],
@@ -1149,7 +1149,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    12,
+    13,
     0,
     0
   ],
@@ -1163,7 +1163,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    53,
+    55,
     0,
     0
   ],
@@ -3474,7 +3474,7 @@ const DEFAULT_DATA = {
         0,
         6,
         2,
-        2,
+        4,
         0,
         0
       ],
@@ -3488,7 +3488,7 @@ const DEFAULT_DATA = {
         0,
         147500,
         50000,
-        50000,
+        100000,
         0,
         0
       ]
@@ -5940,11 +5940,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 47,
-        "gross": 797000,
-        "net": 797000,
+        "qty": 49,
+        "gross": 847000,
+        "net": 847000,
         "discount": 0,
-        "count": 32
+        "count": 33
       },
       {
         "qty": 0,
@@ -6393,13 +6393,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 290,
+    "operatingDays": 292,
     "zeroVisitDays": 84,
-    "zeroVisitPct": 0.2896551724137931,
-    "zeroSalesDays": 121,
-    "zeroSalesPct": 0.41724137931034483,
-    "top5Concentration": 0.18249781415031652,
-    "totalRevenue": 35741250
+    "zeroVisitPct": 0.2876712328767123,
+    "zeroSalesDays": 122,
+    "zeroSalesPct": 0.4178082191780822,
+    "top5Concentration": 0.18224286662242867,
+    "totalRevenue": 35791250
   },
   "marketEvents": [
     {
@@ -6878,8 +6878,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Book bag V2",
-        "qty": 37,
-        "amount": 867000
+        "qty": 39,
+        "amount": 917000
       },
       {
         "name": "Seahorse (S)",
@@ -12026,7 +12026,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-19T03:22:15.780Z"
+  "lastUploadedAt": "2026-10-20T03:21:13.767Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
