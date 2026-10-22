@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      976000,
+      1001000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    29,
+    32,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    16,
+    18,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    27,
+    28,
     0,
     0
   ],
@@ -346,7 +346,8 @@ const DEFAULT_DATA = {
     "apoyhairband(s)": "SDC",
     "turtle(xl)": "SDC",
     "sdclaptoppouch": "SDC",
-    "cozypouch": "SDC"
+    "cozypouch": "SDC",
+    "bandanacap": "SDC"
   },
   "extraChannels": [
     {
@@ -809,9 +810,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Wed",
-      "visits": 84,
-      "contacts": 27,
-      "revenue": 4873500
+      "visits": 87,
+      "contacts": 29,
+      "revenue": 4898500
     },
     {
       "day": "Thu",
@@ -868,8 +869,8 @@ const DEFAULT_DATA = {
       "count": 7
     },
     {
-      "origin": "Japan",
-      "count": 5
+      "origin": "Ethiopia",
+      "count": 6
     },
     {
       "origin": "Other",
@@ -970,7 +971,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16416899.969999999
+      "amount": 16441899.969999999
     },
     {
       "method": "Card",
@@ -992,11 +993,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1482,
-      "gross": 26327500,
-      "net": 24303349.490000002,
+      "qty": 1483,
+      "gross": 26352500,
+      "net": 24328349.490000002,
       "discount": 2024150.51,
-      "count": 723
+      "count": 724
     },
     {
       "vendor": "Apoyo",
@@ -1064,7 +1065,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      847000,
+      872000,
       0,
       0
     ],
@@ -1149,7 +1150,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    13,
+    14,
     0,
     0
   ],
@@ -1163,7 +1164,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    55,
+    56,
     0,
     0
   ],
@@ -5786,6 +5787,37 @@ const DEFAULT_DATA = {
         0,
         0
       ]
+    },
+    {
+      "name": "Bandana Cap",
+      "qty": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "amount": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        25000,
+        0,
+        0
+      ]
     }
   ],
   "vendorMonthlyDetail": {
@@ -5940,11 +5972,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 49,
-        "gross": 847000,
-        "net": 847000,
+        "qty": 50,
+        "gross": 872000,
+        "net": 872000,
         "discount": 0,
-        "count": 33
+        "count": 34
       },
       {
         "qty": 0,
@@ -6393,13 +6425,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 292,
-    "zeroVisitDays": 84,
-    "zeroVisitPct": 0.2876712328767123,
-    "zeroSalesDays": 122,
-    "zeroSalesPct": 0.4178082191780822,
-    "top5Concentration": 0.18224286662242867,
-    "totalRevenue": 35791250
+    "operatingDays": 294,
+    "zeroVisitDays": 85,
+    "zeroVisitPct": 0.2891156462585034,
+    "zeroSalesDays": 123,
+    "zeroSalesPct": 0.41836734693877553,
+    "top5Concentration": 0.18211565979129585,
+    "totalRevenue": 35816250
   },
   "marketEvents": [
     {
@@ -6485,9 +6517,9 @@ const DEFAULT_DATA = {
     }
   ],
   "productPerformance": {
-    "totalCount": 148,
-    "zeroOrOneCount": 28,
-    "lessThan5Count": 69,
+    "totalCount": 149,
+    "zeroOrOneCount": 29,
+    "lessThan5Count": 70,
     "underperformers": [
       "Ribbon Hair Band (S)(1)",
       "Tyde's 1(1)",
@@ -7245,6 +7277,11 @@ const DEFAULT_DATA = {
         "name": "Cozy Pouch",
         "qty": 1,
         "amount": 20000
+      },
+      {
+        "name": "Bandana Cap",
+        "qty": 1,
+        "amount": 25000
       }
     ]
   },
@@ -12026,7 +12063,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-21T03:22:31.431Z"
+  "lastUploadedAt": "2026-10-22T03:22:02.163Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
