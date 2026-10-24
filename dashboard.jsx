@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      1001000,
+      1076000,
       0,
       0
     ],
@@ -824,7 +824,7 @@ const DEFAULT_DATA = {
       "day": "Fri",
       "visits": 97,
       "contacts": 32,
-      "revenue": 6182500
+      "revenue": 6257500
     },
     {
       "day": "Sat",
@@ -964,14 +964,14 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Turtle (L)",
-      "qty": 28,
-      "amount": 789500
+      "qty": 29,
+      "amount": 819500
     }
   ],
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16441899.969999999
+      "amount": 16491899.969999999
     },
     {
       "method": "Card",
@@ -979,7 +979,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 5776550
+      "amount": 5801550
     },
     {
       "method": "Bank",
@@ -993,11 +993,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1483,
-      "gross": 26352500,
-      "net": 24328349.490000002,
+      "qty": 1486,
+      "gross": 26427500,
+      "net": 24403349.490000002,
       "discount": 2024150.51,
-      "count": 724
+      "count": 727
     },
     {
       "vendor": "Apoyo",
@@ -1065,7 +1065,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      872000,
+      947000,
       0,
       0
     ],
@@ -1150,7 +1150,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    14,
+    16,
     0,
     0
   ],
@@ -1164,7 +1164,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    56,
+    59,
     0,
     0
   ],
@@ -1460,7 +1460,7 @@ const DEFAULT_DATA = {
         2,
         0,
         7,
-        3,
+        4,
         0,
         0
       ],
@@ -1474,7 +1474,7 @@ const DEFAULT_DATA = {
         60000,
         0,
         207500,
-        90000,
+        120000,
         0,
         0
       ]
@@ -2979,7 +2979,7 @@ const DEFAULT_DATA = {
         0,
         1,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -2993,7 +2993,7 @@ const DEFAULT_DATA = {
         0,
         18000,
         0,
-        0,
+        20000,
         0,
         0
       ]
@@ -5800,7 +5800,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        1,
+        2,
         0,
         0
       ],
@@ -5814,7 +5814,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        25000,
+        50000,
         0,
         0
       ]
@@ -5972,11 +5972,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 50,
-        "gross": 872000,
-        "net": 872000,
+        "qty": 53,
+        "gross": 947000,
+        "net": 947000,
         "discount": 0,
-        "count": 34
+        "count": 37
       },
       {
         "qty": 0,
@@ -6425,13 +6425,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 294,
-    "zeroVisitDays": 85,
-    "zeroVisitPct": 0.2891156462585034,
-    "zeroSalesDays": 123,
-    "zeroSalesPct": 0.41836734693877553,
-    "top5Concentration": 0.18211565979129585,
-    "totalRevenue": 35816250
+    "operatingDays": 296,
+    "zeroVisitDays": 87,
+    "zeroVisitPct": 0.2939189189189189,
+    "zeroSalesDays": 124,
+    "zeroSalesPct": 0.4189189189189189,
+    "top5Concentration": 0.1817351025667816,
+    "totalRevenue": 35891250
   },
   "marketEvents": [
     {
@@ -6518,7 +6518,7 @@ const DEFAULT_DATA = {
   ],
   "productPerformance": {
     "totalCount": 149,
-    "zeroOrOneCount": 29,
+    "zeroOrOneCount": 28,
     "lessThan5Count": 70,
     "underperformers": [
       "Ribbon Hair Band (S)(1)",
@@ -6585,8 +6585,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Turtle (L)",
-        "qty": 28,
-        "amount": 789500
+        "qty": 29,
+        "amount": 819500
       },
       {
         "name": "Whale (S)",
@@ -6830,8 +6830,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Whale (L)",
-        "qty": 15,
-        "amount": 282000
+        "qty": 16,
+        "amount": 302000
       },
       {
         "name": "Jerry Bottle",
@@ -7280,8 +7280,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Bandana Cap",
-        "qty": 1,
-        "amount": 25000
+        "qty": 2,
+        "amount": 50000
       }
     ]
   },
@@ -12063,7 +12063,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-23T03:22:20.861Z"
+  "lastUploadedAt": "2026-10-24T03:20:05.335Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
