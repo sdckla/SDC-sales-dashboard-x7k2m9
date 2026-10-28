@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      1166000,
+      1456000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    35,
+    42,
     0,
     0
   ],
@@ -174,7 +174,7 @@ const DEFAULT_DATA = {
     24,
     23,
     12,
-    20,
+    22,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    33,
+    42,
     0,
     0
   ],
@@ -804,9 +804,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Tue",
-      "visits": 121,
-      "contacts": 39,
-      "revenue": 4456100
+      "visits": 128,
+      "contacts": 41,
+      "revenue": 4746100
     },
     {
       "day": "Wed",
@@ -842,11 +842,11 @@ const DEFAULT_DATA = {
   "visitorOrigin": [
     {
       "origin": "Uganda",
-      "count": 84
+      "count": 85
     },
     {
       "origin": "Korea",
-      "count": 72
+      "count": 74
     },
     {
       "origin": "Germany",
@@ -880,7 +880,7 @@ const DEFAULT_DATA = {
   "visitorType": [
     {
       "type": "Returning / Loyal Customers",
-      "count": 71,
+      "count": 72,
       "color": "#2F6E68"
     },
     {
@@ -919,8 +919,8 @@ const DEFAULT_DATA = {
   "topProducts": [
     {
       "name": "Apoyo Animal (S) + Keyring",
-      "qty": 193,
-      "amount": 2811000
+      "qty": 197,
+      "amount": 2871000
     },
     {
       "name": "Casual bag",
@@ -944,8 +944,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Mula Pouch",
-      "qty": 97,
-      "amount": 1054800
+      "qty": 98,
+      "amount": 1066800
     },
     {
       "name": "Pot Gloves",
@@ -971,11 +971,11 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16491899.969999999
+      "amount": 16506899.969999999
     },
     {
       "method": "Card",
-      "amount": 12551300.504
+      "amount": 12826300.504
     },
     {
       "method": "MTN Mobile Money",
@@ -993,19 +993,19 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1487,
-      "gross": 26439500,
-      "net": 24415349.490000002,
+      "qty": 1494,
+      "gross": 26606500,
+      "net": 24582349.490000002,
       "discount": 2024150.51,
-      "count": 728
+      "count": 734
     },
     {
       "vendor": "Apoyo",
-      "qty": 629,
-      "gross": 8516000,
-      "net": 8182800.984,
+      "qty": 636,
+      "gross": 8639000,
+      "net": 8305800.984,
       "discount": 333199.016,
-      "count": 261
+      "count": 264
     },
     {
       "vendor": "4Africa",
@@ -1065,7 +1065,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      959000,
+      1126000,
       0,
       0
     ],
@@ -1079,7 +1079,7 @@ const DEFAULT_DATA = {
       343000,
       1163300,
       433300,
-      189000,
+      312000,
       0,
       0
     ],
@@ -1150,7 +1150,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    18,
+    21,
     0,
     0
   ],
@@ -1164,7 +1164,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    70,
+    84,
     0,
     0
   ],
@@ -1584,7 +1584,7 @@ const DEFAULT_DATA = {
         0,
         3,
         1,
-        0,
+        1,
         0,
         0
       ],
@@ -1598,7 +1598,7 @@ const DEFAULT_DATA = {
         0,
         81000,
         25000,
-        0,
+        30000,
         0,
         0
       ]
@@ -1925,7 +1925,7 @@ const DEFAULT_DATA = {
         7,
         2,
         0,
-        0,
+        1,
         0,
         0
       ],
@@ -1939,7 +1939,7 @@ const DEFAULT_DATA = {
         91000,
         26000,
         0,
-        0,
+        13000,
         0,
         0
       ]
@@ -1956,7 +1956,7 @@ const DEFAULT_DATA = {
         8,
         31,
         9,
-        3,
+        7,
         0,
         0
       ],
@@ -1970,7 +1970,7 @@ const DEFAULT_DATA = {
         120000,
         453000,
         135000,
-        45000,
+        105000,
         0,
         0
       ]
@@ -2080,7 +2080,7 @@ const DEFAULT_DATA = {
         2,
         4,
         2,
-        3,
+        4,
         0,
         0
       ],
@@ -2094,7 +2094,7 @@ const DEFAULT_DATA = {
         30000,
         60000,
         30000,
-        45000,
+        60000,
         0,
         0
       ]
@@ -2638,7 +2638,7 @@ const DEFAULT_DATA = {
         0,
         20,
         2,
-        1,
+        2,
         0,
         0
       ],
@@ -2652,7 +2652,7 @@ const DEFAULT_DATA = {
         0,
         236400,
         20800,
-        12000,
+        24000,
         0,
         0
       ]
@@ -2669,7 +2669,7 @@ const DEFAULT_DATA = {
         2,
         4,
         0,
-        1,
+        2,
         0,
         0
       ],
@@ -2683,7 +2683,7 @@ const DEFAULT_DATA = {
         30000,
         60000,
         0,
-        15000,
+        30000,
         0,
         0
       ]
@@ -3351,7 +3351,7 @@ const DEFAULT_DATA = {
         0,
         8,
         4,
-        0,
+        2,
         0,
         0
       ],
@@ -3365,7 +3365,7 @@ const DEFAULT_DATA = {
         0,
         195000,
         95000,
-        0,
+        50000,
         0,
         0
       ]
@@ -4808,7 +4808,7 @@ const DEFAULT_DATA = {
         0,
         0,
         4,
-        0,
+        2,
         0,
         0
       ],
@@ -4822,7 +4822,7 @@ const DEFAULT_DATA = {
         0,
         0,
         92500,
-        0,
+        50000,
         0,
         0
       ]
@@ -5490,7 +5490,7 @@ const DEFAULT_DATA = {
         0,
         1,
         1,
-        0,
+        1,
         0,
         0
       ],
@@ -5504,7 +5504,7 @@ const DEFAULT_DATA = {
         0,
         45000,
         45000,
-        0,
+        45000,
         0,
         0
       ]
@@ -5972,11 +5972,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 54,
-        "gross": 959000,
-        "net": 959000,
+        "qty": 61,
+        "gross": 1126000,
+        "net": 1126000,
         "discount": 0,
-        "count": 38
+        "count": 44
       },
       {
         "qty": 0,
@@ -6058,11 +6058,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 14,
-        "gross": 195000,
-        "net": 189000,
+        "qty": 21,
+        "gross": 318000,
+        "net": 312000,
         "discount": 6000,
-        "count": 8
+        "count": 11
       },
       {
         "qty": 0,
@@ -6425,13 +6425,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 299,
+    "operatingDays": 300,
     "zeroVisitDays": 88,
-    "zeroVisitPct": 0.29431438127090304,
+    "zeroVisitPct": 0.29333333333333333,
     "zeroSalesDays": 126,
-    "zeroSalesPct": 0.4214046822742475,
-    "top5Concentration": 0.18128052805280528,
-    "totalRevenue": 35981250
+    "zeroSalesPct": 0.42,
+    "top5Concentration": 0.17983113347348106,
+    "totalRevenue": 36271250
   },
   "marketEvents": [
     {
@@ -6605,8 +6605,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Picnic bag",
-        "qty": 24,
-        "amount": 657000
+        "qty": 25,
+        "amount": 687000
       },
       {
         "name": "Mini Jerrycan",
@@ -6660,13 +6660,13 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Animal (S)",
-        "qty": 19,
-        "amount": 243100
+        "qty": 20,
+        "amount": 256100
       },
       {
         "name": "Apoyo Animal (S) + Keyring",
-        "qty": 193,
-        "amount": 2811000
+        "qty": 197,
+        "amount": 2871000
       },
       {
         "name": "Phone Case Card",
@@ -6685,8 +6685,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Fortune Fish (L)",
-        "qty": 47,
-        "amount": 658500
+        "qty": 48,
+        "amount": 673500
       },
       {
         "name": "Apoyo Cup Coaster",
@@ -6775,13 +6775,13 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Mula Pouch",
-        "qty": 97,
-        "amount": 1054800
+        "qty": 98,
+        "amount": 1066800
       },
       {
         "name": "Shoppers bag V3",
-        "qty": 21,
-        "amount": 306000
+        "qty": 22,
+        "amount": 321000
       },
       {
         "name": "Apoyo Sports Bag (M)",
@@ -6890,8 +6890,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Rope Head Band",
-        "qty": 14,
-        "amount": 340000
+        "qty": 16,
+        "amount": 390000
       },
       {
         "name": "Summer Hat",
@@ -7120,8 +7120,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Animal (L)",
-        "qty": 6,
-        "amount": 142500
+        "qty": 8,
+        "amount": 192500
       },
       {
         "name": "Apoyo Neck Pillow",
@@ -7230,8 +7230,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Amadilu",
-        "qty": 2,
-        "amount": 90000
+        "qty": 3,
+        "amount": 135000
       },
       {
         "name": "T-shirt with more prints",
@@ -12063,7 +12063,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-27T08:34:58.194Z"
+  "lastUploadedAt": "2026-10-28T09:14:38.087Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
