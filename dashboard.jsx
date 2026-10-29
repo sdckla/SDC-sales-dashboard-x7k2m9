@@ -61,7 +61,7 @@ const DEFAULT_DATA = {
       2545600,
       7071150,
       2113100,
-      1456000,
+      1486000,
       0,
       0
     ],
@@ -160,7 +160,7 @@ const DEFAULT_DATA = {
     81,
     108,
     37,
-    42,
+    46,
     0,
     0
   ],
@@ -188,7 +188,7 @@ const DEFAULT_DATA = {
     58,
     161,
     82,
-    42,
+    44,
     0,
     0
   ],
@@ -810,9 +810,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Wed",
-      "visits": 87,
+      "visits": 91,
       "contacts": 29,
-      "revenue": 4898500
+      "revenue": 4928500
     },
     {
       "day": "Thu",
@@ -979,7 +979,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 5891550
+      "amount": 5921550
     },
     {
       "method": "Bank",
@@ -993,11 +993,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1494,
-      "gross": 26606500,
-      "net": 24582349.490000002,
-      "discount": 2024150.51,
-      "count": 734
+      "qty": 1496,
+      "gross": 26656500,
+      "net": 24612349.490000002,
+      "discount": 2044150.51,
+      "count": 735
     },
     {
       "vendor": "Apoyo",
@@ -1065,7 +1065,7 @@ const DEFAULT_DATA = {
       1525500,
       5703850,
       1479800,
-      1126000,
+      1156000,
       0,
       0
     ],
@@ -1150,7 +1150,7 @@ const DEFAULT_DATA = {
     55,
     77,
     20,
-    21,
+    22,
     0,
     0
   ],
@@ -1164,7 +1164,7 @@ const DEFAULT_DATA = {
     106,
     391,
     102,
-    84,
+    86,
     0,
     0
   ],
@@ -5800,7 +5800,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        2,
+        4,
         0,
         0
       ],
@@ -5814,7 +5814,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        50000,
+        80000,
         0,
         0
       ]
@@ -5972,11 +5972,11 @@ const DEFAULT_DATA = {
         "count": 44
       },
       {
-        "qty": 61,
-        "gross": 1126000,
-        "net": 1126000,
-        "discount": 0,
-        "count": 44
+        "qty": 63,
+        "gross": 1176000,
+        "net": 1156000,
+        "discount": 20000,
+        "count": 45
       },
       {
         "qty": 0,
@@ -6425,13 +6425,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 300,
+    "operatingDays": 301,
     "zeroVisitDays": 88,
-    "zeroVisitPct": 0.29333333333333333,
+    "zeroVisitPct": 0.292358803986711,
     "zeroSalesDays": 126,
-    "zeroSalesPct": 0.42,
-    "top5Concentration": 0.17983113347348106,
-    "totalRevenue": 36271250
+    "zeroSalesPct": 0.4186046511627907,
+    "top5Concentration": 0.17968251781963432,
+    "totalRevenue": 36301250
   },
   "marketEvents": [
     {
@@ -7280,8 +7280,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Bandana Cap",
-        "qty": 2,
-        "amount": 50000
+        "qty": 4,
+        "amount": 80000
       }
     ]
   },
@@ -12063,7 +12063,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-10-28T09:14:38.087Z"
+  "lastUploadedAt": "2026-10-29T09:14:39.608Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
