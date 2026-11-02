@@ -776,17 +776,6 @@ const DEFAULT_DATA = {
       "qty": 80
     },
     {
-      "id": 39,
-      "groupId": 34,
-      "month": 8,
-      "customer": "Korea Embassy",
-      "amount": 307500,
-      "note": "",
-      "category": "Government Office",
-      "product": "table runner",
-      "qty": 1
-    },
-    {
       "id": 40,
       "groupId": 33,
       "month": 9,
@@ -807,6 +796,17 @@ const DEFAULT_DATA = {
       "category": "Hotel/Restaurant",
       "product": "colloar tshirts with logo",
       "qty": 150
+    },
+    {
+      "id": 39,
+      "groupId": 34,
+      "month": 8,
+      "customer": "Korea Embassy",
+      "amount": 307500,
+      "note": "",
+      "category": "Government Office",
+      "product": "table runner",
+      "qty": 1
     },
     {
       "id": 42,
