@@ -770,9 +770,9 @@ const DEFAULT_DATA = {
       "month": 8,
       "customer": "Coffee at last",
       "amount": 2000000,
-      "note": "",
+      "note": "one invoice, paid in three",
       "category": "Hotel/Restaurant",
-      "product": "DTF logo print",
+      "product": "round neck with logo print",
       "qty": 80
     },
     {
