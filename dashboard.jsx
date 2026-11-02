@@ -785,14 +785,66 @@ const DEFAULT_DATA = {
       "category": "Government Office",
       "product": "table runner",
       "qty": 1
+    },
+    {
+      "id": 40,
+      "groupId": 33,
+      "month": 9,
+      "customer": "Coffee at last",
+      "amount": 1500000,
+      "note": "",
+      "category": "Hotel/Restaurant",
+      "product": "apron",
+      "qty": 30
+    },
+    {
+      "id": 41,
+      "groupId": 33,
+      "month": 10,
+      "customer": "Coffee at last",
+      "amount": 0,
+      "note": "balance 3,832,400",
+      "category": "Hotel/Restaurant",
+      "product": "colloar tshirts with logo",
+      "qty": 150
+    },
+    {
+      "id": 42,
+      "groupId": 35,
+      "month": 9,
+      "customer": "Samaritan Purse Int'l Relief",
+      "amount": 680000,
+      "note": "",
+      "category": "NGO/Institution",
+      "product": "tshirts with logo",
+      "qty": 20
+    },
+    {
+      "id": 43,
+      "groupId": 36,
+      "month": 9,
+      "customer": "Korea Embassy",
+      "amount": 202500,
+      "note": "",
+      "category": "Government Office",
+      "product": "bookshelf cover",
+      "qty": 2
+    },
+    {
+      "id": 44,
+      "groupId": 37,
+      "month": 9,
+      "customer": "Father School",
+      "amount": 5720000,
+      "note": "",
+      "category": "NGO/Institution",
+      "product": "v-neck tshirts",
+      "qty": 200
     }
   ],
   "customLeads": [
-    "Father school: v-neck t-shirts",
-    "Good Neighbors Kenya: shoppers bag+fortune fish",
-    "Canaan: collar t-shirts",
-    "Coffee at last: collar t-shirts 9장",
-    "Missionary Mr. Kim: collar t-shirts+takwondobok",
+    "AIM: 100 shoppers bag",
+    "Missionary Mr. Kim: 100 collar t-shirts+34 takwondobok",
     "Coffee at last: round neck t-shirts / apron"
   ],
   "dowStats": [
