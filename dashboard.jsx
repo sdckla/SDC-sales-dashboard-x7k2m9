@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      170000,
+      195000,
       0
     ],
     "custom": [
@@ -89,7 +89,7 @@ const DEFAULT_DATA = {
       343000,
       1163300,
       433300,
-      0,
+      497000,
       0,
       0
     ],
@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    2,
+    3,
     0
   ],
   "contacts": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    2,
+    3,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -856,9 +856,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Tue",
-      "visits": 128,
+      "visits": 129,
       "contacts": 41,
-      "revenue": 4746100
+      "revenue": 4771100
     },
     {
       "day": "Wed",
@@ -898,7 +898,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Korea",
-      "count": 75
+      "count": 76
     },
     {
       "origin": "Germany",
@@ -932,7 +932,7 @@ const DEFAULT_DATA = {
   "visitorType": [
     {
       "type": "Returning / Loyal Customers",
-      "count": 73,
+      "count": 74,
       "color": "#2F6E68"
     },
     {
@@ -995,14 +995,14 @@ const DEFAULT_DATA = {
       "amount": 1091750
     },
     {
+      "name": "Book bag V2",
+      "qty": 45,
+      "amount": 1067000
+    },
+    {
       "name": "Mula Pouch",
       "qty": 98,
       "amount": 1066800
-    },
-    {
-      "name": "Book bag V2",
-      "qty": 44,
-      "amount": 1042000
     },
     {
       "name": "Pot Gloves",
@@ -1023,7 +1023,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16884899.97
+      "amount": 16779899.97
     },
     {
       "method": "Card",
@@ -1031,7 +1031,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 5921550
+      "amount": 6051550
     },
     {
       "method": "Bank",
@@ -1045,11 +1045,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1506,
-      "gross": 26849500,
-      "net": 24805349.490000002,
+      "qty": 1507,
+      "gross": 26874500,
+      "net": 24830349.490000002,
       "discount": 2044150.51,
-      "count": 741
+      "count": 742
     },
     {
       "vendor": "Apoyo",
@@ -1118,7 +1118,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      125000,
+      150000,
       0
     ],
     "Apoyo": [
@@ -1203,7 +1203,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    1,
+    2,
     0
   ],
   "posMonthlyQty": [
@@ -1217,7 +1217,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    8,
+    9,
     0
   ],
   "allProducts": [
@@ -3528,7 +3528,7 @@ const DEFAULT_DATA = {
         6,
         2,
         4,
-        5,
+        6,
         0
       ],
       "amount": [
@@ -3542,7 +3542,7 @@ const DEFAULT_DATA = {
         147500,
         50000,
         100000,
-        125000,
+        150000,
         0
       ]
     },
@@ -6062,11 +6062,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 5,
-        "gross": 125000,
-        "net": 125000,
+        "qty": 6,
+        "gross": 150000,
+        "net": 150000,
         "discount": 0,
-        "count": 1
+        "count": 2
       },
       {
         "qty": 0,
@@ -6508,13 +6508,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 305,
-    "zeroVisitDays": 90,
-    "zeroVisitPct": 0.29508196721311475,
-    "zeroSalesDays": 128,
-    "zeroSalesPct": 0.419672131147541,
-    "top5Concentration": 0.1778307898880157,
-    "totalRevenue": 36679250
+    "operatingDays": 307,
+    "zeroVisitDays": 91,
+    "zeroVisitPct": 0.2964169381107492,
+    "zeroSalesDays": 129,
+    "zeroSalesPct": 0.4201954397394137,
+    "top5Concentration": 0.17770966577439942,
+    "totalRevenue": 36704250
   },
   "marketEvents": [
     {
@@ -6993,8 +6993,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Book bag V2",
-        "qty": 44,
-        "amount": 1042000
+        "qty": 45,
+        "amount": 1067000
       },
       {
         "name": "Seahorse (S)",
@@ -12151,7 +12151,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-03T02:56:05.537Z"
+  "lastUploadedAt": "2026-11-04T01:22:00.297Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
