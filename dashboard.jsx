@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      195000,
+      395000,
       0
     ],
     "custom": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    3,
+    4,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -864,7 +864,7 @@ const DEFAULT_DATA = {
       "day": "Wed",
       "visits": 91,
       "contacts": 29,
-      "revenue": 4928500
+      "revenue": 5128500
     },
     {
       "day": "Thu",
@@ -1023,7 +1023,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 16779899.97
+      "amount": 17032899.97
     },
     {
       "method": "Card",
@@ -1031,7 +1031,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 6051550
+      "amount": 5998550
     },
     {
       "method": "Bank",
@@ -1045,11 +1045,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1507,
-      "gross": 26874500,
-      "net": 24830349.490000002,
+      "qty": 1509,
+      "gross": 27074500,
+      "net": 25030349.490000002,
       "discount": 2044150.51,
-      "count": 742
+      "count": 743
     },
     {
       "vendor": "Apoyo",
@@ -1118,7 +1118,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      150000,
+      350000,
       0
     ],
     "Apoyo": [
@@ -1203,7 +1203,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    2,
+    3,
     0
   ],
   "posMonthlyQty": [
@@ -1217,7 +1217,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    9,
+    11,
     0
   ],
   "allProducts": [
@@ -3652,7 +3652,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        2,
         0
       ],
       "amount": [
@@ -3666,7 +3666,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        200000,
         0
       ]
     },
@@ -6062,11 +6062,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 6,
-        "gross": 150000,
-        "net": 150000,
+        "qty": 8,
+        "gross": 350000,
+        "net": 350000,
         "discount": 0,
-        "count": 2
+        "count": 3
       },
       {
         "qty": 0,
@@ -6508,13 +6508,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 307,
-    "zeroVisitDays": 91,
-    "zeroVisitPct": 0.2964169381107492,
+    "operatingDays": 308,
+    "zeroVisitDays": 92,
+    "zeroVisitPct": 0.2987012987012987,
     "zeroSalesDays": 129,
-    "zeroSalesPct": 0.4201954397394137,
-    "top5Concentration": 0.17770966577439942,
-    "totalRevenue": 36704250
+    "zeroSalesPct": 0.41883116883116883,
+    "top5Concentration": 0.17674658067837715,
+    "totalRevenue": 36904250
   },
   "marketEvents": [
     {
@@ -7013,8 +7013,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Elephant bag (S)",
-        "qty": 2,
-        "amount": 160000
+        "qty": 4,
+        "amount": 360000
       },
       {
         "name": "Jerry Scarf",
@@ -12151,7 +12151,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-04T01:22:00.297Z"
+  "lastUploadedAt": "2026-11-05T01:28:08.009Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
