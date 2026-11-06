@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      395000,
+      503000,
       0
     ],
     "custom": [
@@ -117,7 +117,7 @@ const DEFAULT_DATA = {
       44915,
       198305,
       110169,
-      0,
+      137288,
       0,
       0
     ],
@@ -131,7 +131,7 @@ const DEFAULT_DATA = {
       0,
       87000,
       0,
-      0,
+      58800,
       0,
       0
     ],
@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    3,
+    11,
     0
   ],
   "contacts": [
@@ -175,7 +175,7 @@ const DEFAULT_DATA = {
     23,
     12,
     24,
-    0,
+    2,
     0
   ],
   "sold": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    4,
+    6,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -868,9 +868,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Thu",
-      "visits": 78,
-      "contacts": 24,
-      "revenue": 4181000
+      "visits": 86,
+      "contacts": 26,
+      "revenue": 4289000
     },
     {
       "day": "Fri",
@@ -906,7 +906,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "USA",
-      "count": 16
+      "count": 17
     },
     {
       "origin": "Italy",
@@ -926,7 +926,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Other",
-      "count": 23
+      "count": 24
     }
   ],
   "visitorType": [
@@ -985,14 +985,14 @@ const DEFAULT_DATA = {
       "amount": 1195500
     },
     {
+      "name": "T-shirt",
+      "qty": 58,
+      "amount": 1155750
+    },
+    {
       "name": "Summer Vendor Mrk",
       "qty": 23,
       "amount": 1150000
-    },
-    {
-      "name": "T-shirt",
-      "qty": 56,
-      "amount": 1091750
     },
     {
       "name": "Book bag V2",
@@ -1023,7 +1023,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 17032899.97
+      "amount": 17133899.97
     },
     {
       "method": "Card",
@@ -1031,7 +1031,7 @@ const DEFAULT_DATA = {
     },
     {
       "method": "MTN Mobile Money",
-      "amount": 5998550
+      "amount": 6005550
     },
     {
       "method": "Bank",
@@ -1045,11 +1045,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1509,
-      "gross": 27074500,
-      "net": 25030349.490000002,
-      "discount": 2044150.51,
-      "count": 743
+      "qty": 1513,
+      "gross": 27189500,
+      "net": 25138349.490000002,
+      "discount": 2051150.51,
+      "count": 746
     },
     {
       "vendor": "Apoyo",
@@ -1118,7 +1118,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      350000,
+      458000,
       0
     ],
     "Apoyo": [
@@ -1203,7 +1203,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    3,
+    5,
     0
   ],
   "posMonthlyQty": [
@@ -1217,7 +1217,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    11,
+    15,
     0
   ],
   "allProducts": [
@@ -2846,7 +2846,7 @@ const DEFAULT_DATA = {
         19,
         4,
         1,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -2860,7 +2860,7 @@ const DEFAULT_DATA = {
         126000,
         28000,
         7000,
-        0,
+        7000,
         0
       ]
     },
@@ -4055,7 +4055,7 @@ const DEFAULT_DATA = {
         27,
         2,
         3,
-        0,
+        2,
         0
       ],
       "amount": [
@@ -4069,7 +4069,7 @@ const DEFAULT_DATA = {
         518750,
         58000,
         105000,
-        0,
+        64000,
         0
       ]
     },
@@ -5605,7 +5605,7 @@ const DEFAULT_DATA = {
         2,
         0,
         0,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -5619,7 +5619,7 @@ const DEFAULT_DATA = {
         76000,
         0,
         0,
-        0,
+        37000,
         0
       ]
     },
@@ -6062,11 +6062,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 8,
-        "gross": 350000,
-        "net": 350000,
-        "discount": 0,
-        "count": 3
+        "qty": 12,
+        "gross": 465000,
+        "net": 458000,
+        "discount": 7000,
+        "count": 6
       },
       {
         "qty": 0,
@@ -6508,13 +6508,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 308,
+    "operatingDays": 309,
     "zeroVisitDays": 92,
-    "zeroVisitPct": 0.2987012987012987,
+    "zeroVisitPct": 0.2977346278317152,
     "zeroSalesDays": 129,
-    "zeroSalesPct": 0.41883116883116883,
-    "top5Concentration": 0.17674658067837715,
-    "totalRevenue": 36904250
+    "zeroSalesPct": 0.4174757281553398,
+    "top5Concentration": 0.17623084249133733,
+    "totalRevenue": 37012250
   },
   "marketEvents": [
     {
@@ -6883,8 +6883,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Flower keyring",
-        "qty": 95,
-        "amount": 521699.5
+        "qty": 96,
+        "amount": 528699.5
       },
       {
         "name": "Pot Gloves",
@@ -7073,8 +7073,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "T-shirt",
-        "qty": 56,
-        "amount": 1091750
+        "qty": 58,
+        "amount": 1155750
       },
       {
         "name": "4Africa Rhino",
@@ -7323,8 +7323,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "T- shirt with one print extra",
-        "qty": 2,
-        "amount": 76000
+        "qty": 3,
+        "amount": 113000
       },
       {
         "name": "Book bag V2 Zip",
@@ -12151,7 +12151,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-05T01:28:08.009Z"
+  "lastUploadedAt": "2026-11-06T01:34:27.771Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
