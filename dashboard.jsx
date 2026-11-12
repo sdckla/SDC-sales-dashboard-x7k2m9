@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      2470500,
+      2599500,
       0
     ],
     "custom": [
@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    28,
+    30,
     0
   ],
   "contacts": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    67,
+    70,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -866,9 +866,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Wed",
-      "visits": 91,
+      "visits": 93,
       "contacts": 29,
-      "revenue": 5128500
+      "revenue": 5257500
     },
     {
       "day": "Thu",
@@ -936,7 +936,7 @@ const DEFAULT_DATA = {
   "visitorType": [
     {
       "type": "Returning / Loyal Customers",
-      "count": 75,
+      "count": 76,
       "color": "#2F6E68"
     },
     {
@@ -1027,7 +1027,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 17544899.97
+      "amount": 17673899.97
     },
     {
       "method": "Card",
@@ -1049,11 +1049,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1576,
-      "gross": 28715000,
-      "net": 26663849.490000002,
+      "qty": 1579,
+      "gross": 28841000,
+      "net": 26789849.490000002,
       "discount": 2051150.51,
-      "count": 787
+      "count": 789
     },
     {
       "vendor": "Apoyo",
@@ -1073,11 +1073,11 @@ const DEFAULT_DATA = {
     },
     {
       "vendor": "Jerrybag",
-      "qty": 107,
-      "gross": 1195000,
-      "net": 1156000,
+      "qty": 108,
+      "gross": 1198000,
+      "net": 1159000,
       "discount": 39000,
-      "count": 56
+      "count": 57
     },
     {
       "vendor": "STAR",
@@ -1122,7 +1122,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      1983500,
+      2109500,
       0
     ],
     "Apoyo": [
@@ -1150,7 +1150,7 @@ const DEFAULT_DATA = {
       44000,
       15000,
       18000,
-      63000,
+      66000,
       0
     ],
     "others": [
@@ -1207,7 +1207,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    19,
+    20,
     0
   ],
   "posMonthlyQty": [
@@ -1221,7 +1221,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    125,
+    129,
     0
   ],
   "allProducts": [
@@ -1672,7 +1672,7 @@ const DEFAULT_DATA = {
         8,
         0,
         1,
-        12,
+        13,
         0
       ],
       "amount": [
@@ -1686,7 +1686,7 @@ const DEFAULT_DATA = {
         24000,
         0,
         3000,
-        36000,
+        39000,
         0
       ]
     },
@@ -1827,7 +1827,7 @@ const DEFAULT_DATA = {
         2,
         1,
         4,
-        5,
+        7,
         0
       ],
       "amount": [
@@ -1841,7 +1841,7 @@ const DEFAULT_DATA = {
         24700,
         13000,
         52000,
-        65000,
+        91000,
         0
       ]
     },
@@ -3656,7 +3656,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        4,
+        5,
         0
       ],
       "amount": [
@@ -3670,7 +3670,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        400000,
+        500000,
         0
       ]
     },
@@ -6252,11 +6252,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 75,
-        "gross": 1990500,
-        "net": 1983500,
+        "qty": 78,
+        "gross": 2116500,
+        "net": 2109500,
         "discount": 7000,
-        "count": 47
+        "count": 49
       },
       {
         "qty": 0,
@@ -6424,11 +6424,11 @@ const DEFAULT_DATA = {
         "count": 2
       },
       {
-        "qty": 14,
-        "gross": 63000,
-        "net": 63000,
+        "qty": 15,
+        "gross": 66000,
+        "net": 66000,
         "discount": 0,
-        "count": 5
+        "count": 6
       },
       {
         "qty": 0,
@@ -6698,13 +6698,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 314,
+    "operatingDays": 315,
     "zeroVisitDays": 94,
-    "zeroVisitPct": 0.29936305732484075,
+    "zeroVisitPct": 0.2984126984126984,
     "zeroSalesDays": 132,
-    "zeroSalesPct": 0.42038216560509556,
-    "top5Concentration": 0.17582975775883633,
-    "totalRevenue": 38979750
+    "zeroSalesPct": 0.41904761904761906,
+    "top5Concentration": 0.17524978425544155,
+    "totalRevenue": 39108750
   },
   "marketEvents": [
     {
@@ -6883,8 +6883,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Mini Jerrycan",
-        "qty": 59,
-        "amount": 174000
+        "qty": 60,
+        "amount": 177000
       },
       {
         "name": "Dried fruits (B)",
@@ -6908,8 +6908,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Head band",
-        "qty": 25,
-        "amount": 323700
+        "qty": 27,
+        "amount": 349700
       },
       {
         "name": "Present pouch (L)",
@@ -7203,8 +7203,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Elephant bag (S)",
-        "qty": 6,
-        "amount": 560000
+        "qty": 7,
+        "amount": 660000
       },
       {
         "name": "Jerry Scarf",
@@ -12371,7 +12371,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-11T01:14:59.260Z"
+  "lastUploadedAt": "2026-11-12T02:16:46.595Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
