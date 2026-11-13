@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    30,
+    35,
     0
   ],
   "contacts": [
@@ -872,7 +872,7 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Thu",
-      "visits": 86,
+      "visits": 91,
       "contacts": 26,
       "revenue": 4289000
     },
@@ -898,7 +898,7 @@ const DEFAULT_DATA = {
   "visitorOrigin": [
     {
       "origin": "Uganda",
-      "count": 85
+      "count": 86
     },
     {
       "origin": "Korea",
@@ -930,7 +930,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Other",
-      "count": 24
+      "count": 27
     }
   ],
   "visitorType": [
@@ -6698,11 +6698,11 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 315,
+    "operatingDays": 316,
     "zeroVisitDays": 94,
-    "zeroVisitPct": 0.2984126984126984,
-    "zeroSalesDays": 132,
-    "zeroSalesPct": 0.41904761904761906,
+    "zeroVisitPct": 0.2974683544303797,
+    "zeroSalesDays": 133,
+    "zeroSalesPct": 0.4208860759493671,
     "top5Concentration": 0.17524978425544155,
     "totalRevenue": 39108750
   },
@@ -12371,7 +12371,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-12T02:16:46.595Z"
+  "lastUploadedAt": "2026-11-13T01:50:49.703Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
