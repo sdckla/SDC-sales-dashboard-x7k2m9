@@ -12371,7 +12371,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-16T01:02:40.410Z"
+  "lastUploadedAt": "2026-11-16T05:55:48.000Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
@@ -13711,7 +13711,10 @@ function mergeWithDefaults(defaults, loaded) {
   // one). The baked-in series are already cumulative (the automation merges each run onto the
   // previous data), so when the file's data is newer than this browser's save, use them outright.
   if (defaultsAreNewer) {
-    ["channels", "vendorMonthly", "vendorMonthlyDetail", "posMonthlyQty", "posInvoiceCounts", "visits", "contacts", "sold"].forEach((k) => {
+    // priorYears is included: it is shallow-merged above with the browser's save winning, so a
+    // correction to a past year committed to the file would never show in a browser that had
+    // already saved the old figures.
+    ["channels", "vendorMonthly", "vendorMonthlyDetail", "posMonthlyQty", "posInvoiceCounts", "visits", "contacts", "sold", "priorYears"].forEach((k) => {
       if (defaults[k] !== undefined) merged[k] = defaults[k];
     });
   }
