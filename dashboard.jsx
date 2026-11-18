@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      4537500,
+      4573500,
       0
     ],
     "custom": [
@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    37,
+    38,
     0
   ],
   "contacts": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    74,
+    76,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -868,9 +868,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Tue",
-      "visits": 138,
+      "visits": 139,
       "contacts": 46,
-      "revenue": 6197600
+      "revenue": 6233600
     },
     {
       "day": "Wed",
@@ -906,7 +906,7 @@ const DEFAULT_DATA = {
   "visitorOrigin": [
     {
       "origin": "Uganda",
-      "count": 86
+      "count": 87
     },
     {
       "origin": "Korea",
@@ -998,8 +998,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Kitenge Reflector",
-      "qty": 95,
-      "amount": 1270500
+      "qty": 97,
+      "amount": 1300500
     },
     {
       "name": "Mula Pouch",
@@ -1035,7 +1035,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 19044899.97
+      "amount": 19080899.97
     },
     {
       "method": "Card",
@@ -1057,11 +1057,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1632,
-      "gross": 30541000,
-      "net": 28489849.490000002,
+      "qty": 1636,
+      "gross": 30577000,
+      "net": 28525849.490000002,
       "discount": 2051150.51,
-      "count": 834
+      "count": 836
     },
     {
       "vendor": "Apoyo",
@@ -1130,7 +1130,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      3809500,
+      3845500,
       0
     ],
     "Apoyo": [
@@ -1215,7 +1215,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    51,
+    52,
     0
   ],
   "posMonthlyQty": [
@@ -1229,7 +1229,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    201,
+    205,
     0
   ],
   "allProducts": [
@@ -2052,7 +2052,7 @@ const DEFAULT_DATA = {
         9,
         1,
         5,
-        2,
+        4,
         0
       ],
       "amount": [
@@ -2066,7 +2066,7 @@ const DEFAULT_DATA = {
         25500,
         3000,
         15000,
-        6000,
+        12000,
         0
       ]
     },
@@ -2238,7 +2238,7 @@ const DEFAULT_DATA = {
         19,
         2,
         1,
-        5,
+        7,
         0
       ],
       "amount": [
@@ -2252,7 +2252,7 @@ const DEFAULT_DATA = {
         262500,
         30000,
         15000,
-        75000,
+        105000,
         0
       ]
     },
@@ -6539,11 +6539,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 131,
-        "gross": 3816500,
-        "net": 3809500,
+        "qty": 135,
+        "gross": 3852500,
+        "net": 3845500,
         "discount": 7000,
-        "count": 94
+        "count": 96
       },
       {
         "qty": 0,
@@ -6985,13 +6985,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 320,
+    "operatingDays": 321,
     "zeroVisitDays": 97,
-    "zeroVisitPct": 0.303125,
+    "zeroVisitPct": 0.30218068535825543,
     "zeroSalesDays": 136,
-    "zeroSalesPct": 0.425,
-    "top5Concentration": 0.17490541842378926,
-    "totalRevenue": 39185750
+    "zeroSalesPct": 0.4236760124610592,
+    "top5Concentration": 0.17474488007291872,
+    "totalRevenue": 39221750
   },
   "marketEvents": [
     {
@@ -7230,8 +7230,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Phone Case Card",
-        "qty": 47,
-        "amount": 137100
+        "qty": 49,
+        "amount": 143100
       },
       {
         "name": "Reflector",
@@ -7260,8 +7260,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Kitenge Reflector",
-        "qty": 95,
-        "amount": 1270500
+        "qty": 97,
+        "amount": 1300500
       },
       {
         "name": "Apoyo Coin Pouch",
@@ -12703,7 +12703,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-17T03:54:35.491Z"
+  "lastUploadedAt": "2026-11-18T02:55:18.198Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
