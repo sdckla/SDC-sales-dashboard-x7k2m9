@@ -76,7 +76,7 @@ const DEFAULT_DATA = {
       2348500,
       8692250,
       8102500,
-      1035000,
+      1050000,
       0
     ],
     "apoyo": [
@@ -352,7 +352,7 @@ const DEFAULT_DATA = {
     "xmasdecobell": "SDC",
     "xmasdecoball": "SDC",
     "xmasstockings": "SDC",
-    "xmasdecostar": "STAR",
+    "xmasdecostar": "SDC",
     "cozydollyelephant": "SDC",
     "cozydollypig": "SDC",
     "xmasdecotree": "SDC",
@@ -1057,11 +1057,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1636,
-      "gross": 30577000,
-      "net": 28525849.490000002,
-      "discount": 2051150.51,
-      "count": 836
+      "qty": 1638,
+      "gross": 30593000,
+      "net": 28535849.490000002,
+      "discount": 2057150.51,
+      "count": 838
     },
     {
       "vendor": "Apoyo",
@@ -1089,11 +1089,11 @@ const DEFAULT_DATA = {
     },
     {
       "vendor": "STAR",
-      "qty": 56,
-      "gross": 907000,
-      "net": 896600,
-      "discount": 10400,
-      "count": 42
+      "qty": 54,
+      "gross": 891000,
+      "net": 886600,
+      "discount": 4400,
+      "count": 40
     },
     {
       "vendor": "others",
@@ -1130,7 +1130,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      3845500,
+      3855500,
       0
     ],
     "Apoyo": [
@@ -6539,11 +6539,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 135,
-        "gross": 3852500,
-        "net": 3845500,
-        "discount": 7000,
-        "count": 96
+        "qty": 137,
+        "gross": 3868500,
+        "net": 3855500,
+        "discount": 13000,
+        "count": 98
       },
       {
         "qty": 0,
@@ -12703,7 +12703,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-18T02:55:18.198Z"
+  "lastUploadedAt": "2026-11-19T02:34:41.812Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
