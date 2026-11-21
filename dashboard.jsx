@@ -76,7 +76,7 @@ const DEFAULT_DATA = {
       2348500,
       8692250,
       8102500,
-      1050000,
+      1424000,
       0
     ],
     "apoyo": [
@@ -12703,7 +12703,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-20T02:19:49.093Z"
+  "lastUploadedAt": "2026-11-21T02:16:17.450Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
