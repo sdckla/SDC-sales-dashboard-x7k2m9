@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      5248500,
+      6272500,
       0
     ],
     "custom": [
@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    41,
+    56,
     0
   ],
   "contacts": [
@@ -175,7 +175,7 @@ const DEFAULT_DATA = {
     23,
     12,
     24,
-    15,
+    18,
     0
   ],
   "sold": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    94,
+    113,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -892,9 +892,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Sat",
-      "visits": 310,
-      "contacts": 86,
-      "revenue": 9813800
+      "visits": 325,
+      "contacts": 89,
+      "revenue": 10837800
     },
     {
       "day": "Sun",
@@ -910,7 +910,7 @@ const DEFAULT_DATA = {
     },
     {
       "origin": "Korea",
-      "count": 81
+      "count": 82
     },
     {
       "origin": "USA",
@@ -957,7 +957,7 @@ const DEFAULT_DATA = {
     {
       "keyword": "market",
       "label": "Market/Event",
-      "count": 48
+      "count": 49
     },
     {
       "keyword": "training",
@@ -983,8 +983,8 @@ const DEFAULT_DATA = {
   "topProducts": [
     {
       "name": "Apoyo Animal (S) + Keyring",
-      "qty": 209,
-      "amount": 3051000
+      "qty": 216,
+      "amount": 3156000
     },
     {
       "name": "Casual bag",
@@ -1023,8 +1023,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Pot Gloves",
-      "qty": 105,
-      "amount": 933000
+      "qty": 107,
+      "amount": 953000
     },
     {
       "name": "Elephant bag (S)",
@@ -1035,11 +1035,11 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 19080899.97
+      "amount": 19198899.97
     },
     {
       "method": "Card",
-      "amount": 15057800.504
+      "amount": 15963800.504
     },
     {
       "method": "MTN Mobile Money",
@@ -1057,19 +1057,19 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1664,
-      "gross": 31136000,
-      "net": 29078849.490000002,
+      "qty": 1710,
+      "gross": 31936000,
+      "net": 29878849.490000002,
       "discount": 2057150.51,
-      "count": 853
+      "count": 875
     },
     {
       "vendor": "Apoyo",
-      "qty": 699,
-      "gross": 9447000,
-      "net": 9113800.984000001,
+      "qty": 715,
+      "gross": 9633000,
+      "net": 9299800.984000001,
       "discount": 333199.016,
-      "count": 296
+      "count": 307
     },
     {
       "vendor": "4Africa",
@@ -1081,11 +1081,11 @@ const DEFAULT_DATA = {
     },
     {
       "vendor": "Jerrybag",
-      "qty": 108,
-      "gross": 1198000,
-      "net": 1159000,
+      "qty": 115,
+      "gross": 1236000,
+      "net": 1197000,
       "discount": 39000,
-      "count": 57
+      "count": 60
     },
     {
       "vendor": "STAR",
@@ -1130,7 +1130,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      4398500,
+      5198500,
       0
     ],
     "Apoyo": [
@@ -1144,7 +1144,7 @@ const DEFAULT_DATA = {
       1163300,
       433300,
       452000,
-      668000,
+      854000,
       0
     ],
     "Jerrybag": [
@@ -1158,7 +1158,7 @@ const DEFAULT_DATA = {
       44000,
       15000,
       18000,
-      66000,
+      104000,
       0
     ],
     "others": [
@@ -1215,7 +1215,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    56,
+    68,
     0
   ],
   "posMonthlyQty": [
@@ -1229,7 +1229,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    241,
+    310,
     0
   ],
   "allProducts": [
@@ -1432,7 +1432,7 @@ const DEFAULT_DATA = {
         12,
         3,
         2,
-        7,
+        11,
         0
       ],
       "amount": [
@@ -1446,7 +1446,7 @@ const DEFAULT_DATA = {
         36000,
         8700,
         6000,
-        21000,
+        33000,
         0
       ]
     },
@@ -1556,7 +1556,7 @@ const DEFAULT_DATA = {
         3,
         1,
         2,
-        5,
+        6,
         0
       ],
       "amount": [
@@ -1570,7 +1570,7 @@ const DEFAULT_DATA = {
         43500,
         15000,
         30000,
-        75000,
+        90000,
         0
       ]
     },
@@ -1680,7 +1680,7 @@ const DEFAULT_DATA = {
         8,
         0,
         1,
-        13,
+        19,
         0
       ],
       "amount": [
@@ -1694,7 +1694,7 @@ const DEFAULT_DATA = {
         24000,
         0,
         3000,
-        39000,
+        57000,
         0
       ]
     },
@@ -1959,7 +1959,7 @@ const DEFAULT_DATA = {
         4,
         6,
         0,
-        1,
+        8,
         0
       ],
       "amount": [
@@ -1973,7 +1973,7 @@ const DEFAULT_DATA = {
         40000,
         60000,
         0,
-        10000,
+        80000,
         0
       ]
     },
@@ -2021,7 +2021,7 @@ const DEFAULT_DATA = {
         31,
         9,
         7,
-        12,
+        19,
         0
       ],
       "amount": [
@@ -2035,7 +2035,7 @@ const DEFAULT_DATA = {
         453000,
         135000,
         105000,
-        180000,
+        285000,
         0
       ]
     },
@@ -2207,7 +2207,7 @@ const DEFAULT_DATA = {
         4,
         1,
         5,
-        5,
+        7,
         0
       ],
       "amount": [
@@ -2221,7 +2221,7 @@ const DEFAULT_DATA = {
         40000,
         10000,
         50000,
-        50000,
+        70000,
         0
       ]
     },
@@ -2269,7 +2269,7 @@ const DEFAULT_DATA = {
         4,
         0,
         0,
-        2,
+        4,
         0
       ],
       "amount": [
@@ -2283,7 +2283,7 @@ const DEFAULT_DATA = {
         46800,
         0,
         0,
-        24000,
+        48000,
         0
       ]
     },
@@ -2331,7 +2331,7 @@ const DEFAULT_DATA = {
         3,
         1,
         0,
-        4,
+        12,
         0
       ],
       "amount": [
@@ -2345,7 +2345,7 @@ const DEFAULT_DATA = {
         29000,
         10000,
         0,
-        40000,
+        120000,
         0
       ]
     },
@@ -2393,7 +2393,7 @@ const DEFAULT_DATA = {
         1,
         2,
         2,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -2407,7 +2407,7 @@ const DEFAULT_DATA = {
         15000,
         30000,
         30000,
-        0,
+        15000,
         0
       ]
     },
@@ -2734,7 +2734,7 @@ const DEFAULT_DATA = {
         4,
         0,
         4,
-        3,
+        6,
         0
       ],
       "amount": [
@@ -2748,7 +2748,7 @@ const DEFAULT_DATA = {
         60000,
         0,
         60000,
-        45000,
+        90000,
         0
       ]
     },
@@ -2858,7 +2858,7 @@ const DEFAULT_DATA = {
         19,
         4,
         1,
-        12,
+        15,
         0
       ],
       "amount": [
@@ -2872,7 +2872,7 @@ const DEFAULT_DATA = {
         126000,
         28000,
         7000,
-        84000,
+        105000,
         0
       ]
     },
@@ -2889,7 +2889,7 @@ const DEFAULT_DATA = {
         24,
         0,
         1,
-        0,
+        2,
         0
       ],
       "amount": [
@@ -2903,7 +2903,7 @@ const DEFAULT_DATA = {
         226000,
         0,
         10000,
-        0,
+        20000,
         0
       ]
     },
@@ -2982,7 +2982,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        3,
+        7,
         0
       ],
       "amount": [
@@ -2996,7 +2996,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        15000,
+        35000,
         0
       ]
     },
@@ -3044,7 +3044,7 @@ const DEFAULT_DATA = {
         1,
         0,
         1,
-        1,
+        3,
         0
       ],
       "amount": [
@@ -3058,7 +3058,7 @@ const DEFAULT_DATA = {
         18000,
         0,
         20000,
-        20000,
+        60000,
         0
       ]
     },
@@ -3075,7 +3075,7 @@ const DEFAULT_DATA = {
         1,
         0,
         0,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -3089,7 +3089,7 @@ const DEFAULT_DATA = {
         20000,
         0,
         0,
-        0,
+        20000,
         0
       ]
     },
@@ -3261,7 +3261,7 @@ const DEFAULT_DATA = {
         4,
         0,
         0,
-        1,
+        2,
         0
       ],
       "amount": [
@@ -3275,7 +3275,7 @@ const DEFAULT_DATA = {
         444000,
         0,
         0,
-        120000,
+        240000,
         0
       ]
     },
@@ -3478,7 +3478,7 @@ const DEFAULT_DATA = {
         6,
         1,
         0,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -3492,7 +3492,7 @@ const DEFAULT_DATA = {
         56000,
         10000,
         0,
-        0,
+        10000,
         0
       ]
     },
@@ -3571,7 +3571,7 @@ const DEFAULT_DATA = {
         2,
         1,
         4,
-        0,
+        2,
         0
       ],
       "amount": [
@@ -3585,7 +3585,7 @@ const DEFAULT_DATA = {
         18000,
         10000,
         40000,
-        0,
+        20000,
         0
       ]
     },
@@ -3633,7 +3633,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -3647,7 +3647,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        20000,
         0
       ]
     },
@@ -3788,7 +3788,7 @@ const DEFAULT_DATA = {
         6,
         0,
         1,
-        11,
+        13,
         0
       ],
       "amount": [
@@ -3802,7 +3802,7 @@ const DEFAULT_DATA = {
         81000,
         0,
         15000,
-        165000,
+        195000,
         0
       ]
     },
@@ -4005,7 +4005,7 @@ const DEFAULT_DATA = {
         2,
         0,
         3,
-        2,
+        3,
         0
       ],
       "amount": [
@@ -4019,7 +4019,7 @@ const DEFAULT_DATA = {
         28500,
         0,
         45000,
-        30000,
+        45000,
         0
       ]
     },
@@ -4129,7 +4129,7 @@ const DEFAULT_DATA = {
         5,
         0,
         0,
-        1,
+        2,
         0
       ],
       "amount": [
@@ -4143,7 +4143,7 @@ const DEFAULT_DATA = {
         164500,
         0,
         0,
-        35000,
+        70000,
         0
       ]
     },
@@ -4253,7 +4253,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -4267,7 +4267,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        0,
+        20000,
         0
       ]
     },
@@ -4842,7 +4842,7 @@ const DEFAULT_DATA = {
         2,
         0,
         1,
-        2,
+        5,
         0
       ],
       "amount": [
@@ -4856,7 +4856,7 @@ const DEFAULT_DATA = {
         16000,
         0,
         8000,
-        16000,
+        40000,
         0
       ]
     },
@@ -5555,7 +5555,7 @@ const DEFAULT_DATA = {
         1,
         1,
         1,
-        1,
+        2,
         0
       ],
       "amount": [
@@ -5569,7 +5569,7 @@ const DEFAULT_DATA = {
         45000,
         45000,
         45000,
-        45000,
+        90000,
         0
       ]
     },
@@ -5958,7 +5958,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        1,
+        2,
         0
       ],
       "amount": [
@@ -5972,7 +5972,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        10000,
+        20000,
         0
       ]
     },
@@ -6082,7 +6082,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        4,
+        5,
         0
       ],
       "amount": [
@@ -6096,7 +6096,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        600000,
+        750000,
         0
       ]
     },
@@ -6539,11 +6539,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 163,
-        "gross": 4411500,
-        "net": 4398500,
+        "qty": 209,
+        "gross": 5211500,
+        "net": 5198500,
         "discount": 13000,
-        "count": 113
+        "count": 135
       },
       {
         "qty": 0,
@@ -6625,11 +6625,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 55,
-        "gross": 668000,
-        "net": 668000,
+        "qty": 71,
+        "gross": 854000,
+        "net": 854000,
         "discount": 0,
-        "count": 26
+        "count": 37
       },
       {
         "qty": 0,
@@ -6711,11 +6711,11 @@ const DEFAULT_DATA = {
         "count": 2
       },
       {
-        "qty": 15,
-        "gross": 66000,
-        "net": 66000,
+        "qty": 22,
+        "gross": 104000,
+        "net": 104000,
         "discount": 0,
-        "count": 6
+        "count": 9
       },
       {
         "qty": 0,
@@ -6985,13 +6985,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 323,
-    "zeroVisitDays": 98,
-    "zeroVisitPct": 0.30340557275541796,
-    "zeroSalesDays": 137,
-    "zeroSalesPct": 0.4241486068111455,
-    "top5Concentration": 0.17178842888205179,
-    "totalRevenue": 39896750
+    "operatingDays": 325,
+    "zeroVisitDays": 99,
+    "zeroVisitPct": 0.3046153846153846,
+    "zeroSalesDays": 138,
+    "zeroSalesPct": 0.4246153846153846,
+    "top5Concentration": 0.167489598797676,
+    "totalRevenue": 40920750
   },
   "marketEvents": [
     {
@@ -7078,8 +7078,8 @@ const DEFAULT_DATA = {
   ],
   "productPerformance": {
     "totalCount": 165,
-    "zeroOrOneCount": 34,
-    "lessThan5Count": 79,
+    "zeroOrOneCount": 33,
+    "lessThan5Count": 76,
     "underperformers": [
       "Ribbon Hair Band (S)(1)",
       "Tyde's 1(1)",
@@ -7130,8 +7130,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Hair Band (S)",
-        "qty": 70,
-        "amount": 208200
+        "qty": 74,
+        "amount": 220200
       },
       {
         "name": "Dried Fruits (S)",
@@ -7150,8 +7150,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Whale (S)",
-        "qty": 35,
-        "amount": 505500
+        "qty": 36,
+        "amount": 520500
       },
       {
         "name": "Book Bag V2",
@@ -7170,8 +7170,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Mini Jerrycan",
-        "qty": 60,
-        "amount": 177000
+        "qty": 66,
+        "amount": 195000
       },
       {
         "name": "Dried fruits (B)",
@@ -7215,8 +7215,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Fruit Coaster",
-        "qty": 31,
-        "amount": 286000
+        "qty": 38,
+        "amount": 356000
       },
       {
         "name": "Apoyo Animal (S)",
@@ -7225,8 +7225,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Animal (S) + Keyring",
-        "qty": 209,
-        "amount": 3051000
+        "qty": 216,
+        "amount": 3156000
       },
       {
         "name": "Phone Case Card",
@@ -7255,8 +7255,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Fortune Fish (S)",
-        "qty": 69,
-        "amount": 646000
+        "qty": 71,
+        "amount": 666000
       },
       {
         "name": "Kitenge Reflector",
@@ -7265,8 +7265,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Coin Pouch",
-        "qty": 35,
-        "amount": 411600
+        "qty": 37,
+        "amount": 435600
       },
       {
         "name": "Plastic Fish",
@@ -7275,8 +7275,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Basic Pouch",
-        "qty": 23,
-        "amount": 124000
+        "qty": 31,
+        "amount": 204000
       },
       {
         "name": "4Africa New Monkey",
@@ -7285,8 +7285,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Seahorse (L)",
-        "qty": 15,
-        "amount": 222000
+        "qty": 16,
+        "amount": 237000
       },
       {
         "name": "Shoppers Bag",
@@ -7340,8 +7340,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Shoppers bag V3",
-        "qty": 27,
-        "amount": 396000
+        "qty": 30,
+        "amount": 441000
       },
       {
         "name": "Apoyo Sports Bag (M)",
@@ -7360,13 +7360,13 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Flower keyring",
-        "qty": 107,
-        "amount": 605699.5
+        "qty": 110,
+        "amount": 626699.5
       },
       {
         "name": "Pot Gloves",
-        "qty": 105,
-        "amount": 933000
+        "qty": 107,
+        "amount": 953000
       },
       {
         "name": "Original bag (S)",
@@ -7380,8 +7380,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Leaf keyring",
-        "qty": 11,
-        "amount": 55000
+        "qty": 15,
+        "amount": 75000
       },
       {
         "name": "Gloria bag (L)",
@@ -7390,13 +7390,13 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Whale (L)",
-        "qty": 17,
-        "amount": 322000
+        "qty": 19,
+        "amount": 362000
       },
       {
         "name": "Jerry Bottle",
-        "qty": 2,
-        "amount": 40000
+        "qty": 3,
+        "amount": 60000
       },
       {
         "name": "Apoyo Card Pouch",
@@ -7425,8 +7425,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Elephant bag (L)",
-        "qty": 6,
-        "amount": 636000
+        "qty": 7,
+        "amount": 756000
       },
       {
         "name": "Tote bag",
@@ -7460,8 +7460,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Present pouch (S)",
-        "qty": 28,
-        "amount": 264000
+        "qty": 29,
+        "amount": 274000
       },
       {
         "name": "Yakana Creatives 1",
@@ -7475,8 +7475,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Seahorse (S)",
-        "qty": 38,
-        "amount": 347000
+        "qty": 40,
+        "amount": 367000
       },
       {
         "name": "Apoyo Laptop Pouch (S)",
@@ -7485,8 +7485,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Dolphin (L)",
-        "qty": 4,
-        "amount": 69000
+        "qty": 5,
+        "amount": 89000
       },
       {
         "name": "Elephant bag (S)",
@@ -7505,8 +7505,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Pouch",
-        "qty": 40,
-        "amount": 577500
+        "qty": 42,
+        "amount": 607500
       },
       {
         "name": "SDC Square Coaster",
@@ -7540,8 +7540,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Pencil Case",
-        "qty": 17,
-        "amount": 250500
+        "qty": 18,
+        "amount": 265500
       },
       {
         "name": "Cup Holder",
@@ -7560,8 +7560,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "SDC Apron",
-        "qty": 15,
-        "amount": 500000
+        "qty": 16,
+        "amount": 535000
       },
       {
         "name": "4Africa Small Rabbit",
@@ -7580,8 +7580,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Wrist Pouch",
-        "qty": 5,
-        "amount": 92000
+        "qty": 6,
+        "amount": 112000
       },
       {
         "name": "STAR Shea Turmeric Soap",
@@ -7675,8 +7675,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Puff Hair Band (L)",
-        "qty": 8,
-        "amount": 64000
+        "qty": 11,
+        "amount": 88000
       },
       {
         "name": "Apoyo Animal (L)",
@@ -7790,8 +7790,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Amadilu",
-        "qty": 4,
-        "amount": 180000
+        "qty": 5,
+        "amount": 225000
       },
       {
         "name": "T-shirt with more prints",
@@ -7855,8 +7855,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Xmas deco Bell",
-        "qty": 1,
-        "amount": 10000
+        "qty": 2,
+        "amount": 20000
       },
       {
         "name": "Xmas deco Ball",
@@ -7875,8 +7875,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Upcycled Chess Bag",
-        "qty": 4,
-        "amount": 600000
+        "qty": 5,
+        "amount": 750000
       },
       {
         "name": "Xmas deco Star",
@@ -12703,7 +12703,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-21T02:16:17.450Z"
+  "lastUploadedAt": "2026-11-22T01:20:20.688Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
