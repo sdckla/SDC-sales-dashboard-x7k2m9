@@ -363,7 +363,8 @@ const DEFAULT_DATA = {
     "4africasnake": "4Africa",
     "setof4cozyfriendsdolls": "SDC",
     "x-masangle": "SDC",
-    "x-massnowman": "SDC"
+    "x-massnowman": "SDC",
+    "x-masstockings": "SDC"
   },
   "extraChannels": [
     {
@@ -6477,7 +6478,7 @@ const DEFAULT_DATA = {
       ]
     },
     {
-      "name": "X-Mas Snowman",
+      "name": "X-Mas Stockings",
       "qty": [
         0,
         0,
@@ -8067,7 +8068,7 @@ const DEFAULT_DATA = {
         "amount": 5000
       },
       {
-        "name": "X-Mas Snowman",
+        "name": "X-Mas Stockings",
         "qty": 1,
         "amount": 5000
       }
@@ -12851,7 +12852,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-24T04:56:23.020Z"
+  "lastUploadedAt": "2026-11-24T05:19:59.563Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
