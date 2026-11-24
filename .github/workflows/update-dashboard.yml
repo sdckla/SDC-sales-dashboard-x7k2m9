@@ -2,9 +2,17 @@ name: 대시보드 자동 업데이트 (구글 시트 → GitHub Pages)
 
 on:
   schedule:
-    # 매일 UTC 21:15 = 우간다 현지시간(EAT, UTC+3) 다음날 00:15 에 실행 (출근 시 전날 데이터 확인용)
+    # 매일 3번 실행 (출근 시 전날 데이터를 확인할 수 있도록). GitHub 예약 작업은 서버가 붐비면 몇 시간씩 늦어질 수 있어,
+    # 한 번이 밀려도 다음 실행이 보완하도록 간격을 두고 여러 번 예약함. 매 실행마다 갱신 시각이 기록되어 하루 3번 커밋이 생기지만 데이터에는 영향이 없음.
+    # UTC 21:15 = 우간다 00:15 / UTC 00:15 = 우간다 03:15 / UTC 03:15 = 우간다 06:15
     - cron: "15 21 * * *"
+    - cron: "15 0 * * *"
+    - cron: "15 3 * * *"
   workflow_dispatch: {} # 저장소의 Actions 탭에서 "Run workflow" 버튼으로 수동 실행도 가능
+
+concurrency:
+  group: update-dashboard # 지연된 실행이 겹쳐도 한 번에 하나씩만 돌도록 함
+  cancel-in-progress: false
 
 permissions:
   contents: write # index.html / dashboard.jsx 를 저장소에 커밋하기 위해 필요
