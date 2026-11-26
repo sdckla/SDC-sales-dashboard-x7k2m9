@@ -194,6 +194,7 @@ const DEFAULT_DATA = {
   ],
   "monthlyGoalUSD": 1500,
   "exchangeRate": 3500,
+  "giftshopAnnualGoalUGX": 67600000,
   "odmAnnualGoalUGX": 51000000,
   "consignmentVendors": [
     "Apoyo"
@@ -8085,26 +8086,26 @@ const DEFAULT_DATA = {
           1731600,
           2423000.0999999996,
           4634000,
-          3964400,
+          2964400,
           2268000,
           6475200,
           2228000.0000004,
           4859600.027000001,
           3988500.050999999,
-          7422300
+          11174300
         ],
         "custom": [
           0,
           0,
           0,
-          2600000,
-          0,
+          3330000,
+          1561000,
           1000000,
           0,
           0,
           0,
           7500000,
-          1510000,
+          2378000,
           992000
         ],
         "apoyo": [
@@ -12853,7 +12854,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-26T12:28:44.538Z"
+  "lastUploadedAt": "2026-11-26T13:01:52.000Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
@@ -14506,7 +14507,10 @@ export default function Dashboard() {
     await persist({ ...data, productGroups: (data.productGroups || []).filter((g) => g.id !== id) });
   }
 
-  const monthlyGoalUGX = data.monthlyGoalUSD * data.exchangeRate;
+  // B2C (Gift Shop incl. external shops) now has an annual UGX goal, same as B2B. The old monthly USD
+  // goal is only a fallback for saved data that has no annual goal.
+  const giftshopAnnualGoalUGX = data.giftshopAnnualGoalUGX > 0 ? data.giftshopAnnualGoalUGX : data.monthlyGoalUSD * data.exchangeRate * 12;
+  const monthlyGoalUGX = giftshopAnnualGoalUGX / 12;
 
   /* ------------------------------ derived data ------------------------------ */
   const activeMonths = useMemo(() => activeMonthCount(data), [data]);
@@ -14528,8 +14532,7 @@ export default function Dashboard() {
     () => giftshopMonthlyTotals.slice(0, activeMonths).reduce((a, b) => a + b, 0),
     [giftshopMonthlyTotals, activeMonths]
   );
-  const giftshopYtdGoalUGX = monthlyGoalUGX * activeMonths;
-  const giftshopAchievement = giftshopYtdGoalUGX > 0 ? giftshopYTD / giftshopYtdGoalUGX : 0;
+  const giftshopAchievement = giftshopAnnualGoalUGX > 0 ? giftshopYTD / giftshopAnnualGoalUGX : 0;
 
   // Apoyo는 POS 매출 안에 이미 포함된 위탁판매분 — 실적 집계에서는 제외하고 참고용으로만 표시
   const consignmentVendors = data.consignmentVendors || [];
@@ -14793,7 +14796,7 @@ export default function Dashboard() {
       <div style={{ padding: 32, maxWidth: 1240, margin: "0 auto" }}>
         {tab === "overview" && (
           <OverviewTab
-            giftshopYTD={giftshopYTD} giftshopAchievement={giftshopAchievement} monthlyGoalUGX={monthlyGoalUGX}
+            giftshopYTD={giftshopYTD} giftshopAchievement={giftshopAchievement} monthlyGoalUGX={monthlyGoalUGX} giftshopAnnualGoalUGX={giftshopAnnualGoalUGX}
             ytdVisits={ytdVisits} conversionRate={conversionRate} view={view} setView={setView} trendData={trendData}
             donutData={donutData} activeMonths={activeMonths} visitsActiveMonths={visitsActiveMonths} apoyoYTD={apoyoYTD} avgTransactionValue={avgTransactionValue}
             consignmentVendors={consignmentVendors}
@@ -14985,7 +14988,7 @@ function LineValueLabel({ x, y, value, formatter, color, dy }) {
 
 
 function OverviewTab({
-  giftshopYTD, giftshopAchievement, monthlyGoalUGX, ytdVisits, conversionRate, view, setView, trendData, donutData, activeMonths, visitsActiveMonths, apoyoYTD, avgTransactionValue, consignmentVendors,
+  giftshopYTD, giftshopAchievement, monthlyGoalUGX, giftshopAnnualGoalUGX, ytdVisits, conversionRate, view, setView, trendData, donutData, activeMonths, visitsActiveMonths, apoyoYTD, avgTransactionValue, consignmentVendors,
   odmYTD, odmAchievement, odmAnnualGoalUGX, odmRemainingGoal, odmRequiredAvgRemaining, odmRemainingMonths, odmTrendData, marketEvents,
   combinedYTD, b2cShare, b2bShare, combinedTrendData, yoy, yearlyTrends, priorYearNum, currentYear, annualCompare, giftshopKeys, channelMeta,
 }) {
@@ -15160,14 +15163,14 @@ function OverviewTab({
       </div>
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24 }}>
         <KpiCard icon={TrendingUp} label="YTD Revenue" value={fmtCompact(giftshopYTD) + " UGX"} accent={COLORS.teal} note={fmtUGX(giftshopYTD)} />
-        <KpiCard icon={Target} label="Goal Achievement" value={fmtPct(giftshopAchievement)} accent={giftshopAchievement >= 1 ? COLORS.teal : COLORS.clay} note={`Based on monthly goal ${fmtUGX(monthlyGoalUGX)}`} />
+        <KpiCard icon={Target} label="Annual Goal Achievement" value={fmtPct(giftshopAchievement)} accent={giftshopAchievement >= 1 ? COLORS.teal : COLORS.clay} note={`Goal ${fmtCompact(giftshopAnnualGoalUGX)} UGX`} />
         <KpiCard icon={Users} label="Total Visitors" value={fmtNum(ytdVisits) + ""} accent={COLORS.ochre} note={`${visitsActiveMonths}-month total`} />
         <KpiCard icon={CreditCard} label="Avg. Transaction Value" value={fmtCompact(avgTransactionValue) + " UGX"} accent={COLORS.plum} note="POS revenue ÷ receipt count" />
       </div>
 
       <Card style={{ marginBottom: 24 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 4, flexWrap: "wrap", gap: 12 }}>
-          <SectionTitle sub="Revenue by store channel excluding custom orders, vs. monthly goal (★ = a month with a market/community event)">Gift Shop Revenue Trend</SectionTitle>
+          <SectionTitle sub="Revenue by store channel excluding custom orders, vs. even monthly pace of the annual goal (★ = a month with a market/community event)">Gift Shop Revenue Trend</SectionTitle>
           <ViewToggle view={view} setView={setView} />
         </div>
         <ResponsiveContainer width="100%" height={360}>
@@ -15183,7 +15186,7 @@ function OverviewTab({
             <Bar dataKey="__labelTotal" stackId="rev" fill="transparent" radius={0} isAnimationActive={false}>
               <LabelList dataKey="__labelTotal" content={(props) => <StackTotalLabel {...props} rows={trendData} keys={giftshopKeys} anchorKey="__labelTotal" />} />
             </Bar>
-            <Line dataKey="goal" stroke={COLORS.clay} strokeWidth={2} strokeDasharray="5 4" dot={false} name="Monthly Goal" />
+            <Line dataKey="goal" stroke={COLORS.clay} strokeWidth={2} strokeDasharray="5 4" dot={false} name="Even Pace (Annual Goal / 12)" />
           </ComposedChart>
         </ResponsiveContainer>
         {view === "monthly" && Object.keys(eventsByMonthLabel).length > 0 && (
@@ -16456,8 +16459,8 @@ Anything you upload or edit here is saved <b>only to this browser (this screen)<
         </div>
 
         <div style={{ display: "flex", gap: 24, margin: "6px 0 18px", flexWrap: "wrap" }}>
-          <SettingField label="Gift Shop Monthly Goal (USD)" value={shown.monthlyGoalUSD} editMode={editMode}
-            onChange={(v) => setDraft((p) => ({ ...p, monthlyGoalUSD: v === "" ? 0 : Number(v) }))} />
+          <SettingField label="Gift Shop (B2C) Annual Goal (UGX)" value={shown.giftshopAnnualGoalUGX} editMode={editMode}
+            onChange={(v) => setDraft((p) => ({ ...p, giftshopAnnualGoalUGX: v === "" ? 0 : Number(v) }))} />
           <SettingField label="Exchange Rate (USD → UGX)" value={shown.exchangeRate} editMode={editMode}
             onChange={(v) => setDraft((p) => ({ ...p, exchangeRate: v === "" ? 0 : Number(v) }))} />
           <SettingField label="ODM (Custom Orders) Annual Goal (UGX)" value={shown.odmAnnualGoalUGX} editMode={editMode}
