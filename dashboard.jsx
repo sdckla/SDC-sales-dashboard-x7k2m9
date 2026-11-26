@@ -12854,7 +12854,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-26T13:01:52.000Z"
+  "lastUploadedAt": "2026-11-26T13:03:04.000Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
@@ -14612,6 +14612,10 @@ export default function Dashboard() {
   const combinedYTD = giftshopYTD + odmYTD;
   const b2cShare = combinedYTD > 0 ? giftshopYTD / combinedYTD : 0;
   const b2bShare = combinedYTD > 0 ? odmYTD / combinedYTD : 0;
+  // 통합 목표 = B2C 연 목표 + B2B 연 목표
+  const combinedAnnualGoalUGX = giftshopAnnualGoalUGX + odmAnnualGoalUGX;
+  const combinedAchievement = combinedAnnualGoalUGX > 0 ? combinedYTD / combinedAnnualGoalUGX : 0;
+  const combinedRemainingGoal = Math.max(0, combinedAnnualGoalUGX - combinedYTD);
   const combinedTrendData = useMemo(() => {
     const withMarker = (row) => ({ ...row, __labelTotal: (row.b2c || 0) + (row.b2b || 0) > 0 ? 1 : 0 });
     if (view === "monthly") {
@@ -14803,7 +14807,7 @@ export default function Dashboard() {
             odmYTD={odmYTD} odmAchievement={odmAchievement} odmAnnualGoalUGX={odmAnnualGoalUGX}
             odmRemainingGoal={odmRemainingGoal} odmRequiredAvgRemaining={odmRequiredAvgRemaining}
             odmRemainingMonths={odmRemainingMonths} odmTrendData={odmTrendData} marketEvents={data.marketEvents}
-            combinedYTD={combinedYTD} b2cShare={b2cShare} b2bShare={b2bShare} combinedTrendData={combinedTrendData} yoy={yoy}
+            combinedYTD={combinedYTD} combinedAnnualGoalUGX={combinedAnnualGoalUGX} combinedAchievement={combinedAchievement} combinedRemainingGoal={combinedRemainingGoal} b2cShare={b2cShare} b2bShare={b2bShare} combinedTrendData={combinedTrendData} yoy={yoy}
             giftshopKeys={giftshopKeys} channelMeta={channelMeta}
             yearlyTrends={yearlyTrends} priorYearNum={priorYearNum} currentYear={data.currentYear} annualCompare={annualCompare}
           />
@@ -14990,7 +14994,7 @@ function LineValueLabel({ x, y, value, formatter, color, dy }) {
 function OverviewTab({
   giftshopYTD, giftshopAchievement, monthlyGoalUGX, giftshopAnnualGoalUGX, ytdVisits, conversionRate, view, setView, trendData, donutData, activeMonths, visitsActiveMonths, apoyoYTD, avgTransactionValue, consignmentVendors,
   odmYTD, odmAchievement, odmAnnualGoalUGX, odmRemainingGoal, odmRequiredAvgRemaining, odmRemainingMonths, odmTrendData, marketEvents,
-  combinedYTD, b2cShare, b2bShare, combinedTrendData, yoy, yearlyTrends, priorYearNum, currentYear, annualCompare, giftshopKeys, channelMeta,
+  combinedYTD, combinedAnnualGoalUGX, combinedAchievement, combinedRemainingGoal, b2cShare, b2bShare, combinedTrendData, yoy, yearlyTrends, priorYearNum, currentYear, annualCompare, giftshopKeys, channelMeta,
 }) {
   const eventMonthLabels = new Set((marketEvents || []).map((e) => MONTH_LABELS[e.month]));
   const eventsByMonthLabel = {};
@@ -15010,10 +15014,11 @@ function OverviewTab({
         <div style={{ width: 10, height: 10, borderRadius: 3, background: COLORS.plum }} />
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 22, fontWeight: 700, margin: 0, color: COLORS.ink }}>Combined Revenue (B2C + B2B)</h2>
         <span style={{ fontSize: 11, color: COLORS.inkFaint, marginLeft: 2 }}>Combined Revenue</span>
-        <span style={{ fontSize: 12.5, color: COLORS.inkFaint }}>(Gift Shop + Custom Orders combined)</span>
+        <span style={{ fontSize: 12.5, color: COLORS.inkFaint }}>(Gift Shop + Custom Orders combined · Annual goal {fmtUGX(combinedAnnualGoalUGX)})</span>
       </div>
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24 }}>
         <KpiCard icon={TrendingUp} label="Combined YTD Revenue" value={fmtCompact(combinedYTD) + " UGX"} accent={COLORS.plum} note={fmtUGX(combinedYTD)} />
+        <KpiCard icon={Target} label="Combined Annual Goal Achievement" value={fmtPct(combinedAchievement)} accent={combinedAchievement >= 1 ? COLORS.teal : COLORS.clay} note={`Goal ${fmtCompact(combinedAnnualGoalUGX)} UGX (B2C + B2B) · ${combinedRemainingGoal === 0 ? "Goal reached" : "Remaining " + fmtCompact(combinedRemainingGoal)}`} />
         <KpiCard icon={ShoppingBag} label="B2C Share (Gift Shop)" value={fmtPct(b2cShare)} accent={COLORS.teal} note={fmtCompact(giftshopYTD) + " UGX"} />
         <KpiCard icon={Briefcase} label="B2B Share (Custom Orders)" value={fmtPct(b2bShare)} accent={COLORS.ochre} note={fmtCompact(odmYTD) + " UGX"} />
         {yoy && (
