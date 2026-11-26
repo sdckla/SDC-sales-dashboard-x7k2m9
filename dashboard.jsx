@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      7894000,
+      8124000,
       0
     ],
     "custom": [
@@ -1018,14 +1018,14 @@ const DEFAULT_DATA = {
       "amount": 1167000
     },
     {
-      "name": "Summer Vendor Mrk",
-      "qty": 23,
+      "name": "Elephant bag (S)",
+      "qty": 12,
       "amount": 1150000
     },
     {
-      "name": "Elephant bag (S)",
-      "qty": 11,
-      "amount": 1050000
+      "name": "Summer Vendor Mrk",
+      "qty": 23,
+      "amount": 1150000
     },
     {
       "name": "Turtle (L)",
@@ -1041,7 +1041,7 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 19952899.97
+      "amount": 20052899.97
     },
     {
       "method": "Card",
@@ -1063,11 +1063,11 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1754,
-      "gross": 33346500,
-      "net": 31229349.490000002,
+      "qty": 1756,
+      "gross": 33471500,
+      "net": 31354349.490000002,
       "discount": 2117150.51,
-      "count": 907
+      "count": 912
     },
     {
       "vendor": "Apoyo",
@@ -1087,11 +1087,11 @@ const DEFAULT_DATA = {
     },
     {
       "vendor": "Jerrybag",
-      "qty": 119,
-      "gross": 1287000,
-      "net": 1248000,
+      "qty": 126,
+      "gross": 1392000,
+      "net": 1353000,
       "discount": 39000,
-      "count": 63
+      "count": 64
     },
     {
       "vendor": "STAR",
@@ -1136,7 +1136,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      6549000,
+      6674000,
       0
     ],
     "Apoyo": [
@@ -1164,7 +1164,7 @@ const DEFAULT_DATA = {
       44000,
       15000,
       18000,
-      155000,
+      260000,
       0
     ],
     "others": [
@@ -1221,7 +1221,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    81,
+    83,
     0
   ],
   "posMonthlyQty": [
@@ -1235,7 +1235,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    364,
+    373,
     0
   ],
   "allProducts": [
@@ -1748,7 +1748,7 @@ const DEFAULT_DATA = {
         0,
         1,
         1,
-        2,
+        9,
         0
       ],
       "amount": [
@@ -1762,7 +1762,7 @@ const DEFAULT_DATA = {
         0,
         15000,
         15000,
-        30000,
+        135000,
         0
       ]
     },
@@ -3422,7 +3422,7 @@ const DEFAULT_DATA = {
         8,
         4,
         2,
-        1,
+        2,
         0
       ],
       "amount": [
@@ -3436,7 +3436,7 @@ const DEFAULT_DATA = {
         195000,
         95000,
         50000,
-        25000,
+        50000,
         0
       ]
     },
@@ -3670,7 +3670,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        9,
+        10,
         0
       ],
       "amount": [
@@ -3684,7 +3684,7 @@ const DEFAULT_DATA = {
         0,
         0,
         0,
-        890000,
+        990000,
         0
       ]
     },
@@ -6669,11 +6669,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 253,
-        "gross": 6622000,
-        "net": 6549000,
+        "qty": 255,
+        "gross": 6747000,
+        "net": 6674000,
         "discount": 73000,
-        "count": 167
+        "count": 172
       },
       {
         "qty": 0,
@@ -6841,11 +6841,11 @@ const DEFAULT_DATA = {
         "count": 2
       },
       {
-        "qty": 26,
-        "gross": 155000,
-        "net": 155000,
+        "qty": 33,
+        "gross": 260000,
+        "net": 260000,
         "discount": 0,
-        "count": 12
+        "count": 13
       },
       {
         "qty": 0,
@@ -7310,8 +7310,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Jerrycan Water Bottle",
-        "qty": 31,
-        "amount": 447000
+        "qty": 38,
+        "amount": 552000
       },
       {
         "name": "Nature Bag",
@@ -7580,8 +7580,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Rope Head Band",
-        "qty": 17,
-        "amount": 415000
+        "qty": 18,
+        "amount": 440000
       },
       {
         "name": "Summer Hat",
@@ -7620,8 +7620,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Elephant bag (S)",
-        "qty": 11,
-        "amount": 1050000
+        "qty": 12,
+        "amount": 1150000
       },
       {
         "name": "Jerry Scarf",
@@ -12853,7 +12853,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-26T08:27:25.120Z"
+  "lastUploadedAt": "2026-11-26T12:28:44.538Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
