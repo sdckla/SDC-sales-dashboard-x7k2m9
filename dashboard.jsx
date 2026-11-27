@@ -161,7 +161,7 @@ const DEFAULT_DATA = {
     108,
     37,
     51,
-    101,
+    105,
     0
   ],
   "contacts": [
@@ -175,7 +175,7 @@ const DEFAULT_DATA = {
     23,
     12,
     24,
-    23,
+    25,
     0
   ],
   "sold": [
@@ -189,7 +189,7 @@ const DEFAULT_DATA = {
     161,
     82,
     53,
-    184,
+    204,
     0
   ],
   "monthlyGoalUSD": 1500,
@@ -887,9 +887,9 @@ const DEFAULT_DATA = {
     },
     {
       "day": "Thu",
-      "visits": 94,
-      "contacts": 29,
-      "revenue": 4964000
+      "visits": 98,
+      "contacts": 31,
+      "revenue": 6332000
     },
     {
       "day": "Fri",
@@ -913,7 +913,7 @@ const DEFAULT_DATA = {
   "visitorOrigin": [
     {
       "origin": "Uganda",
-      "count": 88
+      "count": 90
     },
     {
       "origin": "Korea",
@@ -928,11 +928,11 @@ const DEFAULT_DATA = {
       "count": 17
     },
     {
-      "origin": "Italy",
-      "count": 11
+      "origin": "France",
+      "count": 14
     },
     {
-      "origin": "France",
+      "origin": "Italy",
       "count": 11
     },
     {
@@ -951,12 +951,12 @@ const DEFAULT_DATA = {
   "visitorType": [
     {
       "type": "Returning / Loyal Customers",
-      "count": 80,
+      "count": 81,
       "color": "#2F6E68"
     },
     {
       "type": "New / First-time Visitors",
-      "count": 18,
+      "count": 19,
       "color": "#D69A2D"
     }
   ],
@@ -964,7 +964,7 @@ const DEFAULT_DATA = {
     {
       "keyword": "market",
       "label": "Market/Event",
-      "count": 53
+      "count": 54
     },
     {
       "keyword": "training",
@@ -7147,13 +7147,13 @@ const DEFAULT_DATA = {
     ]
   },
   "operationStats": {
-    "operatingDays": 329,
+    "operatingDays": 330,
     "zeroVisitDays": 99,
-    "zeroVisitPct": 0.3009118541033435,
+    "zeroVisitPct": 0.3,
     "zeroSalesDays": 138,
-    "zeroSalesPct": 0.4194528875379939,
-    "top5Concentration": 0.175446617083209,
-    "totalRevenue": 44403250
+    "zeroSalesPct": 0.41818181818181815,
+    "top5Concentration": 0.17361116421334352,
+    "totalRevenue": 45771250
   },
   "marketEvents": [
     {
@@ -12890,7 +12890,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-26T13:38:16.004Z"
+  "lastUploadedAt": "2026-11-27T03:38:51.300Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
