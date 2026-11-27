@@ -62,7 +62,7 @@ const DEFAULT_DATA = {
       7071150,
       2113100,
       1694000,
-      9262000,
+      9434000,
       0
     ],
     "custom": [
@@ -1005,8 +1005,8 @@ const DEFAULT_DATA = {
     },
     {
       "name": "Book bag V2",
-      "qty": 55,
-      "amount": 1317000
+      "qty": 57,
+      "amount": 1367000
     },
     {
       "name": "Kitenge Reflector",
@@ -1042,11 +1042,11 @@ const DEFAULT_DATA = {
   "paymentStats": [
     {
       "method": "Cash",
-      "amount": 20064899.97
+      "amount": 20126899.97
     },
     {
       "method": "Card",
-      "amount": 16328300.504
+      "amount": 16438300.504
     },
     {
       "method": "MTN Mobile Money",
@@ -1064,19 +1064,19 @@ const DEFAULT_DATA = {
   "vendorStats": [
     {
       "vendor": "SDC",
-      "qty": 1777,
-      "gross": 33895500,
-      "net": 31778349.490000002,
+      "qty": 1783,
+      "gross": 34025500,
+      "net": 31908349.490000002,
       "discount": 2117150.51,
-      "count": 920
+      "count": 919
     },
     {
       "vendor": "Apoyo",
-      "qty": 783,
-      "gross": 10337000,
-      "net": 9967800.984000001,
+      "qty": 784,
+      "gross": 10379000,
+      "net": 10009800.984000001,
       "discount": 369199.016,
-      "count": 315
+      "count": 316
     },
     {
       "vendor": "4Africa",
@@ -1137,7 +1137,7 @@ const DEFAULT_DATA = {
       5703850,
       1479800,
       1224000,
-      7098000,
+      7228000,
       0
     ],
     "Apoyo": [
@@ -1151,7 +1151,7 @@ const DEFAULT_DATA = {
       1163300,
       433300,
       452000,
-      1522000,
+      1564000,
       0
     ],
     "Jerrybag": [
@@ -1222,7 +1222,7 @@ const DEFAULT_DATA = {
     77,
     20,
     26,
-    87,
+    89,
     0
   ],
   "posMonthlyQty": [
@@ -1236,7 +1236,7 @@ const DEFAULT_DATA = {
     391,
     102,
     99,
-    468,
+    475,
     0
   ],
   "allProducts": [
@@ -2896,7 +2896,7 @@ const DEFAULT_DATA = {
         24,
         0,
         1,
-        4,
+        6,
         0
       ],
       "amount": [
@@ -2910,7 +2910,7 @@ const DEFAULT_DATA = {
         226000,
         0,
         10000,
-        40000,
+        60000,
         0
       ]
     },
@@ -3547,7 +3547,7 @@ const DEFAULT_DATA = {
         6,
         2,
         4,
-        16,
+        18,
         0
       ],
       "amount": [
@@ -3561,7 +3561,7 @@ const DEFAULT_DATA = {
         147500,
         50000,
         100000,
-        400000,
+        450000,
         0
       ]
     },
@@ -4725,7 +4725,7 @@ const DEFAULT_DATA = {
         3,
         2,
         1,
-        0,
+        1,
         0
       ],
       "amount": [
@@ -4739,7 +4739,7 @@ const DEFAULT_DATA = {
         126000,
         75600,
         42000,
-        0,
+        42000,
         0
       ]
     },
@@ -5035,7 +5035,7 @@ const DEFAULT_DATA = {
         4,
         2,
         0,
-        0,
+        2,
         0
       ],
       "amount": [
@@ -5049,7 +5049,7 @@ const DEFAULT_DATA = {
         120000,
         60000,
         0,
-        0,
+        60000,
         0
       ]
     },
@@ -6701,11 +6701,11 @@ const DEFAULT_DATA = {
         "count": 50
       },
       {
-        "qty": 276,
-        "gross": 7171000,
-        "net": 7098000,
+        "qty": 282,
+        "gross": 7301000,
+        "net": 7228000,
         "discount": 73000,
-        "count": 180
+        "count": 179
       },
       {
         "qty": 0,
@@ -6787,11 +6787,11 @@ const DEFAULT_DATA = {
         "count": 17
       },
       {
-        "qty": 139,
-        "gross": 1558000,
-        "net": 1522000,
+        "qty": 140,
+        "gross": 1600000,
+        "net": 1564000,
         "discount": 36000,
-        "count": 45
+        "count": 46
       },
       {
         "qty": 0,
@@ -7527,8 +7527,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Pot Gloves",
-        "qty": 109,
-        "amount": 973000
+        "qty": 111,
+        "amount": 993000
       },
       {
         "name": "Original bag (S)",
@@ -7632,8 +7632,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Book bag V2",
-        "qty": 55,
-        "amount": 1317000
+        "qty": 57,
+        "amount": 1367000
       },
       {
         "name": "Seahorse (S)",
@@ -7817,8 +7817,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Apoyo Eco Bag",
-        "qty": 10,
-        "amount": 407400
+        "qty": 11,
+        "amount": 449400
       },
       {
         "name": "Apoyo Reversable Eco Bag",
@@ -7867,8 +7867,8 @@ const DEFAULT_DATA = {
       },
       {
         "name": "Table Mats Poate",
-        "qty": 10,
-        "amount": 300000
+        "qty": 12,
+        "amount": 360000
       },
       {
         "name": "Fruit Coaster Poate",
@@ -12890,7 +12890,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-27T08:41:18.088Z"
+  "lastUploadedAt": "2026-11-27T12:13:45.016Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
