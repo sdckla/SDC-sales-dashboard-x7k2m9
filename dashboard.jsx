@@ -1068,7 +1068,7 @@ const DEFAULT_DATA = {
       "gross": 33895500,
       "net": 31778349.490000002,
       "discount": 2117150.51,
-      "count": 915
+      "count": 920
     },
     {
       "vendor": "Apoyo",
@@ -6705,7 +6705,7 @@ const DEFAULT_DATA = {
         "gross": 7171000,
         "net": 7098000,
         "discount": 73000,
-        "count": 175
+        "count": 180
       },
       {
         "qty": 0,
@@ -12890,7 +12890,7 @@ const DEFAULT_DATA = {
       }
     }
   },
-  "lastUploadedAt": "2026-11-27T03:38:51.300Z"
+  "lastUploadedAt": "2026-11-27T08:41:18.088Z"
 };
 
 const PAY_COLORS = [COLORS.teal, COLORS.ochre, COLORS.clay, COLORS.slate, COLORS.olive];
